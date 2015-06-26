@@ -6,50 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/db.php';
 
 $homepage = new Page();
 
-$homepage->contentpagescripts = '<script src="/assets/js/jquery.easing.js"></script>
-                    <script src="/assets/js/jquery.quicksand.js"></script>
-                    <script>
-                    $(document).ready(function() {
-                      // get the action filter option item on page load
-                      var $filterType = $("#list-group a.active").attr("class");
-
-                      // get and assign the ourHolder element to the
-                      // $holder varible for use later
-                      var $holder = $("div.col-md-9");
-
-                      // clone all items within the pre-assigned $holder element
-                      var $data = $holder.clone();
-
-                      // attempt to call Quicksand when a filter option
-                      // item is clicked
-                      $(".list-group-item").click(function(e) {
-                        // reset the active class on all the buttons
-                        $(".list-group-item").removeClass("active");
-
-                        // assign the class of the clicked filter option
-                        // element to our $filterType variable
-                        var $filterType = $(this).attr("id");
-                        $(this).addClass("active");
-                        if ($filterType == "All") {
-                          // assign all li items to the $filteredData var when
-                          // the All filter option is clicked
-                          var $filteredData = $data.find("div");
-                        }
-                        else {
-                          // find all li elements that have our required $filterType
-                          // values for the data-type element
-                          var $filteredData = $data.find("div[data-type=" + $filterType + "]");
-                        }
-
-                        // call quicksand and assign transition parameters
-                        $holder.quicksand($filteredData, {
-                          duration: 500,
-                          easing: "easeInOutQuad"
-                        });
-                        return false;
-                      });
-                    });
-                    </script>';
+$homepage->contentpagescripts = '<script src="/assets/js/listedItems.js" type="text/javascript"></script>';
 
 $db = new Zebra_Database();
 
@@ -139,14 +96,13 @@ while ($row = $db->fetch_assoc()) {
                     </div>';
     
     if($i % 3 == 0){
-       $postContent .= '</div><!--/.row--><div class="row">';
+       $postContent .= '<div class="clearfix visible-xs-block"></div>';
     }
     $i++;
-    
 }
 						
-$postContent .= '</div><!--/.col-md-9-->
-        </div><!--/.row-->
+$postContent .= '</div><!--/.row-->
+        </div><!--/.col-md-9-->
     </div><!--/.container-->
 </section><!--/#content-->';
 

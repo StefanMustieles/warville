@@ -18,7 +18,7 @@ $db->select(
 );
 
 $db->query(
-    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.designer, t1.numbers_produced, t1.crew, t1.main_armament, t1.ammunition_carried, t1.pay_load, t1.towed_load, t1.weight, t1.height, '
+    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.designer, t1.type, t1.numbers_produced, t1.crew, t1.main_armament, t1.ammunition_carried, t1.pay_load, t1.towed_load, t1.weight, t1.height, '
 	. 't1.width, t1.length, t1.ground_clearance, t1.fording_depth, t1.obstacle_clearance, t1.trench_crossing, t1.climbing_ability, t1.radio, t1.armour, t1.engine, t1.transmission, t1.maximum_road_range, t1.maximum_cross_country_range, t1.maximum_road_speed, t1.maximum_road_speed_trailer, '
 	. 't1.maximum_cross_country_speed, t1.maximum_road_towing_speed, t1.variants, t1.notes, t1.image_source '
         . 'FROM `items` AS t1 INNER JOIN templates AS t2 ON t1.template_id = t2.template_id INNER JOIN sub_categories AS t3 ON t1.sub_category_id = t3.sub_category_id INNER JOIN categories AS t4 ON t3.category_id = t4.category_id INNER JOIN countries AS t5 ON t4.country_id = t5.country_id '
@@ -33,6 +33,7 @@ while ($row = $db->fetch_assoc()) {
     $country_name = $row['country_name'];
     $large_image = $row['large_image'];
     $year = $row['year'];
+    $type = $row['type'];
     $designer = $row['designer'];
     $numbers_produced = $row['numbers_produced'];
     $crew = $row['crew'];
@@ -71,6 +72,13 @@ if(!isset($year) || trim($year)==='') {
 else {
     $tpl->set("year", $year);
     $tpl->set("showyear", "class=\"showData\"");
+}
+if(!isset($type) || trim($type)==='') {
+    $tpl->set("showtype", "class=\"hideData\"");
+}
+else {
+    $tpl->set("type", $type);
+    $tpl->set("showtype", "class=\"showData\"");
 }
 if(!isset($designer) || trim($designer)==='') {
     $tpl->set("showdesigner", "class=\"hideData\"");

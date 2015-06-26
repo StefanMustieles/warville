@@ -21,6 +21,11 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
             $description = $_POST['description'];
             updateDescription($category_id, $description);
             break;
+        case 'update_sub_description':
+            $sub_category_id = $_POST['sub_category_id'];
+            $description = $_POST['description'];
+            updateSubDescription($sub_category_id, $description);
+            break;
         case 'items':
             $sub_category_id = $_POST['sub_category_id'];
             getItems($sub_category_id);
@@ -127,11 +132,37 @@ function updateDescription($category_id, $description) {
     );
 }
 
+function updateSubDescription($sub_category_id, $description) {
+    
+    $db = new Zebra_Database();
+    $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+    
+    $db->update(
+        'sub_categories',
+        array(
+            'description' => $description,
+        ),
+        'sub_category_id = ?',
+        array($sub_category_id)
+    );
+}
+
 function getItems($sub_category_id) {
     
     $db = new Zebra_Database();
     $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-       
+    
+    $db->query('SELECT description ' 
+            . 'FROM sub_categories '
+            . 'WHERE sub_category_id = ?', array($sub_category_id)
+    );
+
+    $elements = array();
+    
+    while ($row = $db->fetch_assoc()) {
+        $elements[] = utf8_encode($row["description"]);							
+    }
+    
     //Get records from database
     $db->query(
         'SELECT t1.item_id, t1.name, IFNULL(t1.title, "") AS title, t1.friendly_url, IFNULL(t1.thumbnail_image, "") AS thumbnail_image, IFNULL(t1.image_source, "") AS image_source, t1.short_text, IFNULL(t1.year, "") AS year, IFNULL(t1.type, "") AS type, IFNULL(t1.designer, "") AS designer, IFNULL(t1.numbers_produced, "") AS numbers_produced, IFNULL(t1.crew, "") AS crew, IFNULL(t1.main_armament, "") AS main_armament, IFNULL(t1.sponson_traverse, "") AS sponson_traverse, IFNULL(t1.elevation, "") AS elevation, '
@@ -147,12 +178,11 @@ function getItems($sub_category_id) {
     );
 
     //Add all records to an array
-    $rows = array();
     while ($row = $db->fetch_assoc()) {
-        $rows[] = $row;
+        $elements[] = $row;
     }
     
-    print json_encode($rows);
+    print json_encode($elements);
 }
 
 function deleteItems($item_id) {
@@ -413,6 +443,7 @@ function insertSupportVehicle() {
             'short_text' => $_POST["short_text"],
             'template_id' => 4,
             'year' => $_POST["year"],
+            'type' => $_POST["type"],
             'designer' => $_POST["designer"],
             'numbers_produced' => $_POST["numbers_produced"],
             'crew' => $_POST["crew"],
@@ -462,6 +493,7 @@ function updateSupportVehicle($item_id) {
             'image_source' => $_POST["image_source"],
             'short_text' => $_POST["short_text"],
             'year' => $_POST["year"],
+            'type' => $_POST["type"],
             'designer' => $_POST["designer"],
             'numbers_produced' => $_POST["numbers_produced"],
             'crew' => $_POST["crew"],

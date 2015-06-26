@@ -11,16 +11,11 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->select(
-    'name',
-    'items',
-    'item_id = ?', array($_GET["itemId"])
-);
-
 $db->query(
-    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.type, t1.designer, t1.numbers_produced, t1.crew, t1.main_armament, t1.ammunition_carried, t1.pay_load, t1.towed_load, t1.weight, t1.height, '
-	. 't1.width, t1.length, t1.ground_clearance, t1.fording_depth, t1.obstacle_clearance, t1.trench_crossing, t1.climbing_ability, t1.radio, t1.armour, t1.engine, t1.transmission, t1.maximum_road_range, t1.maximum_cross_country_range, t1.maximum_road_speed, t1.maximum_road_speed_trailer, '
-	. 't1.maximum_cross_country_speed, t1.maximum_road_towing_speed, t1.variants, t1.notes, t1.image_source '
+    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.designer, t1.type, t1.numbers_produced, t1.crew, t1.main_armament, t1.sponson_traverse, t1.elevation, t1.turret_traverse, '
+	. 't1.gun_traverse, t1.gun_mounts, t1.maximum_range, t1.armour_penetration, t1.gun_sight, t1.secondary_armament, t1.smoke_discharger, t1.ammunition_carried, t1.height, t1.width, t1.length, t1.weight, t1.ground_clearance, '
+	. 't1.fording_depth, t1.trench_crossing, t1.obstacle_clearance, t1.climbing_ability, t1.radio, t1.armour, t1.engine, t1.transmission, t1.maximum_road_range, t1.maximum_cross_country_range, ' 
+	. 't1.maximum_road_speed, t1.maximum_water_range, t1.maximum_water_speed, t1.maximum_cross_country_speed, t1.variants, t1.notes, t1.image_source '
         . 'FROM `items` AS t1 INNER JOIN templates AS t2 ON t1.template_id = t2.template_id INNER JOIN sub_categories AS t3 ON t1.sub_category_id = t3.sub_category_id INNER JOIN categories AS t4 ON t3.category_id = t4.category_id INNER JOIN countries AS t5 ON t4.country_id = t5.country_id '
         . 'WHERE t1.item_id = ?', array($_GET["itemId"])
 );
@@ -28,27 +23,35 @@ $db->query(
 while ($row = $db->fetch_assoc()) {
 
     $itemName = $row['name'];
-    $templateName = $row['template_name'];
+    $large_image = $row['large_image'];
     $category_name = $row['category_name'];
     $country_name = $row['country_name'];
-    $large_image = $row['large_image'];
+    $templateName = $row['template_name'];
     $year = $row['year'];
     $type = $row['type'];
     $designer = $row['designer'];
     $numbers_produced = $row['numbers_produced'];
     $crew = $row['crew'];
     $main_armament = $row['main_armament'];
+    $sponson_traverse = $row['sponson_traverse'];
+    $elevation = $row['elevation'];
+    $turret_traverse = $row['turret_traverse'];
+    $gun_traverse = $row['gun_traverse'];
+    $gun_mounts = $row['gun_mounts'];
+    $maximum_range = $row['maximum_range'];
+    $armour_penetration = $row['armour_penetration'];
+    $gun_sight = $row['gun_sight'];
+    $secondary_armament = $row['secondary_armament'];
+    $smoke_discharger = $row['smoke_discharger'];
     $ammunition_carried = $row['ammunition_carried'];
-    $pay_load = $row['pay_load'];
-    $towed_load = $row['towed_load'];
-    $weight = $row['weight'];
     $height = $row['height'];
     $width = $row['width'];
     $length = $row['length'];
+    $weight = $row['weight'];
     $ground_clearance = $row['ground_clearance'];
     $fording_depth = $row['fording_depth'];
-    $obstacle_clearance = $row['obstacle_clearance'];
     $trench_crossing = $row['trench_crossing'];
+    $obstacle_clearance = $row['obstacle_clearance'];
     $climbing_ability = $row['climbing_ability'];
     $radio = $row['radio'];
     $armour = $row['armour'];
@@ -57,9 +60,9 @@ while ($row = $db->fetch_assoc()) {
     $maximum_road_range = $row['maximum_road_range'];
     $maximum_cross_country_range = $row['maximum_cross_country_range'];
     $maximum_road_speed = $row['maximum_road_speed'];
-    $maximum_road_speed_trailer = $row['maximum_road_speed_trailer'];
+    $maximum_water_range = $row['maximum_water_range'];
+    $maximum_water_speed = $row['maximum_water_speed'];
     $maximum_cross_country_speed = $row['maximum_cross_country_speed'];
-    $maximum_road_towing_speed = $row['maximum_road_towing_speed'];
     $variants = $row['variants'];
     $notes = $row['notes'];
     $imageSource = $row['image_source'];
@@ -108,33 +111,82 @@ else {
     $tpl->set("main_armament", $main_armament);
     $tpl->set("showarmament", "class=\"showData\"");
 }
+if(!isset($sponson_traverse) || trim($sponson_traverse)==='') {
+    $tpl->set("showsponson", "class=\"hideData\"");
+}
+else {
+    $tpl->set("sponson_traverse", $sponson_traverse);
+    $tpl->set("showsponson", "class=\"showData\"");
+}
+if(!isset($elevation) || trim($elevation)==='') {
+    $tpl->set("showelevation", "class=\"hideData\"");
+}
+else {
+    $tpl->set("elevation", $elevation);
+    $tpl->set("showelevation", "class=\"showData\"");
+}
+if(!isset($turret_traverse) || trim($turret_traverse)==='') {
+    $tpl->set("showturret", "class=\"hideData\"");
+}
+else {
+    $tpl->set("turret_traverse", $turret_traverse);
+    $tpl->set("showturret", "class=\"showData\"");
+}
+if(!isset($gun_traverse) || trim($gun_traverse)==='') {
+    $tpl->set("showguntraverse", "class=\"hideData\"");
+}
+else {
+    $tpl->set("gun_traverse", $gun_traverse);
+    $tpl->set("showguntraverse", "class=\"showData\"");
+}
+if(!isset($gun_mounts) || trim($gun_mounts)==='') {
+    $tpl->set("showmounts", "class=\"hideData\"");
+}
+else {
+    $tpl->set("gun_mounts", $gun_mounts);
+    $tpl->set("showmounts", "class=\"showData\"");
+}
+if(!isset($maximum_range) || trim($maximum_range)==='') {
+    $tpl->set("showrange", "class=\"hideData\"");
+}
+else {
+    $tpl->set("maximum_range", $maximum_range);
+    $tpl->set("showrange", "class=\"showData\"");
+}
+if(!isset($armour_penetration) || trim($armour_penetration)==='') {
+    $tpl->set("showarmourpen", "class=\"hideData\"");
+}
+else {
+    $tpl->set("armour_penetration", $armour_penetration);
+    $tpl->set("showarmourpen", "class=\"showData\"");
+}
+if(!isset($gun_sight) || trim($gun_sight)==='') {
+    $tpl->set("showgunsight", "class=\"hideData\"");
+}
+else {
+    $tpl->set("gun_sight", $gun_sight);
+    $tpl->set("showgunsight", "class=\"showData\"");
+}
+if(!isset($secondary_armament) || trim($secondary_armament)==='') {
+    $tpl->set("showsecondary", "class=\"hideData\"");
+}
+else {
+    $tpl->set("secondary_armament", $secondary_armament);
+    $tpl->set("showsecondary", "class=\"showData\"");
+}
+if(!isset($smoke_discharger) || trim($smoke_discharger)==='') {
+    $tpl->set("showsmoke", "class=\"hideData\"");
+}
+else {
+    $tpl->set("smoke_discharger", $smoke_discharger);
+    $tpl->set("showsmoke", "class=\"showData\"");
+}
 if(!isset($ammunition_carried) || trim($ammunition_carried)==='') {
     $tpl->set("showammunition", "class=\"hideData\"");
 }
 else {
     $tpl->set("ammunition_carried", $ammunition_carried);
     $tpl->set("showammunition", "class=\"showData\"");
-}
-if(!isset($pay_load) || trim($pay_load)==='') {
-    $tpl->set("showpayload", "class=\"hideData\"");
-}
-else {
-    $tpl->set("pay_load", $pay_load);
-    $tpl->set("showpayload", "class=\"showData\"");
-}
-if(!isset($towed_load) || trim($towed_load)==='') {
-    $tpl->set("showtowedload", "class=\"hideData\"");
-}
-else {
-    $tpl->set("towed_load", $towed_load);
-    $tpl->set("showtowedload", "class=\"showData\"");
-}
-if(!isset($weight) || trim($weight)==='') {
-    $tpl->set("showweight", "class=\"hideData\"");
-}
-else {
-    $tpl->set("weight", $weight);
-    $tpl->set("showweight", "class=\"showData\"");
 }
 if(!isset($height) || trim($height)==='') {
     $tpl->set("showheight", "class=\"hideData\"");
@@ -157,6 +209,13 @@ else {
     $tpl->set("length", $length);
     $tpl->set("showlength", "class=\"showData\"");
 }
+if(!isset($weight) || trim($weight)==='') {
+    $tpl->set("showweight", "class=\"hideData\"");
+}
+else {
+    $tpl->set("weight", $weight);
+    $tpl->set("showweight", "class=\"showData\"");
+}
 if(!isset($ground_clearance) || trim($ground_clearance)==='') {
     $tpl->set("showground", "class=\"hideData\"");
 }
@@ -170,6 +229,13 @@ if(!isset($fording_depth) || trim($fording_depth)==='') {
 else {
     $tpl->set("fording_depth", $fording_depth);
     $tpl->set("showfording", "class=\"showData\"");
+}
+if(!isset($trench_crossing) || trim($trench_crossing)==='') {
+    $tpl->set("showtrench", "class=\"hideData\"");
+}
+else {
+    $tpl->set("trench_crossing", $trench_crossing);
+    $tpl->set("showtrench", "class=\"showData\"");
 }
 if(!isset($obstacle_clearance) || trim($obstacle_clearance)==='') {
     $tpl->set("showobstacle", "class=\"hideData\"");
@@ -234,12 +300,19 @@ else {
     $tpl->set("maximum_road_speed", $maximum_road_speed);
     $tpl->set("showmaxspeed", "class=\"showData\"");
 }
-if(!isset($maximum_road_speed_trailer) || trim($maximum_road_speed_trailer)==='') {
-    $tpl->set("showmaxspeedtrailer", "class=\"hideData\"");
+if(!isset($maximum_water_range) || trim($maximum_water_range)==='') {
+    $tpl->set("showmaxwaterrange", "class=\"hideData\"");
 }
 else {
-    $tpl->set("maximum_road_speed_trailer", $maximum_road_speed_trailer);
-    $tpl->set("showmaxspeedtrailer", "class=\"showData\"");
+    $tpl->set("maximum_water_range", $maximum_water_range);
+    $tpl->set("showmaxwaterrange", "class=\"showData\"");
+}
+if(!isset($maximum_water_speed) || trim($maximum_water_speed)==='') {
+    $tpl->set("showmaxwaterspeed", "class=\"hideData\"");
+}
+else {
+    $tpl->set("maximum_water_speed", $maximum_water_speed);
+    $tpl->set("showmaxwaterspeed", "class=\"showData\"");
 }
 if(!isset($maximum_cross_country_speed) || trim($maximum_cross_country_speed)==='') {
     $tpl->set("showmaxcrosscountry", "class=\"hideData\"");
@@ -247,13 +320,6 @@ if(!isset($maximum_cross_country_speed) || trim($maximum_cross_country_speed)===
 else {
     $tpl->set("maximum_cross_country_speed", $maximum_cross_country_speed);
     $tpl->set("showmaxcrosscountry", "class=\"showData\"");
-}
-if(!isset($maximum_road_towing_speed) || trim($maximum_road_towing_speed)==='') {
-    $tpl->set("showmaxroadtowingspeed", "class=\"hideData\"");
-}
-else {
-    $tpl->set("maximum_road_towing_speed", $maximum_road_towing_speed);
-    $tpl->set("showmaxroadtowingspeed", "class=\"showData\"");
 }
 if(!isset($variants) || trim($variants)==='') {
     $tpl->set("showvariants", "class=\"hideData\"");
@@ -269,7 +335,7 @@ else {
     $tpl->set("notes", $notes);
     $tpl->set("shownotes", "class=\"showData\"");
 }
-$imageCaption = "";
+$imageCaption;
 if(!isset($imageSource) || trim($imageSource)==='') {
     $imageCaption = "";
 }

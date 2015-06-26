@@ -106,6 +106,13 @@
                         </select>
                     </td>
                 </tr>
+                <tr id="trSubCategoryDescription" style="display: none;">
+                    <td><label for="subcategorydescription">Sub Category Description</label></td>
+                    <td>
+                        <textarea id="subcategorydescription" style="width: 800px; height: 163px;"></textarea>
+                        <button id="btUpdateSubDescription" type="button" class="btn btn-success">Update</button>
+                    </td>
+                </tr>
                 </table>
             </div>
             <div id="newItem" class="table-responsive" style="display: none;">
@@ -240,6 +247,7 @@ $(document).ready(function(){
                 }
             });
             $("tr#trFileUpload").hide();
+            $("tr#trSubCategoryDescription").hide();
             $("div#newItem").hide();
             $("div#itemsList").hide();
         }
@@ -248,6 +256,7 @@ $(document).ready(function(){
             $("tr#trFileUpload").hide();
             $("tr#trCategoryDescription").hide();
             $("tr#trSubCategories").hide();
+            $("tr#trSubCategoryDescription").hide();
             $("div#newItem").hide();
             $("div#itemsList").hide();
         }
@@ -290,6 +299,7 @@ $(document).ready(function(){
             $("tr#trFileUpload").hide();
             $("tr#trCategoryDescription").hide();
             $("tr#trSubCategories").hide();
+            $("tr#trSubCategoryDescription").hide();
             $("div#newItem").hide();
             $("div#itemsList").hide();
         }
@@ -313,6 +323,29 @@ $(document).ready(function(){
                 success: function() {
                     myApp.hidePleaseWait();
                     alert('Description updated!');  
+                }
+            });
+        }
+    });
+    
+    $("#btUpdateDescription").click(function() {
+        
+        var sub_category_id = $("select#sub_categories option:selected").attr('value');
+        var description = $("#subcategorydescription").val();
+
+        if (category_id.length > 0 ) {
+
+            $.ajax({
+                type: "POST",
+                url: "fetchdata.php",
+                data: {action: 'update_sub_description', category_id: sub_category_id, description: description},
+                cache: false,
+                beforeSend: function () {
+                    myApp.showPleaseWait();
+                },
+                success: function() {
+                    myApp.hidePleaseWait();
+                    alert('Sub category description updated!');  
                 }
             });
         }
@@ -366,6 +399,7 @@ $(document).ready(function(){
                         break;
                 }
 
+                $("tr#trSubCategoryDescription").show();
                 $("div#newItem").show();
                 $("div#itemsList").show();
                 myApp.hidePleaseWait();
@@ -388,6 +422,10 @@ $(document).ready(function(){
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btAFVInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
             $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td>\n\
                                                   <td><input type="text" value="' + value.year  + '" /></td><td><input type="text" value="' + value.type  + '" /></td><td><input type="text" value="' + value.designer  + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td><td><input type="text" value="' + value.crew + '" /></td><td><input type="text" value="' + value.main_armament + '" /></td><td><input type="text" value="' + value.sponson_traverse + '" /></td><td><input type="text" value="' + value.elevation + '" /></td>\n\
                                                   <td><input type="text" value="' + value.turret_traverse + '" /></td><td><input type="text" value="' + value.gun_traverse + '" /></td><td><input type="text" value="' + value.gun_mounts + '" /></td><td><input type="text" value="' + value.maximum_range + '" /></td><td><input type="text" value="' + value.armour_penetration + '" /></td><td><input type="text" value="' + value.gun_sight + '" /></td><td><input type="text" value="' + value.secondary_armament + '" /></td>\n\
@@ -395,6 +433,7 @@ $(document).ready(function(){
                                                   <td><input type="text" value="' + value.fording_depth + '" /></td><td><input type="text" value="' + value.trench_crossing + '" /></td><td><input type="text" value="' + value.obstacle_clearance + '" /></td><td><input type="text" value="' + value.climbing_ability + '" /></td><td><input type="text" value="' + value.radio + '" /></td>\n\
                                                   <td><input type="text" value="' + value.armour + '" /></td><td><input type="text" value="' + value.engine + '" /></td><td><input type="text" value="' + value.transmission + '" /></td><td><input type="text" value="' + value.maximum_road_range + '" /></td><td><input type="text" value="' + value.maximum_cross_country_range + '" /></td><td><input type="text" value="' + value.maximum_water_range + '" /></td><td><input type="text" value="' + value.maximum_road_speed + '" /></td>\n\
                                                   <td><input type="text" value="' + value.maximum_cross_country_speed + '" /></td><td><input type="text" value="' + value.maximum_water_speed + '" /></td><td><textarea>' + value.variants + '</textarea></td><td><textarea>' + value.notes + '</textarea></td><td><button type="button" class="btn btn-success btAFVUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks
@@ -571,12 +610,17 @@ $(document).ready(function(){
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btArtilleryInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
-            $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td>\n\
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
+                $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td>\n\
                                                   <td><input type="text" value="' + value.year  + '" /></td><td><input type="text" value="' + value.type  + '" /></td><td><input type="text" value="' + value.designer  + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td><td><input type="text" value="' + value.calibre + '" /></td><td><input type="text" value="' + value.barrel_length + '" /></td><td><input type="text" value="' + value.carriage + '" /></td><td><input type="text" value="' + value.gun_shield + '" /></td><td><input type="text" value="' + value.height + '" /></td>\n\
                                                   <td><input type="text" value="' + value.width + '" /></td><td><input type="text" value="' + value.length + '" /></td><td><input type="text" value="' + value.gun_mounts + '" /></td><td><input type="text" value="' + value.trailers + '" /></td><td><input type="text" value="' + value.elevation + '" /></td><td><input type="text" value="' + value.turret_traverse + '" /></td>\n\
                                                   <td><input type="text" value="' + value.breech + '" /></td><td><input type="text" value="' + value.recoil + '" /></td><td><input type="text" value="' + value.gun_sight + '" /></td><td><input type="text" value="' + value.muzzle_velocity + '" /></td><td><input type="text" value="' + value.feed + '" /></td><td><input type="text" value="' + value.practical_rate_of_fire + '" /></td><td><input type="text" value="' + value.armoured_plate + '" /></td><td><input type="text" value="' + value.weight + '" /></td><td><input type="text" value="' + value.round_weight + '" /></td>\n\
                                                   <td><input type="text" value="' + value.magazine_capacity + '" /></td><td><input type="text" value="' + value.maximum_ceiling + '" /></td><td><input type="text" value="' + value.maximum_range + '" /></td><td><input type="text" value="' + value.maximum_ground_range + '" /></td><td><input type="text" value="' + value.rate_of_fire + '" /></td><td><input type="text" value="' + value.maximum_rate_of_fire + '" /></td><td><input type="text" value="' + value.armour_penetration + '" /></td>\n\
                                                   <td><input type="text" value="' + value.crew + '" /></td><td><input type="text" value="' + value.traction + '" /></td><td><textarea>' + value.variants + '</textarea></td><td><textarea>' + value.notes + '</textarea></td><td><button type="button" class="btn btn-success btAFVUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks
@@ -733,20 +777,25 @@ $(document).ready(function(){
     }
     
     function showSupportVehicles(obj) {
-        $("table#tblNewItem > tbody:last").append('<tr><th>ID</th><th>Name</th><th>Title</th><th>Friendly Url</th><th>Image</th><th>Image Source</th><th>Short Text</th><th>Year</th><th>Origin & Designer</th><th>Numbers Produced</th><th>Crew</th><th>Armament</th><th>Ammunition Carried</th><th>Pay Load</th>\n\
+        $("table#tblNewItem > tbody:last").append('<tr><th>ID</th><th>Name</th><th>Title</th><th>Friendly Url</th><th>Image</th><th>Image Source</th><th>Short Text</th><th>Year</th><th>Vehicle Type</th><th>Origin & Designer</th><th>Numbers Produced</th><th>Crew</th><th>Armament</th><th>Ammunition Carried</th><th>Pay Load</th>\n\
                                                   <th>Towed Load</th><th>Weight</th><th>Height</th><th>Width</th><th>Length</th><th>Ground Clearance</th><th>Fording Depth</th><th>Obstacle Clearance</th><th>Trench Crossing</th>\n\
                                                   <th>Climbing Ability</th><th>Radio</th><th>Armour</th><th>Engine</th><th>Transmission</th><th>Maximum Road Range</th><th>Maximum Cross Country Range</th><th>Maximum Road Speed</th><th>Maximum Road Speed + Trailer</th>\n\
                                                   <th>Maximum Cross Country Speed</th><th>Maximum Road Towing Speed</th><th>Variants</th><th>Notes</th><th></th></tr>\n\
-                                                  <tr><td></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
+                                                  <tr><td></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btSupportVehicleInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
-            $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><input type="text" value="' + value.year + '" /></td><td><input type="text" value="' + value.designer + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td><td><input type="text" value="' + value.crew + '" /></td>\n\
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
+                $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><input type="text" value="' + value.year + '" /></td><td><input type="text" value="' + value.type + '" /></td><td><input type="text" value="' + value.designer + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td><td><input type="text" value="' + value.crew + '" /></td>\n\
 						  <td><input type="text" value="' + value.main_armament + '" /></td><td><input type="text" value="' + value.ammunition_carried + '" /></td><td><input type="text" value="' + value.pay_load + '" /></td><td><input type="text" value="' + value.towed_load + '" /></td><td><input type="text" value="' + value.weight + '" /></td><td><input type="text" value="' + value.height + '" /></td><td><input type="text" value="' + value.width + '" /></td><td><input type="text" value="' + value.length + '" /></td>\n\
 						  <td><input type="text" value="' + value.ground_clearance + '" /></td><td><input type="text" value="' + value.fording_depth + '" /></td><td><input type="text" value="' + value.obstacle_clearance + '" /></td><td><input type="text" value="' + value.trench_crossing + '" /></td><td><input type="text" value="' + value.climbing_ability + '" /></td><td><input type="text" value="' + value.radio + '" /></td><td><input type="text" value="' + value.armour + '" /></td><td><input type="text" value="' + value.engine + '" /></td><td><input type="text" value="' + value.transmission + '" /></td>\n\
                                                   <td><input type="text" value="' + value.maximum_road_range + '" /></td><td><input type="text" value="' + value.maximum_cross_country_range + '" /></td><td><input type="text" value="' + value.maximum_road_speed + '" /></td><td><input type="text" value="' + value.maximum_road_speed_trailer + '" /></td><td><input type="text" value="' + value.maximum_cross_country_speed + '" /></td><td><input type="text" value="' + value.maximum_road_towing_speed + '" /></td><td><textarea>' + value.variants + '</textarea></td><td><textarea>' + value.notes + '</textarea></td><td><button type="button" class="btn btn-success btSupportVehicleUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks
@@ -773,40 +822,41 @@ $(document).ready(function(){
         var image_source = row.find("td").eq(5).find("input").val();
         var short_text = row.find("td").eq(6).find("input").val();
         var year = row.find("td").eq(7).find("input").val();
-        var designer = row.find("td").eq(8).find("input").val();
-	var numbers_produced = row.find("td").eq(9).find("input").val();
-        var crew = row.find("td").eq(10).find("input").val();
-        var main_armament = row.find("td").eq(11).find("input").val();
-        var ammunition_carried = row.find("td").eq(12).find("input").val();
-        var pay_load = row.find("td").eq(13).find("input").val();  
-	var towed_load = row.find("td").eq(14).find("input").val();  
-        var weight = row.find("td").eq(15).find("input").val();
-	var height = row.find("td").eq(16).find("input").val();
-        var width = row.find("td").eq(17).find("input").val(); 
-        var length = row.find("td").eq(18).find("input").val();              
-        var ground_clearance = row.find("td").eq(19).find("input").val();     
-        var fording_depth = row.find("td").eq(20).find("input").val();
-        var obstacle_clearance = row.find("td").eq(21).find("input").val();
-        var trench_crossing = row.find("td").eq(22).find("input").val();
-        var climbing_ability = row.find("td").eq(23).find("input").val();
-        var radio = row.find("td").eq(24).find("input").val();
-        var armour = row.find("td").eq(25).find("input").val();
-        var engine = row.find("td").eq(26).find("input").val();
-        var transmission = row.find("td").eq(27).find("input").val();
-        var maximum_road_range = row.find("td").eq(28).find("input").val();
-        var maximum_cross_country_range = row.find("td").eq(29).find("input").val();
-        var maximum_road_speed = row.find("td").eq(30).find("input").val();  
-        var maximum_road_speed_trailer = row.find("td").eq(31).find("input").val();
-        var maximum_cross_country_speed = row.find("td").eq(32).find("input").val();
-        var maximum_road_towing_speed = row.find("td").eq(33).find("input").val();
-        var variants = row.find("td").eq(34).find("textarea").val();
-        var notes = row.find("td").eq(35).find("textarea").val();
+        var type = row.find("td").eq(8).find("input").val();
+        var designer = row.find("td").eq(9).find("input").val();
+	var numbers_produced = row.find("td").eq(10).find("input").val();
+        var crew = row.find("td").eq(11).find("input").val();
+        var main_armament = row.find("td").eq(12).find("input").val();
+        var ammunition_carried = row.find("td").eq(13).find("input").val();
+        var pay_load = row.find("td").eq(14).find("input").val();  
+	var towed_load = row.find("td").eq(15).find("input").val();  
+        var weight = row.find("td").eq(16).find("input").val();
+	var height = row.find("td").eq(17).find("input").val();
+        var width = row.find("td").eq(18).find("input").val(); 
+        var length = row.find("td").eq(19).find("input").val();              
+        var ground_clearance = row.find("td").eq(20).find("input").val();     
+        var fording_depth = row.find("td").eq(21).find("input").val();
+        var obstacle_clearance = row.find("td").eq(22).find("input").val();
+        var trench_crossing = row.find("td").eq(23).find("input").val();
+        var climbing_ability = row.find("td").eq(24).find("input").val();
+        var radio = row.find("td").eq(25).find("input").val();
+        var armour = row.find("td").eq(26).find("input").val();
+        var engine = row.find("td").eq(27).find("input").val();
+        var transmission = row.find("td").eq(28).find("input").val();
+        var maximum_road_range = row.find("td").eq(29).find("input").val();
+        var maximum_cross_country_range = row.find("td").eq(30).find("input").val();
+        var maximum_road_speed = row.find("td").eq(31).find("input").val();  
+        var maximum_road_speed_trailer = row.find("td").eq(32).find("input").val();
+        var maximum_cross_country_speed = row.find("td").eq(33).find("input").val();
+        var maximum_road_towing_speed = row.find("td").eq(34).find("input").val();
+        var variants = row.find("td").eq(35).find("textarea").val();
+        var notes = row.find("td").eq(36).find("textarea").val();
 
         $.ajax({
             type: "POST",
             url: "fetchdata.php",
             data: {action: 'insertSupportVehicle', sub_category_id: sub_category_id, name: name, title: title, friendly_url: friendly_url, image: image, image_source: image_source, short_text: short_text, 
-                year: year, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
+                year: year, type: type, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
                 towed_load: towed_load, weight: weight, height: height, width: width, length: length, ground_clearance: ground_clearance, fording_depth: fording_depth, obstacle_clearance: obstacle_clearance, 
 		trench_crossing: trench_crossing, climbing_ability: climbing_ability, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, maximum_cross_country_range: maximum_cross_country_range,
                 maximum_road_speed: maximum_road_speed, maximum_road_speed_trailer: maximum_road_speed_trailer, maximum_cross_country_speed: maximum_cross_country_speed, maximum_road_towing_speed: maximum_road_towing_speed, variants: variants, notes: notes},
@@ -840,40 +890,41 @@ $(document).ready(function(){
         var image_source = row.find("td").eq(5).find("input").val();
         var short_text = row.find("td").eq(6).find("input").val();
         var year = row.find("td").eq(7).find("input").val();
-        var designer = row.find("td").eq(8).find("input").val();
-	var numbers_produced = row.find("td").eq(9).find("input").val();
-        var crew = row.find("td").eq(10).find("input").val();
-        var main_armament = row.find("td").eq(11).find("input").val();
-        var ammunition_carried = row.find("td").eq(12).find("input").val();
-        var pay_load = row.find("td").eq(13).find("input").val();  
-	var towed_load = row.find("td").eq(14).find("input").val();  
-        var weight = row.find("td").eq(15).find("input").val();
-	var height = row.find("td").eq(16).find("input").val();
-        var width = row.find("td").eq(17).find("input").val(); 
-        var length = row.find("td").eq(18).find("input").val();              
-        var ground_clearance = row.find("td").eq(19).find("input").val();     
-        var fording_depth = row.find("td").eq(20).find("input").val();
-        var obstacle_clearance = row.find("td").eq(21).find("input").val();
-        var trench_crossing = row.find("td").eq(22).find("input").val();
-        var climbing_ability = row.find("td").eq(23).find("input").val();
-        var radio = row.find("td").eq(24).find("input").val();
-        var armour = row.find("td").eq(25).find("input").val();
-        var engine = row.find("td").eq(26).find("input").val();
-        var transmission = row.find("td").eq(27).find("input").val();
-        var maximum_road_range = row.find("td").eq(28).find("input").val();
-        var maximum_cross_country_range = row.find("td").eq(29).find("input").val();
-        var maximum_road_speed = row.find("td").eq(30).find("input").val();  
-        var maximum_road_speed_trailer = row.find("td").eq(31).find("input").val();
-        var maximum_cross_country_speed = row.find("td").eq(32).find("input").val();
-        var maximum_road_towing_speed = row.find("td").eq(33).find("input").val();
-        var variants = row.find("td").eq(34).find("textarea").val();
-        var notes = row.find("td").eq(35).find("textarea").val();
+        var type = row.find("td").eq(8).find("input").val();
+        var designer = row.find("td").eq(9).find("input").val();
+	var numbers_produced = row.find("td").eq(10).find("input").val();
+        var crew = row.find("td").eq(11).find("input").val();
+        var main_armament = row.find("td").eq(12).find("input").val();
+        var ammunition_carried = row.find("td").eq(13).find("input").val();
+        var pay_load = row.find("td").eq(14).find("input").val();  
+	var towed_load = row.find("td").eq(15).find("input").val();  
+        var weight = row.find("td").eq(16).find("input").val();
+	var height = row.find("td").eq(17).find("input").val();
+        var width = row.find("td").eq(18).find("input").val(); 
+        var length = row.find("td").eq(19).find("input").val();              
+        var ground_clearance = row.find("td").eq(20).find("input").val();     
+        var fording_depth = row.find("td").eq(21).find("input").val();
+        var obstacle_clearance = row.find("td").eq(22).find("input").val();
+        var trench_crossing = row.find("td").eq(23).find("input").val();
+        var climbing_ability = row.find("td").eq(24).find("input").val();
+        var radio = row.find("td").eq(25).find("input").val();
+        var armour = row.find("td").eq(26).find("input").val();
+        var engine = row.find("td").eq(27).find("input").val();
+        var transmission = row.find("td").eq(28).find("input").val();
+        var maximum_road_range = row.find("td").eq(29).find("input").val();
+        var maximum_cross_country_range = row.find("td").eq(30).find("input").val();
+        var maximum_road_speed = row.find("td").eq(31).find("input").val();  
+        var maximum_road_speed_trailer = row.find("td").eq(32).find("input").val();
+        var maximum_cross_country_speed = row.find("td").eq(33).find("input").val();
+        var maximum_road_towing_speed = row.find("td").eq(34).find("input").val();
+        var variants = row.find("td").eq(35).find("textarea").val();
+        var notes = row.find("td").eq(36).find("textarea").val();
 		
 	$.ajax({
             type: "POST",
             url: "fetchdata.php",
             data: {action: 'updateSupportVehicle', item_id: item_id, name: name, title: title, friendly_url: friendly_url, image: image, image_source: image_source, short_text: short_text, 
-                year: year, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
+                year: year, type: type, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
                 towed_load: towed_load, weight: weight, height: height, width: width, length: length, ground_clearance: ground_clearance, fording_depth: fording_depth, obstacle_clearance: obstacle_clearance,
 		trench_crossing: trench_crossing, climbing_ability: climbing_ability, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, 
                 maximum_cross_country_range: maximum_cross_country_range, maximum_road_speed: maximum_road_speed, maximum_road_speed_trailer: maximum_road_speed_trailer, maximum_cross_country_speed: maximum_cross_country_speed, 
@@ -899,9 +950,14 @@ $(document).ready(function(){
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btInfantryWeaponInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
-            $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><input type="text" value="' + value.year + '" /></td><td><input type="text" value="' + value.type + '" /></td><td><input type="text" value="' + value.designer + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td>\n\
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
+                $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><input type="text" value="' + value.year + '" /></td><td><input type="text" value="' + value.type + '" /></td><td><input type="text" value="' + value.designer + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td>\n\
                                                   <td><input type="text" value="' + value.crew + '" /></td><td><input type="text" value="' + value.calibre + '" /></td><td><input type="text" value="' + value.elevation + '" /></td><td><input type="text" value="' + value.gun_traverse + '" /></td><td><input type="text" value="' + value.cartridge_weight + '" /></td><td><input type="text" value="' + value.round_weight + '" /></td><td><input type="text" value="' + value.barrel_length + '" /></td><td><input type="text" value="' + value.length + '" /></td><td><input type="text" value="' + value.grenade_types + '" /></td><td><input type="text" value="' + value.gun_mounts + '" /></td><td><input type="text" value="' + value.weight + '" /></td><td><input type="text" value="' + value.operation + '" /></td><td><input type="text" value="' + value.cooling_system + '" /></td><td><input type="text" value="' + value.sights + '" /></td>\n\
                                                   <td><input type="text" value="' + value.feed + '" /></td><td><input type="text" value="' + value.rate_of_fire + '" /></td><td><input type="text" value="' + value.maximum_rate_of_fire + '" /></td><td><input type="text" value="' + value.fuel_capacity + '" /></td><td><input type="text" value="' + value.muzzle_velocity + '" /></td><td><input type="text" value="' + value.blank_cartridge + '" /></td><td><input type="text" value="' + value.minimum_range + '" /></td><td><input type="text" value="' + value.effective_range + '" /></td><td><input type="text" value="' + value.maximum_range + '" /></td><td><input type="text" value="' + value.armour_penetration + '" /></td><td><input type="text" value="' + value.bayonet + '" /></td><td><input type="text" value="' + value.traction + '" /></td><td><textarea>' + value.variants + '</textarea></td><td><textarea>' + value.notes + '</textarea></td><td><button type="button" class="btn btn-success btInfantryWeaponUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks
@@ -1052,7 +1108,12 @@ $(document).ready(function(){
                                                   <tr><td></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><button id="btDivisionInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
-            $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><textarea>' + value.content + '</textarea></td><td><button type="button" class="btn btn-success btDivisionUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
+                $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><textarea>' + value.content + '</textarea></td><td><button type="button" class="btn btn-success btDivisionUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks
@@ -1137,7 +1198,12 @@ $(document).ready(function(){
                                                   <tr><td></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><button id="btCompanyInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
-            $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><textarea>' + value.content + '</textarea></td><td><button type="button" class="btn btn-success btCompanyUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            if(key == 0) {
+                $("#subcategorydescription").val(value);
+            }
+            else {
+                $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><textarea>' + value.content + '</textarea></td><td><button type="button" class="btn btn-success btCompanyUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
+            }
         });
         
         //Attach button clicks

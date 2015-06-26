@@ -1383,10 +1383,49 @@ ul.social_icons li  a i{
 /***********************
 ****Items page css****
 ***********************/
-.thumbnail-pics {
-    width: 251px;
-    height: 150px;
+@media (min-width:320px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .thumbnail-pics {
+        width: 300px;
+        height: 150px;
+    }
 }
+@media (min-width:481px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .thumbnail-pics {
+        width: 251px;
+        height: 150px;
+    }
+}
+@media (min-width:641px) { 
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    .thumbnail-pics {
+        width: 251px;
+        height: 150px;
+    }
+}
+@media (min-width:961px) { 
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .thumbnail-pics {
+        width: 251px;
+        height: 150px;
+    }
+}
+@media (min-width:1025px) { 
+    /* big landscape tablets, laptops, and desktops */
+    .thumbnail-pics {
+        width: 251px;
+        height: 150px;
+    }
+}
+@media (min-width:1281px) { 
+    /* hi-res laptops and desktops */ 
+    .thumbnail-pics {
+        width: 251px;
+        height: 150px;
+    }
+}
+
 .list-group {
     cursor: pointer;
 }
@@ -2543,4 +2582,12 @@ shortcodes page css
 #footer ul > li {
   display: inline-block;
   margin-left: 15px;
+}
+
+#loading{
+	background: url('../images/ajax-loader-sm.gif') no-repeat scroll 50% 50% transparent;
+	height: 20px; width: 20px;
+	float: left;
+	margin-top: -29px;
+	display: none;
 }
