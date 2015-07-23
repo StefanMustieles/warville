@@ -167,7 +167,7 @@ function getItems($sub_category_id) {
     $db->query(
         'SELECT t1.item_id, t1.name, IFNULL(t1.title, "") AS title, t1.friendly_url, IFNULL(t1.thumbnail_image, "") AS thumbnail_image, IFNULL(t1.image_source, "") AS image_source, t1.short_text, IFNULL(t1.year, "") AS year, IFNULL(t1.type, "") AS type, IFNULL(t1.designer, "") AS designer, IFNULL(t1.numbers_produced, "") AS numbers_produced, IFNULL(t1.crew, "") AS crew, IFNULL(t1.main_armament, "") AS main_armament, IFNULL(t1.sponson_traverse, "") AS sponson_traverse, IFNULL(t1.elevation, "") AS elevation, '
             . 'IFNULL(t1.turret_traverse, "") AS turret_traverse, IFNULL(t1.gun_traverse, "") AS gun_traverse, IFNULL(t1.breech, "") AS breech, IFNULL(t1.recoil, "") AS recoil, IFNULL(t1.maximum_range, "") AS maximum_range, IFNULL(t1.armour_penetration, "") AS armour_penetration, IFNULL(t1.secondary_armament, "") AS secondary_armament, IFNULL(t1.smoke_discharger, "") AS smoke_discharger, IFNULL(t1.ammunition_carried, "") AS ammunition_carried, IFNULL(t1.height, "") AS height, IFNULL(t1.width, "") AS width, '
-            . 'IFNULL(t1.length, "") AS length, IFNULL(t1.grenade_types, "") AS grenade_types, IFNULL(t1.weight, "") AS weight, IFNULL(t1.ground_clearance, "") AS ground_clearance, IFNULL(t1.fording_depth, "") AS fording_depth, IFNULL(t1.trench_crossing, "") AS trench_crossing, IFNULL(t1.obstacle_clearance, "") AS obstacle_clearance, IFNULL(t1.climbing_ability, "") AS climbing_ability, '
+            . 'IFNULL(t1.length, "") AS length, IFNULL(t1.grenade_types, "") AS grenade_types, IFNULL(t1.weight, "") AS weight, IFNULL(t1.ground_clearance, "") AS ground_clearance, IFNULL(t1.fording_depth, "") AS fording_depth, IFNULL(t1.trench_crossing, "") AS trench_crossing, IFNULL(t1.obstacle_clearance, "") AS obstacle_clearance, IFNULL(t1.climbing_ability, "") AS climbing_ability, IFNULL(t1.cargo_capacity, "") AS cargo_capacity, IFNULL(t1.tow_capacity, "") AS tow_capacity, '
             . 'IFNULL(t1.radio, "") AS radio, IFNULL(t1.armour, "") AS armour, IFNULL(t1.engine, "") AS engine, IFNULL(t1.transmission, "") AS transmission, IFNULL(t1.maximum_road_range, "") AS maximum_road_range, IFNULL(t1.maximum_cross_country_range, "") AS maximum_cross_country_range, IFNULL(t1.maximum_water_range, "") AS maximum_water_range, IFNULL(t1.maximum_water_speed, "") AS maximum_water_speed, IFNULL(t1.maximum_road_speed, "") AS maximum_road_speed, IFNULL(t1.maximum_road_speed, "") AS maximum_road_speed, IFNULL(t1.maximum_cross_country_speed, "") AS maximum_cross_country_speed, '
             . 'IFNULL(t1.maximum_road_speed, "") AS maximum_road_speed, IFNULL(t1.maximum_cross_country_speed, "") AS maximum_cross_country_speed, IFNULL(t1.maximum_road_towing_speed, "") AS maximum_road_towing_speed, IFNULL(t1.calibre, "") AS calibre, IFNULL(t1.barrel_length, "") AS barrel_length, IFNULL(t1.carriage, "") AS carriage, IFNULL(t1.gun_shield, "") AS gun_shield, IFNULL(t1.gun_mounts, "") AS gun_mounts, IFNULL(t1.trailers, "") AS trailers, IFNULL(t1.gun_sight, "") AS gun_sight, IFNULL(t1.blank_cartridge, "") AS blank_cartridge, IFNULL(t1.muzzle_velocity, "") AS muzzle_velocity, '
             . 'IFNULL(t1.fuel_capacity, "") AS fuel_capacity, IFNULL(t1.armoured_plate, "") AS armoured_plate, IFNULL(t1.round_weight, "") AS round_weight, IFNULL(t1.magazine_capacity, "") AS magazine_capacity, IFNULL(t1.maximum_ceiling, "") AS maximum_ceiling, IFNULL(t1.maximum_ground_range, "") AS maximum_ground_range, IFNULL(t1.maximum_rate_of_fire, "") AS maximum_rate_of_fire, IFNULL(t1.bayonet, "") AS bayonet, IFNULL(t1.traction, "") AS traction, '
@@ -461,6 +461,8 @@ function insertSupportVehicle() {
             'obstacle_clearance' => $_POST["obstacle_clearance"],
             'trench_crossing' => $_POST["trench_crossing"],
             'climbing_ability' => $_POST["climbing_ability"],
+            'cargo_capacity' => $_POST["cargo_capacity"],
+            'tow_capacity' => $_POST["tow_capacity"],
             'radio' => $_POST["radio"],
             'armour' => $_POST["armour"],
             'engine' => $_POST["engine"],
@@ -511,6 +513,8 @@ function updateSupportVehicle($item_id) {
             'obstacle_clearance' => $_POST["obstacle_clearance"],
             'trench_crossing' => $_POST["trench_crossing"],
             'climbing_ability' => $_POST["climbing_ability"],
+            'cargo_capacity' => $_POST["cargo_capacity"],
+            'tow_capacity' => $_POST["tow_capacity"],
             'radio' => $_POST["radio"],
             'armour' => $_POST["armour"],
             'engine' => $_POST["engine"],

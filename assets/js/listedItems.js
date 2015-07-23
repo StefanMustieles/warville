@@ -4,8 +4,13 @@ $(function() {
             var href = $(this).attr("href");
             var sub_id = $(this).attr("id");
 
-            loadContent(href, sub_id, null);
-
+            if(sub_id == 'All') {
+                var urlParts = location.pathname.split("/");
+                href = '';
+                loadContent(href, sub_id, urlParts[1], urlParts[2]);
+            } 
+            else loadContent(href, sub_id, null, null);
+            
             // HISTORY.PUSHSTATE
             history.pushState("", "New URL: "+href, href);
             e.preventDefault();				
@@ -15,18 +20,25 @@ $(function() {
         window.onpopstate = function(event) {
             $("#loading").show();
             var urlParts = location.pathname.split("/");
-            var sub_id = $('a[href="' + urlParts[3] + '"]').attr("id");
-            loadContent(urlParts[3], sub_id, urlParts[1]);
+            var sub_id;
+            if(urlParts[3] == "index.php" || urlParts[3] == "") {
+                sub_id = "All";
+            }
+            else {
+                sub_id = $('a[href="' + urlParts[3] + '"]').attr("id");
+            }
+            loadContent(urlParts[3], sub_id, urlParts[1], urlParts[2]);
         };
     });
 
-function loadContent(url, sub_id, country){
+function loadContent(url, sub_id, country, mainCat){
     // USES JQUERY TO LOAD THE CONTENT
     if(url == "index.php" || url == "") {
         url = country;
     }
-    $.getJSON("../../webservices/content.php", {cid: url, id: sub_id, format: "json"}, function(json) {
-
+    $.getJSON("../../webservices/content.php", 
+        {cid: url, id: sub_id, category: mainCat === null ? "" : mainCat, format: "json"}, 
+    function(json) {
         // EMPTY ITEMS
         $(".itemHolder .row").empty();
 

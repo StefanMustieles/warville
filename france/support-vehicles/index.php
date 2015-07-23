@@ -14,7 +14,7 @@ $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
 $db->query('SELECT t1.description, t2.name AS country, t1.name '
         . 'FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
-        . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(3, 12)
+        . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(9, 82)
 );
 												
 while ($row = $db->fetch_assoc()) {
@@ -60,7 +60,7 @@ $postContent = sprintf('<div id="loading"></div>
 $db->select(
     'sub_category_id, name, seo_url',
     'sub_categories',
-    'category_id = ?', array(12), 'sort_order'
+    'category_id = ?', array(82), 'sort_order'
 );
 												
 while ($row = $db->fetch_assoc()) {
@@ -78,7 +78,7 @@ $postContent .= '</div>
 $db->query(
     'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text FROM `items` AS t1 '
       . 'INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
-        . 'WHERE t2.category_id = ?', array(12)
+        . 'WHERE t2.category_id = ?', array(82)
 );
 
 $i = 1;
@@ -103,8 +103,8 @@ while ($row = $db->fetch_assoc()) {
     $i++;
 }
 						
-$postContent .= '</div><!--/.col-md-9-->
-        </div><!--/.row-->
+$postContent .= '</div><!--/.row-->
+        </div><!--/.col-md-9-->
     </div><!--/.container-->
 </section><!--/#content-->';
 

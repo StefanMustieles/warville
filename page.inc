@@ -5,7 +5,7 @@ class Page
     //class Page's attributes
     public $content;
     public $title = "Quartermaster Section";
-    public $keywords = "";
+    public $canonical;
     public $contentpagescripts;
 
     /** 
@@ -14,11 +14,12 @@ class Page
     public function Display()
     {
         echo "<!DOCTYPE html>\n<html lang=\"en\">\n<head>";
-        $this->DisplayMetaTags();
         $this->DisplayTitle();
+	$this->DisplayMetaTags();
+	$this->DisplayCanonicalTag();
         $this->DisplayStyleSheets();
         $this->DisplayHeaderJavaScripts();
-		$this->DisplayFavIcon();
+	$this->DisplayFavIcon();
 
         echo '</head><body class="homepage">';
         $this -> DisplayHeader();
@@ -28,20 +29,25 @@ class Page
         
         $this->DisplayDeferScripts();
         $this->DisplayContentPageScripts();
+        $this->DisplayGoogleAnalytics();
         echo "</body>\n</html>\n";
     }
 
+	private function DisplayTitle() {
+        echo "<title>" . $this->title . "</title>";
+    }
+	
 	private function DisplayMetaTags() {
         echo '<meta charset="utf-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <meta name="keywords" content="' . $this->keywords . '">';
-    }
-	
-    private function DisplayTitle() {
-        echo "<title>" . $this->title . "</title>";
+	      <meta name="robots" content="INDEX, FOLLOW">';
     }
     
+	private function DisplayCanonicalTag() {
+            echo $this->canonical;
+	}
+	
 	private function DisplayStyleSheets()
     {
         echo '<!-- core CSS -->
@@ -232,5 +238,9 @@ class Page
     
     private function DisplayContentPageScripts() {
         echo $this->contentpagescripts;
+    }
+
+    private function DisplayGoogleAnalytics() {
+        echo '';
     }
 }

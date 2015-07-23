@@ -10,4 +10,8 @@ $homepage->content = '<section id="error" class="container text-center">
                         <a class="btn btn-primary" href="/index.php">GO BACK TO THE HOMEPAGE</a>
                     </section><!--/#error-->';
 
+$homepage->title = 'Page Not Found - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+
 $homepage->Display();

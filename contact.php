@@ -49,4 +49,6 @@ $homepage->content = '<section id="contact-page">
                         </div><!--/.container-->
                     </section><!--/#contact-page-->';
 
+$homepage->title = 'Contact Us - ' . $homepage->title;
+
 $homepage->Display();

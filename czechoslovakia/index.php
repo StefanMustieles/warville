@@ -1,21 +1,23 @@
 <?php
 
 require $_SERVER['DOCUMENT_ROOT'] . '/page.inc';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/dbconfig.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/db.php';
 
 $homepage = new Page();
 
-$homepage->content = '<section id="content">
+$postContent = '<section id="content">
                         <div class="container">
                             <div class="row">
                                 <ul class="breadcrumb">
                                     <li><a href="../">Home</a></li>
-                                    <li class="active">Czechoslovakia</li>
+                                    <li class="active">Bulgaria</li>
                                 </ul>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
                             <div class="row">
-                                <h1>Czechoslovakia Military Force</h1>
+                                <h1>Bulgarian Military Force</h1>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
@@ -34,31 +36,45 @@ $homepage->content = '<section id="content">
                         </section><!--/#content-->
 
                         <section id="content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <a href="infantry-weapons/"><button type="button" class="btn btn-danger btn-block fillArea">Infantry Weapons</button></a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="afvs/"><button type="button" class="btn btn-danger btn-block fillArea">AFVs</button></a>
-                                </div>
-                            </div><!--/.row-->
-                        </div><!--/.container-->
-                        </section><!--/#content-->
+                        <div class="container">';
 
-                        <section id="content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <a href="artillery/"><button type="button" class="btn btn-danger btn-block fillArea">Artillery</button></a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="companies/"><button type="button" class="btn btn-danger btn-block fillArea">Companies</button></a>
-                                </div>
-                            </div><!--/.row-->
-                        </div><!--/.container-->
-                        </section><!--/#content-->';
+$db = new Zebra_Database();
 
-$homepage->title = $homepage->title . ' - Czechoslovakia';
+$db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+
+$db->select(
+    'name, folder_name',
+    'categories',
+    'country_id = ?', array(4)
+);
+
+while ($row = $db->fetch_assoc()) {
+
+$postContent .=	 '<div class="row">
+            <div class="col-md-7">
+                <a href="' . $row["folder_name"] . '/">
+                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h2>' . $row["name"] . '</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                <a class="btn btn-primary" href="' . $row["folder_name"] . '/">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>';								
+                                                        
+}
+
+$postContent .= '</div><!--/#container-->
+            </section><!--/#content-->';
+
+$homepage->title =  'Bulgarian Military Force - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+
+$homepage->content = $postContent;
 
 $homepage->Display();

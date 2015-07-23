@@ -14,7 +14,7 @@ $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
 $db->query('SELECT t1.description, t2.name AS country, t1.name '
         . 'FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
-        . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(1, 1)
+        . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(5, 19)
 );
 												
 while ($row = $db->fetch_assoc()) {
@@ -60,7 +60,7 @@ $postContent = sprintf('<div id="loading"></div>
 $db->select(
     'sub_category_id, name, seo_url',
     'sub_categories',
-    'category_id = ?', array(1), 'sort_order'
+    'category_id = ?', array(19), 'sort_order'
 );
 												
 while ($row = $db->fetch_assoc()) {
@@ -78,7 +78,7 @@ $postContent .= '</div>
 $db->query(
     'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text FROM `items` AS t1 '
       . 'INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
-        . 'WHERE t2.category_id = ?', array(1)
+        . 'WHERE t2.category_id = ?', array(19)
 );
 
 $i = 1;
@@ -86,14 +86,15 @@ $i = 1;
 while ($row = $db->fetch_assoc()) {
 
     $postContent .= '<div class="col-sm-4 col-lg-4 col-md-4 item" data-id="id-' . $row["item_id"] . '" data-type="' . $row["sub_category_id"] . '">
-                        <div class="thumbnail">
-                            <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
-                            <div class="caption">
-                                <h4><a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">' . $row["title"] . '</a>
-                                </h4>
-                                <p>' . $row["short_text"] . '</p>
+                        <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
+                            <div class="thumbnail">
+                                <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
+                                <div class="caption">
+                                    <h4>' . $row["title"] . '</h4>
+                                    <p>' . $row["short_text"] . '</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>';
     
     if($i % 3 == 0){
@@ -107,7 +108,9 @@ $postContent .= '</div><!--/.row-->
     </div><!--/.container-->
 </section><!--/#content-->';
 
-$homepage->title = $homepage->title . ' - ' . $title; 
+$homepage->title = $title . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->content = $postContent;
 	

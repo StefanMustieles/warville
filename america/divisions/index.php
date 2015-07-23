@@ -26,7 +26,8 @@ while ($row = $db->fetch_assoc()) {
 
 $title = $country . ' ' . $category;
 
-$postContent = sprintf('<section id="content">
+$postContent = sprintf('<div id="loading"></div>
+                        <section id="content">
                             <div class="container">
                                 <div class="row">
                                     <ul class="breadcrumb">
@@ -38,34 +39,33 @@ $postContent = sprintf('<section id="content">
                             </div><!--/.container-->
                             <div class="container">
                                 <div class="row">
-                                    <h1>%s</h1>
+                                    <h1 id="contentHeader">%s</h1>
                                 </div><!--/.row-->
                             </div><!--/.container-->
                             <div class="container">
                                 <div class="row">
-                                    <p>%s</p>
+                                    <p id="description">%s</p>
                                 </div><!--/.row-->
                             </div><!--/.container-->
                     </section><!--/#content-->
 
-                    <section id="content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p class="lead">Filters</p>
-                                        <div class="list-group">
-                                            <a id="All" class="list-group-item active">All</a>', $country, $category, $title, $descriptionText);
-
+				<section id="content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <p class="lead">Filters</p>
+                                                    <div class="list-group">
+                                                        <a id="All" class="list-group-item active">All</a>', $country, $category, $title, $descriptionText);
 
 $db->select(
-    'sub_category_id, name',
+    'sub_category_id, name, seo_url',
     'sub_categories',
     'category_id = ?', array(4), 'sort_order'
 );
 												
 while ($row = $db->fetch_assoc()) {
 
-$postContent .=	 '<a id="' . $row["sub_category_id"] . '" class="list-group-item">' . $row["name"] . '</a>';								
+$postContent .=	 '<a id="' . $row["sub_category_id"] . '" href="' . $row["seo_url"] . '" class="list-group-item">' . $row["name"] . '</a>';								
                                                         
 }
 														
@@ -86,14 +86,15 @@ $i = 1;
 while ($row = $db->fetch_assoc()) {
 
     $postContent .= '<div class="col-sm-4 col-lg-4 col-md-4 item" data-id="id-' . $row["item_id"] . '" data-type="' . $row["sub_category_id"] . '">
-                        <div class="thumbnail">
-                            <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
-                            <div class="caption">
-                                <h4><a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">' . $row["title"] . '</a>
-                                </h4>
-                                <p>' . $row["short_text"] . '</p>
+                        <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
+                            <div class="thumbnail">
+                                <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
+                                <div class="caption">
+                                    <h4>' . $row["title"] . '</h4>
+                                    <p>' . $row["short_text"] . '</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>';
     
     if($i % 3 == 0){
@@ -106,6 +107,10 @@ $postContent .= '</div><!--/.row-->
         </div><!--/.col-md-9-->
     </div><!--/.container-->
 </section><!--/#content-->';
+
+$homepage->title = $title . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->content = $postContent;
 	

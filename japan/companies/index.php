@@ -85,14 +85,15 @@ $i = 1;
 while ($row = $db->fetch_assoc()) {
 
     $postContent .= '<div class="col-sm-4 col-lg-4 col-md-4 item" data-id="id-' . $row["item_id"] . '" data-type="' . $row["sub_category_id"] . '">
-                        <div class="thumbnail">
-                            <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
-                            <div class="caption">
-                                <h4><a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">' . $row["title"] . '</a>
-                                </h4>
-                                <p>' . $row["short_text"] . '</p>
+                        <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
+                            <div class="thumbnail">
+                                <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
+                                <div class="caption">
+                                    <h4>' . $row["title"] . '</h4>
+                                    <p>' . $row["short_text"] . '</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>';
     
     if($i % 3 == 0){
@@ -105,6 +106,10 @@ $postContent .= '</div><!--/.row-->
         </div><!--/.col-md-9-->
     </div><!--/.container-->
 </section><!--/#content-->';
+
+$homepage->title = $title . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->content = $postContent;
 	

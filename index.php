@@ -59,4 +59,6 @@ $homepage->content = '<section id="content">
 						</div><!--/.container-->
 					</section><!--/#content-->';
 
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+
 $homepage->Display();

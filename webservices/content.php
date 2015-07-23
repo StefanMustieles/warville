@@ -34,22 +34,26 @@ if(isset($url, $sub_category_id)) {
         );
     }
     else {
-        $db->query('SELECT t2.category_id, t2.name AS category, t2.description, t3.name AS country ' 
-                . 'FROM categories AS t2 INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
-                . 'WHERE LOWER(t3.name) = ?', array($url)
+        $mainCategory = $_GET["category"];
+        
+        $db->query('SELECT t1.name AS category, t1.description, t2.name AS country '
+                    . 'FROM categories AS t1 '
+                    . 'INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
+                    . 'WHERE LOWER(t2.name) = ? AND LOWER(t1.name) = ?', array($url, $mainCategory)
         );
 
         while ($row = $db->fetch_assoc()) {
-            $category_id = $row["category_id"];
+            
             $elements[] = $row["country"] . ' ' . $row["category"];
             $elements[] = utf8_encode($row["description"]);							
         }
 
         $db->query(
-            'SELECT sub_category_id, item_id, title, friendly_url, thumbnail_image, short_text '
-              . 'FROM `items` AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
+            'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text '
+                . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
                 . 'INNER JOIN categories AS t3 ON t2.category_id = t3.category_id '
-                    . 'WHERE category_id = ?', array($category_id)
+                . 'INNER JOIN countries AS t4 ON t3.country_id = t4.country_id '
+                . 'WHERE LOWER(t4.name) = ? AND LOWER(t3.name) = ?', array($url, $mainCategory)
         );
     }
 

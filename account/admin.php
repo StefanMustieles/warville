@@ -292,6 +292,7 @@ $(document).ready(function(){
                 }
             });
             $("tr#trFileUpload").hide();
+            $("tr#trSubCategoryDescription").hide();
             $("div#newItem").hide();
             $("div#itemsList").hide();
         }
@@ -328,17 +329,17 @@ $(document).ready(function(){
         }
     });
     
-    $("#btUpdateDescription").click(function() {
+    $("#btUpdateSubDescription").click(function() {
         
         var sub_category_id = $("select#sub_categories option:selected").attr('value');
         var description = $("#subcategorydescription").val();
 
-        if (category_id.length > 0 ) {
+        if (sub_category_id.length > 0 ) {
 
             $.ajax({
                 type: "POST",
                 url: "fetchdata.php",
-                data: {action: 'update_sub_description', category_id: sub_category_id, description: description},
+                data: {action: 'update_sub_description', sub_category_id: sub_category_id, description: description},
                 cache: false,
                 beforeSend: function () {
                     myApp.showPleaseWait();
@@ -779,12 +780,12 @@ $(document).ready(function(){
     function showSupportVehicles(obj) {
         $("table#tblNewItem > tbody:last").append('<tr><th>ID</th><th>Name</th><th>Title</th><th>Friendly Url</th><th>Image</th><th>Image Source</th><th>Short Text</th><th>Year</th><th>Vehicle Type</th><th>Origin & Designer</th><th>Numbers Produced</th><th>Crew</th><th>Armament</th><th>Ammunition Carried</th><th>Pay Load</th>\n\
                                                   <th>Towed Load</th><th>Weight</th><th>Height</th><th>Width</th><th>Length</th><th>Ground Clearance</th><th>Fording Depth</th><th>Obstacle Clearance</th><th>Trench Crossing</th>\n\
-                                                  <th>Climbing Ability</th><th>Radio</th><th>Armour</th><th>Engine</th><th>Transmission</th><th>Maximum Road Range</th><th>Maximum Cross Country Range</th><th>Maximum Road Speed</th><th>Maximum Road Speed + Trailer</th>\n\
+                                                  <th>Climbing Ability</th><th>Cargo Capacity</th><th>Tow Capacity</th><th>Radio</th><th>Armour</th><th>Engine</th><th>Transmission</th><th>Maximum Road Range</th><th>Maximum Cross Country Range</th><th>Maximum Road Speed</th><th>Maximum Road Speed + Trailer</th>\n\
                                                   <th>Maximum Cross Country Speed</th><th>Maximum Road Towing Speed</th><th>Variants</th><th>Notes</th><th></th></tr>\n\
                                                   <tr><td></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
                                                   <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td>\n\
-                                                  <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btSupportVehicleInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
+                                                  <td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" ></td><td><input type="text" /></td><td><input type="text" /></td><td><textarea></textarea></td><td><textarea></textarea></td><td><button id="btSupportVehicleInsert" type="button" class="btn btn-success">Insert</button></td></tr>');
                                                       
         $.each(obj, function(key, value) {
             if(key == 0) {
@@ -793,7 +794,7 @@ $(document).ready(function(){
             else {
                 $("table#tblItems > tbody:last").append('<tr><td>' + value.item_id + '</td><td><input type="text" value="' + value.name + '" /></td><td><input type="text" value="' + value.title + '" /></td><td><input type="text" value="' + value.friendly_url + '" /></td><td><input type="text" value="' + value.thumbnail_image + '" /></td><td><input type="text" value="' + value.image_source + '" /></td><td><input type="text" value="' + value.short_text + '" /></td><td><input type="text" value="' + value.year + '" /></td><td><input type="text" value="' + value.type + '" /></td><td><input type="text" value="' + value.designer + '" /></td><td><input type="text" value="' + value.numbers_produced + '" /></td><td><input type="text" value="' + value.crew + '" /></td>\n\
 						  <td><input type="text" value="' + value.main_armament + '" /></td><td><input type="text" value="' + value.ammunition_carried + '" /></td><td><input type="text" value="' + value.pay_load + '" /></td><td><input type="text" value="' + value.towed_load + '" /></td><td><input type="text" value="' + value.weight + '" /></td><td><input type="text" value="' + value.height + '" /></td><td><input type="text" value="' + value.width + '" /></td><td><input type="text" value="' + value.length + '" /></td>\n\
-						  <td><input type="text" value="' + value.ground_clearance + '" /></td><td><input type="text" value="' + value.fording_depth + '" /></td><td><input type="text" value="' + value.obstacle_clearance + '" /></td><td><input type="text" value="' + value.trench_crossing + '" /></td><td><input type="text" value="' + value.climbing_ability + '" /></td><td><input type="text" value="' + value.radio + '" /></td><td><input type="text" value="' + value.armour + '" /></td><td><input type="text" value="' + value.engine + '" /></td><td><input type="text" value="' + value.transmission + '" /></td>\n\
+						  <td><input type="text" value="' + value.ground_clearance + '" /></td><td><input type="text" value="' + value.fording_depth + '" /></td><td><input type="text" value="' + value.obstacle_clearance + '" /></td><td><input type="text" value="' + value.trench_crossing + '" /></td><td><input type="text" value="' + value.climbing_ability + '" /></td><td><input type="text" value="' + value.cargo_capacity + '" /></td><td><input type="text" value="' + value.tow_capacity + '" /></td><td><input type="text" value="' + value.radio + '" /></td><td><input type="text" value="' + value.armour + '" /></td><td><input type="text" value="' + value.engine + '" /></td><td><input type="text" value="' + value.transmission + '" /></td>\n\
                                                   <td><input type="text" value="' + value.maximum_road_range + '" /></td><td><input type="text" value="' + value.maximum_cross_country_range + '" /></td><td><input type="text" value="' + value.maximum_road_speed + '" /></td><td><input type="text" value="' + value.maximum_road_speed_trailer + '" /></td><td><input type="text" value="' + value.maximum_cross_country_speed + '" /></td><td><input type="text" value="' + value.maximum_road_towing_speed + '" /></td><td><textarea>' + value.variants + '</textarea></td><td><textarea>' + value.notes + '</textarea></td><td><button type="button" class="btn btn-success btSupportVehicleUpdate">Update</button></td><td><button type="button" class="btn btn-danger btDeleteItem">Delete</button></td></tr>');
             }
         });
@@ -839,18 +840,20 @@ $(document).ready(function(){
         var obstacle_clearance = row.find("td").eq(22).find("input").val();
         var trench_crossing = row.find("td").eq(23).find("input").val();
         var climbing_ability = row.find("td").eq(24).find("input").val();
-        var radio = row.find("td").eq(25).find("input").val();
-        var armour = row.find("td").eq(26).find("input").val();
-        var engine = row.find("td").eq(27).find("input").val();
-        var transmission = row.find("td").eq(28).find("input").val();
-        var maximum_road_range = row.find("td").eq(29).find("input").val();
-        var maximum_cross_country_range = row.find("td").eq(30).find("input").val();
-        var maximum_road_speed = row.find("td").eq(31).find("input").val();  
-        var maximum_road_speed_trailer = row.find("td").eq(32).find("input").val();
-        var maximum_cross_country_speed = row.find("td").eq(33).find("input").val();
-        var maximum_road_towing_speed = row.find("td").eq(34).find("input").val();
-        var variants = row.find("td").eq(35).find("textarea").val();
-        var notes = row.find("td").eq(36).find("textarea").val();
+        var cargo_capacity = row.find("td").eq(25).find("input").val();
+        var tow_capacity = row.find("td").eq(26).find("input").val();
+        var radio = row.find("td").eq(27).find("input").val();
+        var armour = row.find("td").eq(28).find("input").val();
+        var engine = row.find("td").eq(29).find("input").val();
+        var transmission = row.find("td").eq(30).find("input").val();
+        var maximum_road_range = row.find("td").eq(31).find("input").val();
+        var maximum_cross_country_range = row.find("td").eq(32).find("input").val();
+        var maximum_road_speed = row.find("td").eq(33).find("input").val();  
+        var maximum_road_speed_trailer = row.find("td").eq(34).find("input").val();
+        var maximum_cross_country_speed = row.find("td").eq(35).find("input").val();
+        var maximum_road_towing_speed = row.find("td").eq(36).find("input").val();
+        var variants = row.find("td").eq(37).find("textarea").val();
+        var notes = row.find("td").eq(38).find("textarea").val();
 
         $.ajax({
             type: "POST",
@@ -858,7 +861,7 @@ $(document).ready(function(){
             data: {action: 'insertSupportVehicle', sub_category_id: sub_category_id, name: name, title: title, friendly_url: friendly_url, image: image, image_source: image_source, short_text: short_text, 
                 year: year, type: type, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
                 towed_load: towed_load, weight: weight, height: height, width: width, length: length, ground_clearance: ground_clearance, fording_depth: fording_depth, obstacle_clearance: obstacle_clearance, 
-		trench_crossing: trench_crossing, climbing_ability: climbing_ability, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, maximum_cross_country_range: maximum_cross_country_range,
+		trench_crossing: trench_crossing, climbing_ability: climbing_ability, cargo_capacity: cargo_capacity, tow_capacity: tow_capacity, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, maximum_cross_country_range: maximum_cross_country_range,
                 maximum_road_speed: maximum_road_speed, maximum_road_speed_trailer: maximum_road_speed_trailer, maximum_cross_country_speed: maximum_cross_country_speed, maximum_road_towing_speed: maximum_road_towing_speed, variants: variants, notes: notes},
             cache: false,
             beforeSend: function () {
@@ -907,18 +910,20 @@ $(document).ready(function(){
         var obstacle_clearance = row.find("td").eq(22).find("input").val();
         var trench_crossing = row.find("td").eq(23).find("input").val();
         var climbing_ability = row.find("td").eq(24).find("input").val();
-        var radio = row.find("td").eq(25).find("input").val();
-        var armour = row.find("td").eq(26).find("input").val();
-        var engine = row.find("td").eq(27).find("input").val();
-        var transmission = row.find("td").eq(28).find("input").val();
-        var maximum_road_range = row.find("td").eq(29).find("input").val();
-        var maximum_cross_country_range = row.find("td").eq(30).find("input").val();
-        var maximum_road_speed = row.find("td").eq(31).find("input").val();  
-        var maximum_road_speed_trailer = row.find("td").eq(32).find("input").val();
-        var maximum_cross_country_speed = row.find("td").eq(33).find("input").val();
-        var maximum_road_towing_speed = row.find("td").eq(34).find("input").val();
-        var variants = row.find("td").eq(35).find("textarea").val();
-        var notes = row.find("td").eq(36).find("textarea").val();
+        var cargo_capacity = row.find("td").eq(25).find("input").val();
+        var tow_capacity = row.find("td").eq(26).find("input").val();
+        var radio = row.find("td").eq(27).find("input").val();
+        var armour = row.find("td").eq(28).find("input").val();
+        var engine = row.find("td").eq(29).find("input").val();
+        var transmission = row.find("td").eq(30).find("input").val();
+        var maximum_road_range = row.find("td").eq(31).find("input").val();
+        var maximum_cross_country_range = row.find("td").eq(32).find("input").val();
+        var maximum_road_speed = row.find("td").eq(33).find("input").val();  
+        var maximum_road_speed_trailer = row.find("td").eq(34).find("input").val();
+        var maximum_cross_country_speed = row.find("td").eq(35).find("input").val();
+        var maximum_road_towing_speed = row.find("td").eq(36).find("input").val();
+        var variants = row.find("td").eq(37).find("textarea").val();
+        var notes = row.find("td").eq(38).find("textarea").val();
 		
 	$.ajax({
             type: "POST",
@@ -926,7 +931,7 @@ $(document).ready(function(){
             data: {action: 'updateSupportVehicle', item_id: item_id, name: name, title: title, friendly_url: friendly_url, image: image, image_source: image_source, short_text: short_text, 
                 year: year, type: type, designer: designer, numbers_produced: numbers_produced, crew: crew, main_armament: main_armament, ammunition_carried: ammunition_carried, pay_load: pay_load, 
                 towed_load: towed_load, weight: weight, height: height, width: width, length: length, ground_clearance: ground_clearance, fording_depth: fording_depth, obstacle_clearance: obstacle_clearance,
-		trench_crossing: trench_crossing, climbing_ability: climbing_ability, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, 
+		trench_crossing: trench_crossing, climbing_ability: climbing_ability, cargo_capacity: cargo_capacity, tow_capacity: tow_capacity, radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, 
                 maximum_cross_country_range: maximum_cross_country_range, maximum_road_speed: maximum_road_speed, maximum_road_speed_trailer: maximum_road_speed_trailer, maximum_cross_country_speed: maximum_cross_country_speed, 
                 maximum_road_towing_speed: maximum_road_towing_speed, variants: variants, notes: notes},
             cache: false,
