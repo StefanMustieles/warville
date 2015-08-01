@@ -4,6 +4,8 @@ require "page.inc";
 
 $homepage = new Page();
 
+$homepage->metadescription = '';
+
 $homepage->content = '<section id="contact-page">
                         <div class="container">
                             <div class="center">        
@@ -50,5 +52,7 @@ $homepage->content = '<section id="contact-page">
                     </section><!--/#contact-page-->';
 
 $homepage->title = 'Contact Us - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->Display();

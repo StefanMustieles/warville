@@ -6,13 +6,16 @@ $(function() {
 
             if(sub_id == 'All') {
                 var urlParts = location.pathname.split("/");
+                href = urlParts[0] + '/' + urlParts[1] + '/' + urlParts[2] + '/' + 'index.php';
+                history.pushState("", "New URL: "+href, href);
                 href = '';
                 loadContent(href, sub_id, urlParts[1], urlParts[2]);
             } 
-            else loadContent(href, sub_id, null, null);
-            
-            // HISTORY.PUSHSTATE
-            history.pushState("", "New URL: "+href, href);
+            else { 
+                loadContent(href, sub_id, null, null);
+                history.pushState("", "New URL: "+href, href);
+            }
+            $('link[rel="canonical"]').attr('href', window.location.href);
             e.preventDefault();				
         });
 
@@ -28,6 +31,7 @@ $(function() {
                 sub_id = $('a[href="' + urlParts[3] + '"]').attr("id");
             }
             loadContent(urlParts[3], sub_id, urlParts[1], urlParts[2]);
+            $('link[rel="canonical"]').attr('href', window.location.href);
         };
     });
 
@@ -48,6 +52,8 @@ function loadContent(url, sub_id, country, mainCat){
             if(key == 0) {
                 $("#contentHeader").empty();
                 $("#contentHeader").text(value);
+                // Update the title tag
+                document.title = value + ' ' + document.title.substring(document.title.indexOf('-'));
             }
             else if (key == 1) {
                 $("#description").empty();

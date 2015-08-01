@@ -11,13 +11,13 @@ $postContent = '<section id="content">
                             <div class="row">
                                 <ul class="breadcrumb">
                                     <li><a href="../">Home</a></li>
-                                    <li class="active">Bulgaria</li>
+                                    <li class="active">Czechoslovakian</li>
                                 </ul>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
                             <div class="row">
-                                <h1>Bulgarian Military Force</h1>
+                                <h1>Czechoslovakian Military Force</h1>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
@@ -45,7 +45,7 @@ $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 $db->select(
     'name, folder_name',
     'categories',
-    'country_id = ?', array(4)
+    'country_id = ?', array(5)
 );
 
 while ($row = $db->fetch_assoc()) {
@@ -71,7 +71,7 @@ $postContent .=	 '<div class="row">
 $postContent .= '</div><!--/#container-->
             </section><!--/#content-->';
 
-$homepage->title =  'Bulgarian Military Force - ' . $homepage->title;
+$homepage->title =  'Czechoslovakian Military Force - ' . $homepage->title;
 
 $homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 

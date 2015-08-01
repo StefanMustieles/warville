@@ -62,15 +62,16 @@ if(isset($url, $sub_category_id)) {
     while ($row = $db->fetch_assoc()) {
 
         $elements[] = '<div class="col-sm-4 col-lg-4 col-md-4 item" data-id="id-' . $row["item_id"] . '" data-type="' . $row["sub_category_id"] . '">
+                        <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
                             <div class="thumbnail">
                                 <img src="img/' . $row["thumbnail_image"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">
                                 <div class="caption">
-                                    <h4><a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">' . $row["title"] . '</a>
-                                    </h4>
+                                    <h4>' . $row["title"] . '</h4>
                                     <p>' . $row["short_text"] . '</p>
                                 </div>
                             </div>
-                        </div>';
+                        </a>
+                    </div>';
 
         if($i % 3 == 0){
            $elements[] = '<div class="clearfix visible-xs-block"></div>';

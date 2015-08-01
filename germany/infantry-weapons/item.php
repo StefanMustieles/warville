@@ -11,12 +11,6 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->select(
-    'name',
-    'items',
-    'item_id = ?', array($_GET["itemId"])
-);
-
 $db->query(
     'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.type, t1.designer, t1.numbers_produced, t1.crew, t1.calibre, t1.elevation, t1.gun_traverse, t1.cartridge_weight, t1.round_weight, t1.barrel_length, t1.length, t1.grenade_types, t1.weight, t1.gun_mounts, '
 	. 't1.operation, t1.cooling_system, t1.sights, t1.feed, t1.rate_of_fire, t1.maximum_rate_of_fire, t1.blank_cartridge, t1.muzzle_velocity, t1.fuel_capacity, t1.minimum_range, t1.effective_range, t1.maximum_range, t1.armour_penetration, t1.bayonet, t1.traction, t1.variants, t1.notes, t1.image_source '
@@ -326,6 +320,10 @@ $content = '<section id="content">
             </section><!--/#content-->';
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
+
+$homepage->title = $itemName . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->content = $pageContent;
 

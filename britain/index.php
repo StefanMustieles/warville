@@ -11,7 +11,7 @@ $postContent = '<section id="content">
                             <div class="row">
                                 <ul class="breadcrumb">
                                     <li><a href="../">Home</a></li>
-                                    <li class="active">Britain</li>
+                                    <li class="active">British</li>
                                 </ul>
                             </div><!--/.row-->
                         </div><!--/.container-->

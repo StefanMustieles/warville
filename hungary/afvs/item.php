@@ -373,4 +373,8 @@ $pageContent = sprintf($content, $country_name, $category_name, $itemName, $item
 
 $homepage->content = $pageContent;
 
+$homepage->title = $itemName . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+
 $homepage->Display();

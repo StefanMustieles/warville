@@ -346,6 +346,10 @@ $content = '<section id="content">
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 
+$homepage->title = $itemName . ' - ' . $homepage->title;
+
+$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+
 $homepage->content = $pageContent;
 
 $homepage->Display();

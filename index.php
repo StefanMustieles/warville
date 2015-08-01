@@ -4,6 +4,8 @@ require "page.inc";
 
 $homepage = new Page();
 
+$homepage->metadescription = '';
+
 $homepage->content = '<section id="content">
 						<div class="container">
 							<div class="row">
