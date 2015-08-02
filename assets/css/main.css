@@ -121,6 +121,7 @@ a:focus {
 
 body > section {
   padding: 20px 0;
+  background-color: #F2F2F2;
 }
 
 .center {
@@ -195,6 +196,7 @@ margin: 7.5px -15px;
   padding: 10px 0;
   border-bottom: 1px solid #222;
   line-height: 28px;
+  background-color: #F2F2F2;
 }
 
 .top-number{

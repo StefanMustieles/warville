@@ -7,10 +7,10 @@ $homepage = new Page();
 $homepage->metadescription = '';
 
 $postContent = '<section id="about-us">
-                        <div class="container">
-                            <div class="center">
-                                <h2>Search Results</h2>
-                                <p class="lead">';
+                    <div class="container">
+                        <div class="center">
+                            <h2>Search Results</h2>
+                            <p class="lead">';
 
 // Gets value sent over search form
 if (isset($_GET['query'])) $query = $_GET['query']; 
