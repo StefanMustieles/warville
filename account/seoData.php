@@ -44,6 +44,43 @@ try
         $jTableResult['Result'] = "OK";
         print json_encode($jTableResult);
     }
+    else if($_GET["action"] == "listCategories")
+    {
+        $count = $db->dcount('category_id', 'categories');
+
+        $db->query('SELECT t2.name AS country, t1.name AS category, t1.description, t1.meta_description
+                    FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id');
+        
+        //Add all records to an array
+        $rows = array();
+        while ($row = $db->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        //Return result to jTable
+        $jTableResult = array();
+        $jTableResult['Result'] = "OK";
+        $jTableResult['TotalRecordCount'] = $count;
+        $jTableResult['Records'] = $rows;
+        print json_encode($jTableResult);
+    }
+    else if($_GET["action"] == "updateCategories")
+    {
+        $db->update(
+            'categories',
+            array(
+                'description' => $_POST["description"],
+                'meta_description' => $_POST["meta_description"]
+            ),
+            'category_id = ?',
+            array($_POST["category_id"])
+        );
+        
+        //Return result to jTable
+        $jTableResult = array();
+        $jTableResult['Result'] = "OK";
+        print json_encode($jTableResult);
+    }
 }
 catch(Exception $ex)
 {

@@ -13,7 +13,7 @@ $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 $db->select(
     'name, description, meta_description',
     'countries',
-    'country_id = ?', array(6)
+    'country_id = ?', array(7)
 );
 
 while ($row = $db->fetch_assoc()) {
@@ -53,7 +53,7 @@ $postContent = sprintf('<section id="content">
 $db->select(
     'name, folder_name',
     'categories',
-    'country_id = ?', array(6)
+    'country_id = ?', array(7)
 );
 
 while ($row = $db->fetch_assoc()) {

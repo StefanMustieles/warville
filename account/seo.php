@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin Area</title>
+<title>SEO Area</title>
 
 <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="/assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
@@ -89,9 +89,36 @@
                             }
                         }).jtable("load");
                         break;
-                    case 2:
+                    case "2":
+                        $("#DataTable").jtable({
+                            title: "Categories",
+                            actions: {
+                                listAction: "seoData.php?action=listCategories",
+                                updateAction: "seoData.php?action=updateCategories"
+                            },
+                            fields: {
+                                category_id: {
+                                    key: true,
+                                    list: false
+                                },
+                                country: {
+                                    title: "Country Name",
+                                    edit: false
+                                },
+                                category: {
+                                    title: "Category Name",
+                                    edit: false
+                                },
+                                description: {
+                                    title: "Description"
+                                },
+                                meta_description: {
+                                    title: "Description Meta Tag"
+                                }
+                            }
+                        }).jtable("load");
                         break;
-                    case 3:
+                    case "3":
                         break;
                 }
             }
