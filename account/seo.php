@@ -80,11 +80,12 @@
                                     list: false
                                 },
                                 name: {
-                                    title: "Country Name",
+                                    title: "Country",
                                     edit: false
                                 },
                                 meta_description: {
-                                    title: "Description Meta Tag"
+                                    title: "Description Meta Tag",
+                                    type: "textarea"
                                 }
                             }
                         }).jtable("load");
@@ -102,23 +103,61 @@
                                     list: false
                                 },
                                 country: {
-                                    title: "Country Name",
+                                    title: "Country",
                                     edit: false
                                 },
                                 category: {
-                                    title: "Category Name",
+                                    title: "Category",
                                     edit: false
                                 },
                                 description: {
-                                    title: "Description"
+                                    title: "Description",
+                                    type: "textarea"
                                 },
                                 meta_description: {
-                                    title: "Description Meta Tag"
+                                    title: "Description Meta Tag",
+                                    type: "textarea"
                                 }
                             }
                         }).jtable("load");
                         break;
                     case "3":
+                        $("#DataTable").jtable({
+                            title: "Sub Categories",
+                            actions: {
+                                listAction: "seoData.php?action=listSubCategories",
+                                updateAction: "seoData.php?action=updateSubCategories"
+                            },
+                            fields: {
+                                sub_category_id: {
+                                    key: true,
+                                    list: false
+                                },
+                                country: {
+                                    title: "Country",
+                                    edit: false
+                                },
+                                category: {
+                                    title: "Category",
+                                    edit: false
+                                },
+                                sub_category: {
+                                    title: "Sub Category",
+                                    edit: false
+                                },
+                                description: {
+                                    title: "Description",
+                                    type: "textarea"
+                                },
+                                seo_url: {
+                                    title: "Seo Url"
+                                },
+                                meta_description: {
+                                    title: "Description Meta Tag",
+                                    type: "textarea"
+                                }
+                            }
+                        }).jtable("load");
                         break;
                 }
             }

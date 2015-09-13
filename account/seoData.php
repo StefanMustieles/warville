@@ -81,6 +81,43 @@ try
         $jTableResult['Result'] = "OK";
         print json_encode($jTableResult);
     }
+    else if($_GET["action"] == "listSubCategories")
+    {
+        $count = $db->dcount('sub_category_id', 'sub_categories');
+
+        $db->query('SELECT t1.sub_category_id, t3.name AS country, t2.name AS category, t1.name AS sub_category, t1.description, t1.seo_url, t1. meta_description FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id INNER JOIN countries AS t3 ON t2.country_id = t3.country_id');
+        
+        //Add all records to an array
+        $rows = array();
+        while ($row = $db->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        //Return result to jTable
+        $jTableResult = array();
+        $jTableResult['Result'] = "OK";
+        $jTableResult['TotalRecordCount'] = $count;
+        $jTableResult['Records'] = $rows;
+        print json_encode($jTableResult);
+    }
+    else if($_GET["action"] == "updateSubCategories")
+    {
+        $db->update(
+            'sub_categories',
+            array(
+                'description' => $_POST["description"],
+                'seo_url' => $_POST["seo_url"],
+                'meta_description' => $_POST["meta_description"]
+            ),
+            'sub_category_id = ?',
+            array($_POST["sub_category_id"])
+        );
+        
+        //Return result to jTable
+        $jTableResult = array();
+        $jTableResult['Result'] = "OK";
+        print json_encode($jTableResult);
+    }
 }
 catch(Exception $ex)
 {

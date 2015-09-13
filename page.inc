@@ -103,52 +103,52 @@ class Page
                       </div>
                       <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav nav-justified">
-                              <li><a href="/american">
+                              <li><a href="/american/">
                                     <div class="flag flag-icon-background flag-icon-us"></div>
                               </a></li>
-                              <li><a href="/british">
+                              <li><a href="/british/">
                                     <div class="flag flag-icon-background flag-icon-gb"></div>
                               </a></li>
-                              <li><a href="/french">
+                              <li><a href="/french/">
                                     <div class="flag flag-icon-background flag-icon-fr"></div>
                               </a></li>
-                              <li><a href="/german">
+                              <li><a href="/german/">
                                     <div class="flag flag-icon-background flag-icon-de"></div>
                               </a></li>
-                              <li><a href="/hungarian">
+                              <li><a href="/hungarian/">
                                     <div class="flag flag-icon-background flag-icon-hu"></div>
                               </a></li>
-                              <li><a href="/italian">
+                              <li><a href="/italian/">
                                     <div class="flag flag-icon-background flag-icon-it"></div>
                               </a></li>
-                              <li><a href="/japanese">
+                              <li><a href="/japanese/">
                                     <div class="flag flag-icon-background flag-icon-jp"></div>
                               </a></li>
-                              <li><a href="/polish">
+                              <li><a href="/polish/">
                                     <div class="flag flag-icon-background flag-icon-pl"></div>
                               </a></li>
-                              <li><a href="/romanian">
+                              <li><a href="/romanian/">
                                     <div class="flag flag-icon-background flag-icon-ro"></div>
                               </a></li>
-                              <li><a href="/russian">
+                              <li><a href="/russian/">
                                     <div class="flag flag-icon-background flag-icon-ru"></div>
                               </a></li>
                               <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                      <li><a href="/belgian">
+                                      <li><a href="/belgian/">
                                             <div class="moreflag flag-icon-background flag-icon-be"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/bulgarian">
+                                      <li><a href="/bulgarian/">
                                             <div class="moreflag flag-icon-background flag-icon-bg"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/czechslovakian">
+                                      <li><a href="/czechslovakian/">
                                             <div class="moreflag flag-icon-background flag-icon-cz"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/denmark">
+                                      <li><a href="/danish/">
                                             <div class="moreflag flag-icon-background flag-icon-dk"></div>
                                       </a>
                                       </li>
@@ -156,35 +156,35 @@ class Page
                                             <div class="moreflag flag-icon-background flag-icon-ee"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/finnish">
+                                      <li><a href="/finnish/">
                                             <div class="moreflag flag-icon-background flag-icon-fi"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/greek">
+                                      <li><a href="/greek/">
                                             <div class="moreflag flag-icon-background flag-icon-gr"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/holland">
+                                      <li><a href="/holland/">
                                             <div class="moreflag flag-icon-background flag-icon-nl"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/latvian">
+                                      <li><a href="/latvian/">
                                             <div class="moreflag flag-icon-background flag-icon-lv"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/lithuanian">
+                                      <li><a href="/lithuanian/">
                                             <div class="moreflag flag-icon-background flag-icon-lt"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/norwegian">
+                                      <li><a href="/norwegian/">
                                             <div class="moreflag flag-icon-background flag-icon-no"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/swedish">
+                                      <li><a href="/swedish/">
                                             <div class="moreflag flag-icon-background flag-icon-se"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/yugoslavian">
+                                      <li><a href="/yugoslavian/">
                                             <div class="moreflag flag-icon-background flag-icon-yg"></div>
                                       </a>
                                       </li>

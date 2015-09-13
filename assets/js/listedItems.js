@@ -6,7 +6,7 @@ $(function() {
 
             if(sub_id == 'All') {
                 var urlParts = location.pathname.split("/");
-                href = urlParts[0] + '/' + urlParts[1] + '/' + urlParts[2] + '/' + 'index.php';
+                href = urlParts[0] + '/' + urlParts[1] + '/' + urlParts[2] + '/';
                 history.pushState("", "New URL: "+href, href);
                 href = '';
                 loadContent(href, sub_id, urlParts[1], urlParts[2]);
