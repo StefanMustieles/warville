@@ -287,16 +287,24 @@ else {
     $imageCaption = "Image: " . $imageSource;
 }
 
+if($location = substr(dirname($_SERVER['PHP_SELF']), 1))
+    $dirlist = explode('/', $location);
+else
+    $dirlist = array();
+
+$count = array_push($dirlist, basename($_SERVER['PHP_SELF']));
+
+$address = 'http://'.$_SERVER['HTTP_HOST'];
+
 $content = '<section id="content">
                 <div class="container">
                     <div class="row">
                         <ul class="breadcrumb">
-                            <li><a href="../../../">Home</a></li>
-                            <li><a href="../../">%s</a></li>
-                            <li><a href="../">%s</a></li>
+                            <li><a href="' . $address . '">Home</a></li>
+                            <li><a href="' .($address .= '/'.$dirlist[0]) . '">%s</a></li>
+                            <li><a href="' .($address .= '/'.$dirlist[1]) . '">%s</a></li>
                             <li class="active">%s</li>
                         </ul>
-
                         <h1>%s</h1>
                             <div class="col-md-12">
                                 <div class="thumbnail clearfix">

@@ -54,9 +54,9 @@ class Page
         echo '<!-- core CSS -->
             <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
             <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
-            <link href="/assets/css/responsive.css" rel="stylesheet">
+            <link href="/assets/css/responsive.min.css" rel="stylesheet">
             <link href="/assets/css/flag-icon.min.css" rel="stylesheet">
-            <link href="/assets/css/main.css" rel="stylesheet">';
+            <link href="/assets/css/main.min.css" rel="stylesheet">';
     }
     
     private function DisplayHeaderJavaScripts() {
@@ -77,9 +77,9 @@ class Page
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-lg-8">
-                                <a class="navbar-brand" href="http://quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" /></a>
+                                <a class="navbar-brand" href="http://quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" class="mainLogo" /></a>
                             </div>
-                            <div class="col-xs-6 col-lg-4">
+                            <div class="col-xs-6 col-lg-4 searcher">
                                 <div class="social">
                                     <form role="form" method="GET" action="/search.php">
                                         <input name="query" type="text" class="search-form" autocomplete="off" placeholder="Search">
