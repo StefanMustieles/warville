@@ -43,7 +43,8 @@ class Page
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <meta name="robots" content="NOINDEX, NOFOLLOW">
-              <meta name="description" content="' . $this->metadescription . '">';
+              <meta name="description" content="' . $this->metadescription . '">
+              <meta name="google-site-verification" content="ETr9EcP9rwEPnlQdP3s8oA2DS-PAFxL9cVUOEOozeww" />';
     }
     
     private function DisplayCanonicalTag() {
@@ -105,36 +106,46 @@ class Page
                             <ul class="nav navbar-nav nav-justified">
                               <li><a href="/american/">
                                     <div class="flag flag-icon-background flag-icon-us"></div>
+                                    <span>America</span>
                               </a></li>
                               <li><a href="/british/">
                                     <div class="flag flag-icon-background flag-icon-gb"></div>
+                                    <span>Britain</span>
                               </a></li>
                               <li><a href="/french/">
                                     <div class="flag flag-icon-background flag-icon-fr"></div>
+                                    <span>France</span>
                               </a></li>
                               <li><a href="/german/">
                                     <div class="flag flag-icon-background flag-icon-de"></div>
+                                    <span>German</span>
                               </a></li>
                               <li><a href="/hungarian/">
                                     <div class="flag flag-icon-background flag-icon-hu"></div>
+                                    <span>Hungary</span>
                               </a></li>
                               <li><a href="/italian/">
                                     <div class="flag flag-icon-background flag-icon-it"></div>
+                                    <span>Italy</span>
                               </a></li>
                               <li><a href="/japanese/">
                                     <div class="flag flag-icon-background flag-icon-jp"></div>
+                                    <span>Japan</span>
                               </a></li>
                               <li><a href="/polish/">
                                     <div class="flag flag-icon-background flag-icon-pl"></div>
+                                    <span>Polish</span>
                               </a></li>
                               <li><a href="/romanian/">
                                     <div class="flag flag-icon-background flag-icon-ro"></div>
+                                    <span>Romania</span>
                               </a></li>
                               <li><a href="/russian/">
                                     <div class="flag flag-icon-background flag-icon-ru"></div>
+                                    <span>Russia</span>
                               </a></li>
                               <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                                    <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                       <li><a href="/belgian/">
                                             <div class="moreflag flag-icon-background flag-icon-be"></div>
@@ -152,7 +163,7 @@ class Page
                                             <div class="moreflag flag-icon-background flag-icon-dk"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/estonian">
+                                      <li><a href="/estonian/">
                                             <div class="moreflag flag-icon-background flag-icon-ee"></div>
                                       </a>
                                       </li>

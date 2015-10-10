@@ -303,15 +303,6 @@ input.search-form:hover {
     text-align: center;
 }
 
-@media (min-width: 767px) {
-  .navbar-nav.nav-justified > li{
-      float:none;
-  }
-  .nav-justified>li {
-	width:0;
-  }
-}
-
 .navbar-custom .navbar-nav>.dropdown>a .caret {
 	border-top-color: #999;
 	border-bottom-color: #999;
@@ -319,6 +310,17 @@ input.search-form:hover {
 
 .navbar-toggle {
 	outline:0;
+}
+
+.nav-justified li:not(:last-child):after {
+  background: #A3A3A3;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
 }
 
 .flag {
