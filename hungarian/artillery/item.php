@@ -332,8 +332,8 @@ $content = '<section id="content">
                     <div class="row">
                         <ul class="breadcrumb">
                             <li><a href="' . $address . '">Home</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[0]) . '">%s</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[1]) . '">%s</a></li>
+                            <li><a href="' .($address .= '/'.$dirlist[0]) . '/">%s</a></li>
+                            <li><a href="' .($address .= '/'.$dirlist[1]) . '/">%s</a></li>
                             <li class="active">%s</li>
                         </ul>
                         <h1>%s</h1>
