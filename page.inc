@@ -69,7 +69,7 @@ class Page
     }
 	
     private function DisplayFavIcon() {
-        echo '<link rel="shortcut icon" href="images/favicon.ico">';
+        echo '<link rel="shortcut icon" href="/assets/images/favicon.ico">';
     }
 
     private function DisplayHeader() {
@@ -155,12 +155,16 @@ class Page
                                             <div class="moreflag flag-icon-background flag-icon-bg"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/czechslovakian/">
+                                      <li><a href="/czechoslovakian/">
                                             <div class="moreflag flag-icon-background flag-icon-cz"></div>
                                       </a>
                                       </li>
                                       <li><a href="/danish/">
                                             <div class="moreflag flag-icon-background flag-icon-dk"></div>
+                                      </a>
+                                      </li>
+                                      <li><a href="/dutch-west-indies/">
+                                            <div class="moreflag flag-icon-background flag-icon-an"></div>
                                       </a>
                                       </li>
                                       <li><a href="/estonian/">

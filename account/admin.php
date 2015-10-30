@@ -49,7 +49,7 @@
 
                         $db->select(
                             'country_id, name',
-                            'countries'
+                            'countries', '', '', 'name ASC'
                         );
 
                         while ($row = $db->fetch_assoc()) {
@@ -133,6 +133,7 @@
     </div><!--/row-->
 </div><!--/container-->
 <script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery-ui.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>                                              
 <script type="text/javascript">

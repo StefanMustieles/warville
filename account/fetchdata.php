@@ -85,7 +85,7 @@ function getCategtories($country_id) {
     $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
     
     //Get records from database
-    $db->select('category_id, name', 'categories', 'country_id = ?', array($country_id));
+    $db->select('category_id, name', 'categories', 'country_id = ?', array($country_id), 'name ASC');
 
     //Add all records to an array
     $rows = array();
@@ -105,7 +105,7 @@ function getSubCategories($category_id) {
     $db->query(
         'SELECT t1.sub_category_id, t1.name, t2.description FROM sub_categories AS t1 ' 
            . 'INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
-                . 'WHERE t1.category_id = ?', array($category_id)
+                . 'WHERE t1.category_id = ? ORDER BY t1.name ASC', array($category_id)
     );
 
     //Add all records to an array
