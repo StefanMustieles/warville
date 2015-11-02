@@ -88,23 +88,27 @@ hr {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-a:hover,
-a:focus {
-  color: #111;
-  text-decoration: none;
-  outline: none;
-}
 .dropdown {
-	vertical-align: middle;
-}
-.navbar-nav>li>.dropdown-menu {
-	margin-top: 15px;
+    vertical-align: middle;
 }
 .dropdown-menu {
   min-width: 0;
   background: #191919;
 }
+.more {
+    margin-top: 15px !important
+}
+.dropdown-menu li a {
+    color: White;
+    text-align: left !important;
+}
 
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+  color: #d43133;
+  text-decoration: none;
+  outline: none;
+}
 .center h2{
   font-size: 36px;
   margin-top: 0;
@@ -301,6 +305,9 @@ input.search-form:hover {
 .navbar .nav li a {
     font-weight: bold;
     text-align: center;
+}
+.navbar .nav li a:hover {
+    color: #d43133; 
 }
 
 .navbar-custom .navbar-nav>.dropdown>a .caret {
