@@ -104,7 +104,7 @@ class Page
                       </div>
                       <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav nav-justified">
-                              <li class="dropdown"><a href="/american/" class="dropdown-toggle" data-toggle="dropdown">
+                              <li class="dropdown"><a href="/american/">
                                     <div class="flag flag-icon-background flag-icon-us"></div>
                                     <span>America</span></a>
                                     <ul class="dropdown-menu">

@@ -27,15 +27,19 @@ $homepage->metadescription = $meta_description;
 $postContent = sprintf('<section id="content">
                         <div class="container">
                             <div class="row">
-                                <ul class="breadcrumb">
-                                    <li><a href="../">Home</a></li>
-                                    <li class="active">%s</li>
-                                </ul>
+                                <div class="col-md-12">
+                                    <ul class="breadcrumb">
+                                        <li><a href="../">Home</a></li>
+                                        <li class="active">%s</li>
+                                    </ul>
+                                </div>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
                             <div class="row">
-                                <h1>%s Military Force</h1>
+                                <div class="col-md-12">
+                                    <h1>%s Military Force</h1>
+                                </div>
                             </div><!--/.row-->
                         </div><!--/.container-->
                         <div class="container">
