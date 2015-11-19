@@ -9,3 +9,7 @@ config/*
 # Netbeans folder #
 ###################
 nbproject/*
+
+# Classes folder #
+###################
+classes/*

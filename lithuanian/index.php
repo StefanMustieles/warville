@@ -32,22 +32,9 @@ $postContent = sprintf('<section id="content">
                                         <li><a href="../">Home</a></li>
                                         <li class="active">%s</li>
                                     </ul>
-                                </div>
-                            </div><!--/.row-->
-                        </div><!--/.container-->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
                                     <h1>%s Military Force</h1>
-                                </div>
-                            </div><!--/.row-->
-                        </div><!--/.container-->
-                        <div class="container">
-                            <div class="row">
-                                <p>
-                                    %s
-                                </p>
-                            </div><!--/.row-->
+                                    <p>%s</p>
+                                </div><!--/.row-->
                         </div><!--/.container-->
                         </section><!--/#content-->
 

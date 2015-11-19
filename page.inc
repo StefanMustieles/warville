@@ -108,111 +108,111 @@ class Page
                                     <div class="flag flag-icon-background flag-icon-us"></div>
                                     <span>America</span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/american/afvs/">AFVs</a></li>
-                                        <li><a href="/american/artillery/">Artillery</a></li>
-                                        <li><a href="/american/companies/">Companies</a></li>
-                                        <li><a href="/american/divisions/">Divisons</a></li>
-                                        <li><a href="/american/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/american/support-vehicles/">Support Vehicles</a></li>
-                                        <li><a href="/american/afvs/tanks">Tanks</a></li>
+                                        <li><a href="/american/afvs/">American AFVs</a></li>
+                                        <li><a href="/american/artillery/">American Artillery</a></li>
+                                        <li><a href="/american/companies/">American Companies</a></li>
+                                        <li><a href="/american/divisions/">American Divisons</a></li>
+                                        <li><a href="/american/infantry-weapons/">American Infantry Weapons</a></li>
+                                        <li><a href="/american/support-vehicles/">American Support Vehicles</a></li>
+                                        <li><a href="/american/afvs/tanks">American Tanks</a></li>
                                     </ul>
                               </li>
                               <li class="dropdown"><a href="/british/">
                                     <div class="flag flag-icon-background flag-icon-gb"></div>
                                     <span>Britain</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/british/afvs/">AFVs</a></li>
-                                        <li><a href="/british/artillery/">Artillery</a></li>
-                                        <li><a href="/british/companies/">Companies</a></li>
-                                        <li><a href="/british/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/british/afvs/tanks">Tanks</a></li>
+                                        <li><a href="/british/afvs/">British AFVs</a></li>
+                                        <li><a href="/british/artillery/">British Artillery</a></li>
+                                        <li><a href="/british/companies/">British Companies</a></li>
+                                        <li><a href="/british/infantry-weapons/">British Infantry Weapons</a></li>
+                                        <li><a href="/british/afvs/tanks">British Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/french/">
                                     <div class="flag flag-icon-background flag-icon-fr"></div>
                                     <span>France</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/french/afvs/">AFVs</a></li>
-                                        <li><a href="/french/artillery/">Artillery</a></li>
-                                        <li><a href="/french/companies/">Companies</a></li>
-                                        <li><a href="/french/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/french/support-vehicles/">Support Vehicles</a></li>
-                                        <li><a href="/french/afvs/tanks">Tanks</a></li>
+                                        <li><a href="/french/afvs/">French AFVs</a></li>
+                                        <li><a href="/french/artillery/">French Artillery</a></li>
+                                        <li><a href="/french/companies/">French Companies</a></li>
+                                        <li><a href="/french/infantry-weapons/">French Infantry Weapons</a></li>
+                                        <li><a href="/french/support-vehicles/">French Support Vehicles</a></li>
+                                        <li><a href="/french/afvs/tanks">French Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/german/">
                                     <div class="flag flag-icon-background flag-icon-de"></div>
                                     <span>German</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/german/afvs/">AFVs</a></li>
-                                        <li><a href="/german/artillery/">Artillery</a></li>
-                                        <li><a href="/german/companies/">Companies</a></li>
-                                        <li><a href="/german/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/german/support-vehicles/">Support Vehicles</a></li>
-                                        <li><a href="/german/afvs/tanks">Tanks</a></li>
+                                        <li><a href="/german/afvs/">German AFVs</a></li>
+                                        <li><a href="/german/artillery/">German Artillery</a></li>
+                                        <li><a href="/german/companies/">German Companies</a></li>
+                                        <li><a href="/german/infantry-weapons/">German Infantry Weapons</a></li>
+                                        <li><a href="/german/support-vehicles/">German Support Vehicles</a></li>
+                                        <li><a href="/german/afvs/tanks">German Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/hungarian/">
                                     <div class="flag flag-icon-background flag-icon-hu"></div>
                                     <span>Hungary</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/hungarian/afvs/">AFVs</a></li>
-                                        <li><a href="/hungarian/artillery/">Artillery</a></li>
-                                        <li><a href="/hungarian/companies/">Companies</a></li>
-                                        <li><a href="/hungarian/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/hungarian/support-vehicles/">Support Vehicles</a></li>
+                                        <li><a href="/hungarian/afvs/">Hungarian AFVs</a></li>
+                                        <li><a href="/hungarian/artillery/">Hungarian Artillery</a></li>
+                                        <li><a href="/hungarian/companies/">Hungarian Companies</a></li>
+                                        <li><a href="/hungarian/infantry-weapons/">Hungarian Infantry Weapons</a></li>
+                                        <li><a href="/hungarian/support-vehicles/">Hungarian Support Vehicles</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/italian/">
                                     <div class="flag flag-icon-background flag-icon-it"></div>
                                     <span>Italy</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/italian/afvs/">AFVs</a></li>
-                                        <li><a href="/italian/artillery/">Artillery</a></li>
-                                        <li><a href="/italian/companies/">Companies</a></li>
-                                        <li><a href="/italian/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/italian/support-vehicles/">Support Vehicles</a></li>
+                                        <li><a href="/italian/afvs/">Italian AFVs</a></li>
+                                        <li><a href="/italian/artillery/">Italian Artillery</a></li>
+                                        <li><a href="/italian/companies/">Italian Companies</a></li>
+                                        <li><a href="/italian/infantry-weapons/">Italian Infantry Weapons</a></li>
+                                        <li><a href="/italian/support-vehicles/">Italian Support Vehicles</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/japanese/">
                                     <div class="flag flag-icon-background flag-icon-jp"></div>
                                     <span>Japan</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/japanese/afvs/">AFVs</a></li>
-                                        <li><a href="/japanese/artillery/">Artillery</a></li>
-                                        <li><a href="/japanese/companies/">Companies</a></li>
-                                        <li><a href="/japanese/infantry-weapons/">Infantry Weapons</a></li>
+                                        <li><a href="/japanese/afvs/">Japanese AFVs</a></li>
+                                        <li><a href="/japanese/artillery/">Japanese Artillery</a></li>
+                                        <li><a href="/japanese/companies/">Japanese Companies</a></li>
+                                        <li><a href="/japanese/infantry-weapons/">Japanese Infantry Weapons</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/polish/">
                                     <div class="flag flag-icon-background flag-icon-pl"></div>
                                     <span>Polish</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/polish/afvs/">AFVs</a></li>
-                                        <li><a href="/polish/artillery/">Artillery</a></li>
-                                        <li><a href="/polish/companies/">Companies</a></li>
-                                        <li><a href="/polish/infantry-weapons/">Infantry Weapons</a></li>
+                                        <li><a href="/polish/afvs/">Polish AFVs</a></li>
+                                        <li><a href="/polish/artillery/">Polish Artillery</a></li>
+                                        <li><a href="/polish/companies/">Polish Companies</a></li>
+                                        <li><a href="/polish/infantry-weapons/">Polish Infantry Weapons</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/romanian/">
                                     <div class="flag flag-icon-background flag-icon-ro"></div>
                                     <span>Romania</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/polish/afvs/">AFVs</a></li>
-                                        <li><a href="/polish/artillery/">Artillery</a></li>
-                                        <li><a href="/polish/companies/">Companies</a></li>
-                                        <li><a href="/polish/infantry-weapons/">Infantry Weapons</a></li>
+                                        <li><a href="/polish/afvs/">Romanian AFVs</a></li>
+                                        <li><a href="/polish/artillery/">Romanian Artillery</a></li>
+                                        <li><a href="/polish/companies/">Romanian Companies</a></li>
+                                        <li><a href="/polish/infantry-weapons/">Romanian Infantry Weapons</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/russian/">
                                     <div class="flag flag-icon-background flag-icon-ru"></div>
                                     <span>Russia</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/russian/afvs/">AFVs</a></li>
-                                        <li><a href="/russian/artillery/">Artillery</a></li>
-                                        <li><a href="/russian/companies/">Companies</a></li>
-                                        <li><a href="/russian/infantry-weapons/">Infantry Weapons</a></li>
-                                        <li><a href="/russian/afvs/tanks">Tanks</a></li>
+                                        <li><a href="/russian/afvs/">Russian AFVs</a></li>
+                                        <li><a href="/russian/artillery/">Russian Artillery</a></li>
+                                        <li><a href="/russian/companies/">Russian Companies</a></li>
+                                        <li><a href="/russian/infantry-weapons/">Russian Infantry Weapons</a></li>
+                                        <li><a href="/russian/afvs/tanks">Russian Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown">
@@ -234,7 +234,7 @@ class Page
                                             <div class="moreflag flag-icon-background flag-icon-dk"></div>
                                       </a>
                                       </li>
-                                      <li><a href="/dutch-west-indies/">
+                                      <li><a href="/dutch-east-indies/">
                                             <div class="moreflag flag-icon-background flag-icon-an"></div>
                                       </a>
                                       </li>

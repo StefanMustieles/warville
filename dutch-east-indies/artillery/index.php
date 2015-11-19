@@ -23,17 +23,17 @@ if($uriParts[3] == '' || strpos($uriParts[3], 'index') !== FALSE) {
 if(!$isSubCategory) {
     $db->query('SELECT t1.description, t2.name AS country, t1.name, t1.meta_description '
             . 'FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
-            . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(1, 1)
+            . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(25, 93)
     );
 }
 else {
     $db->query('SELECT t1.description, t3.name AS country, t1.name, t1.meta_description '
              . 'FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
              . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
-             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(1, $uriParts[3])
+             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(25, $uriParts[3])
     );
 }
-
+												
 while ($row = $db->fetch_assoc()) {
 
 $descriptionText = $row["description"];							
@@ -74,7 +74,7 @@ $postContent = sprintf('<div id="loading"></div>
 $db->select(
     'sub_category_id, name, seo_url',
     'sub_categories',
-    'category_id = ? AND active = 1', array(1), 'sort_order'
+    'category_id = ? AND active = 1', array(93), 'sort_order'
 );
 												
 while ($row = $db->fetch_assoc()) {
@@ -90,19 +90,19 @@ $postContent .= '</div>
 
 		<div class="col-md-9 itemHolder">
                     <div class="row">';
-
+						
 if(!$isSubCategory) {
     $db->query(
         'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text FROM `items` AS t1 '
           . 'INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
-            . 'WHERE t2.category_id = ?', array(1)
+            . 'WHERE t2.category_id = ?', array(93)
     );
 }
 else {
     $db->query(
         'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text FROM `items` AS t1 '
           . 'INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
-            . 'WHERE t2.category_id = ? AND t2.seo_url = LOWER(?)', array(1, $uriParts[3])
+            . 'WHERE t2.category_id = ? AND t2.seo_url = LOWER(?)', array(93, $uriParts[3])
     );
 }
 
