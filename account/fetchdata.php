@@ -282,6 +282,7 @@ function updateAFV($item_id) {
             'gun_mounts' => $_POST["gun_mounts"],
             'maximum_range' => $_POST["maximum_range"],
             'armour_penetration' => $_POST["armour_penetration"],
+            'gun_sight' => $_POST["gun_sight"],
             'secondary_armament' => $_POST["secondary_armament"],
             'smoke_discharger' => $_POST["smoke_discharger"],
             'ammunition_carried' => $_POST["ammunition_carried"],
