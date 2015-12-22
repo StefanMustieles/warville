@@ -57,7 +57,7 @@ function loadContent(url, sub_id, country, mainCat){
             }
             else if (key == 1) {
                 $("#description").empty();
-                $("#description").text(value);
+                $("#description").html(value);
             }
             else {
                 $(".itemHolder .row").append(value);
