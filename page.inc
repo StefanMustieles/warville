@@ -219,59 +219,73 @@ class Page
                                     <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                                     <ul class="dropdown-menu more">
                                       <li><a href="/belgian/">
-                                            <div class="moreflag flag-icon-background flag-icon-be"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-be"></div>
+                                        <span>Belgium</span>
                                       </a>
                                       </li>
                                       <li><a href="/bulgarian/">
-                                            <div class="moreflag flag-icon-background flag-icon-bg"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-bg"></div>
+                                        <span>Bulgarian</span>
                                       </a>
                                       </li>
                                       <li><a href="/czechoslovakian/">
-                                            <div class="moreflag flag-icon-background flag-icon-cz"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-cz"></div>
+                                        <span>Czechoslovakian</span>
                                       </a>
                                       </li>
                                       <li><a href="/danish/">
-                                            <div class="moreflag flag-icon-background flag-icon-dk"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-dk"></div>
+                                        <span>Danish</span>
                                       </a>
                                       </li>
                                       <li><a href="/dutch-east-indies/">
-                                            <div class="moreflag flag-icon-background flag-icon-an"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-an"></div>
+                                        <span>Dutch East Indies</span>
                                       </a>
                                       </li>
                                       <li><a href="/estonian/">
-                                            <div class="moreflag flag-icon-background flag-icon-ee"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-ee"></div>
+                                        <span>Estonian</span>
                                       </a>
                                       </li>
                                       <li><a href="/finnish/">
-                                            <div class="moreflag flag-icon-background flag-icon-fi"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-fi"></div>
+                                        <span>Finnish</span>
                                       </a>
                                       </li>
                                       <li><a href="/greek/">
-                                            <div class="moreflag flag-icon-background flag-icon-gr"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-gr"></div>
+                                        <span>Greek</span>
                                       </a>
                                       </li>
                                       <li><a href="/holland/">
-                                            <div class="moreflag flag-icon-background flag-icon-nl"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-nl"></div>
+                                        <span>Holland</span>
                                       </a>
                                       </li>
                                       <li><a href="/latvian/">
-                                            <div class="moreflag flag-icon-background flag-icon-lv"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-lv"></div>
+                                        <span>Latvian</span>
                                       </a>
                                       </li>
                                       <li><a href="/lithuanian/">
-                                            <div class="moreflag flag-icon-background flag-icon-lt"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-lt"></div>
+                                        <span>Lithuanian</span>
                                       </a>
                                       </li>
                                       <li><a href="/norwegian/">
-                                            <div class="moreflag flag-icon-background flag-icon-no"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-no"></div>
+                                        <span>Norwegian</span>
                                       </a>
                                       </li>
                                       <li><a href="/swedish/">
-                                            <div class="moreflag flag-icon-background flag-icon-se"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-se"></div>
+                                        <span>Swedish</span>
                                       </a>
                                       </li>
                                       <li><a href="/yugoslavian/">
-                                            <div class="moreflag flag-icon-background flag-icon-yg"></div>
+                                        <div class="moreflag flag-icon-background flag-icon-yg"></div>
+                                        <span>Yugoslavian</span>
                                       </a>
                                       </li>
                                     </ul>

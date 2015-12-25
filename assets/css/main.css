@@ -345,6 +345,11 @@ input.search-form:hover {
 /*************************
 *******Home Page******
 **************************/
+.carouselImg img {
+  width: 100%;
+  height: 500px !important;
+  max-height: 500px !important;
+}
 
 #main-slider {
   position: relative;
