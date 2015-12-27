@@ -16,6 +16,11 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
             $category_id = $_POST['category_id'];
             getSubCategories($category_id);
             break;
+        case 'update_country_description':
+            $country_id = $_POST['country_id'];
+            $description = $_POST['description'];
+            updateCountryDescription($country_id, $description);
+            break;
         case 'update_description':
             $category_id = $_POST['category_id'];
             $description = $_POST['description'];
@@ -115,6 +120,21 @@ function getSubCategories($category_id) {
     }
     
     print json_encode($rows);
+}
+
+function updateCountryDescription($country_id, $description) {
+    
+    $db = new Zebra_Database();
+    $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+    
+    $db->update(
+        'countries',
+        array(
+            'description' => $description,
+        ),
+        'country_id = ?',
+        array($country_id)
+    );
 }
 
 function updateDescription($category_id, $description) {

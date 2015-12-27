@@ -1,6 +1,6 @@
 $(function() {
         $(".list-group a").click(function(e) {
-            $("#loading").show();
+            myApp.showPleaseWait();
             var href = $(this).attr("href");
             var sub_id = $(this).attr("id");
 
@@ -21,7 +21,7 @@ $(function() {
 
         // THIS EVENT MAKES SURE THAT THE BACK/FORWARD BUTTONS WORK AS WELL
         window.onpopstate = function(event) {
-            $("#loading").show();
+            myApp.showPleaseWait();
             var urlParts = location.pathname.split("/");
             var sub_id;
             if(urlParts[3] == "index.php" || urlParts[3] == "") {
@@ -34,6 +34,20 @@ $(function() {
             $('link[rel="canonical"]').attr('href', window.location.href);
         };
     });
+
+var myApp;
+myApp = myApp || (function () {
+    var pleaseWaitDiv = $('<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>');
+    return {
+        showPleaseWait: function() {
+            pleaseWaitDiv.modal();
+        },
+        hidePleaseWait: function () {
+            pleaseWaitDiv.modal('hide');
+        },
+
+    };
+})();
 
 function loadContent(url, sub_id, country, mainCat){
     // USES JQUERY TO LOAD THE CONTENT
@@ -63,7 +77,7 @@ function loadContent(url, sub_id, country, mainCat){
                 $(".itemHolder .row").append(value);
             }
         });
-        $("#loading").hide();
+        myApp.hidePleaseWait();
     });
 
     // FILTER LIST REFLECTS THE CURRENT URL

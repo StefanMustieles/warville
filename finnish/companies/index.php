@@ -29,8 +29,7 @@ $homepage->metadescription = $metaDescription;
 
 $title = $country . ' ' . $category;
 
-$postContent = sprintf('<div id="loading"></div>
-                        <section id="content">
+$postContent = sprintf('<section id="content">
                             <div class="container">
                                 <div class="row">
                                     <ul class="breadcrumb">

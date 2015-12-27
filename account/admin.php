@@ -61,6 +61,13 @@
                     </select>
                     </td>
                 </tr>
+                <tr id="trCountryDescription" style="display: none;">
+                    <td><label for="countrydescription">Category Description</label></td>
+                    <td>
+                        <textarea id="countrydescription" style="width: 800px; height: 163px;"></textarea>
+                        <button id="btUpdateCountryDescription" type="button" class="btn btn-success">Update</button>
+                    </td>
+                </tr>
                 <tr id="trCategories" style="display: none;">
                     <td><label for="categories">Categories</label></td>
                     <td><select id="categories" name="maincategory">
@@ -243,6 +250,7 @@ $(document).ready(function(){
                     $.each(obj, function(key, value) {
                         $("select#categories").append($("<option />").val(value.category_id).text(value.name));
                     });
+                    $("tr#trCountryDescription").show();
                     $("tr#trCategories").show();
                     myApp.hidePleaseWait();
                 }
@@ -253,6 +261,7 @@ $(document).ready(function(){
             $("div#itemsList").hide();
         }
         else {
+            $("tr#trCountryDescription").hide();
             $("tr#trCategories").hide();
             $("tr#trFileUpload").hide();
             $("tr#trCategoryDescription").hide();
@@ -304,6 +313,29 @@ $(document).ready(function(){
             $("tr#trSubCategoryDescription").hide();
             $("div#newItem").hide();
             $("div#itemsList").hide();
+        }
+    });
+    
+    $("#btUpdateCountryDescription").click(function() {
+        
+        var country_id = $("select#countries option:selected").attr('value');
+        var description = $("#countrydescription").val();
+
+        if (country_id.length > 0 ) {
+
+            $.ajax({
+                type: "POST",
+                url: "fetchdata.php",
+                data: {action: 'update_country_description', country_id: country_id, description: description},
+                cache: false,
+                beforeSend: function () {
+                    myApp.showPleaseWait();
+                },
+                success: function() {
+                    myApp.hidePleaseWait();
+                    alert('Country description updated!');  
+                }
+            });
         }
     });
     

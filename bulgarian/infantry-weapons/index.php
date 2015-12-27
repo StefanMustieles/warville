@@ -43,8 +43,7 @@ $category = $row["name"];
 
 $title = $country . ' ' . $category;
 
-$postContent = sprintf('<div id="loading"></div>
-                        <section id="content">
+$postContent = sprintf('<section id="content">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
