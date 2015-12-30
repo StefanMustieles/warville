@@ -217,7 +217,7 @@ class Page
                               </a></li>
                               <li class="dropdown">
                                     <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                                    <ul class="dropdown-menu more">
+                                    <ul class="dropdown-menu pull-right list-inline more">
                                       <li><a href="/belgian/">
                                         <div class="moreflag flag-icon-background flag-icon-be"></div>
                                         <span>Belgium</span>

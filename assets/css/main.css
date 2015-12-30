@@ -92,15 +92,19 @@ hr {
     vertical-align: middle;
 }
 .dropdown-menu {
-  min-width: 0;
   background: #191919;
 }
 .more {
-    margin-top: 15px !important
+    margin-top: 15px !important;
+    width:350px;
+}
+.more li {
+    width:140px
 }
 .dropdown-menu li a {
     color: White;
     text-align: left !important;
+    float:left;
 }
 
 .dropdown-menu li a:hover,
@@ -300,6 +304,7 @@ input.search-form:hover {
 
 .navbar .nav li {
     float: none;
+    text-align: center;
 }
 
 .navbar .nav li a {
@@ -1183,12 +1188,6 @@ ul.sidebar-gallery {
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
@@ -1197,12 +1196,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
@@ -1211,12 +1204,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- iPad 1 and 2 ----------- */
@@ -1225,12 +1212,6 @@ ul.sidebar-gallery {
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
@@ -1239,12 +1220,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
@@ -1253,12 +1228,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 1) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- iPad 3 and 4 ----------- */
@@ -1267,12 +1236,6 @@ ul.sidebar-gallery {
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 2) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
@@ -1281,12 +1244,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 2) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
@@ -1295,12 +1252,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1024px) 
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 2) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- Galaxy Tab 10.1 ----------- */
@@ -1309,36 +1260,18 @@ ul.sidebar-gallery {
 @media 
   (min-device-width: 800px) 
   and (max-device-width: 1280px) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
 @media 
   (max-device-width: 800px) 
   and (orientation: portrait) { 
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
 @media 
   (max-device-width: 1280px) 
   and (orientation: landscape) { 
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- Asus Nexus 7 ----------- */
@@ -1394,12 +1327,6 @@ ul.sidebar-gallery {
   and (min-device-width: 800px) 
   and (max-device-width: 1280px) 
   and (-webkit-min-device-pixel-ratio: 1.5) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
@@ -1408,12 +1335,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1280px) 
   and (-webkit-min-device-pixel-ratio: 1.5) 
   and (orientation: portrait) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
@@ -1422,12 +1343,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1280px) 
   and (-webkit-min-device-pixel-ratio: 1.5) 
   and (orientation: landscape) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- Kindle Fire HD 8.9" ----------- */
@@ -1437,12 +1352,6 @@ ul.sidebar-gallery {
   and (min-device-width: 1200px) 
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1.5) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Portrait */
@@ -1451,12 +1360,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1.5) 
   and (orientation: portrait) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* Landscape */
@@ -1465,12 +1368,6 @@ ul.sidebar-gallery {
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1.5) 
   and (orientation: landscape) {
-	.searcher {
-        display:none;
-    }
-    .mainLogo {
-        width: 100%;
-    }
 }
 
 /* ----------- Non-Retina Screens ----------- */

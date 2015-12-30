@@ -32,7 +32,7 @@ $postContent = sprintf('<section id="content">
                                         <li><a href="../">Home</a></li>
                                         <li class="active">%s</li>
                                     </ul>
-                                    <h1>%s Army</h1>
+                                    <h1>Royal %s Army</h1>
                                     <p>%s</p>
                                 </div><!--/.row-->
                         </div><!--/.container-->
