@@ -7,12 +7,36 @@ $(function() {
             if(sub_id == 'All') {
                 var urlParts = location.pathname.split("/");
                 href = urlParts[0] + '/' + urlParts[1] + '/' + urlParts[2] + '/';
+                //Remove previously added breadcrumb if it exists
+                if($('ul.breadcrumb li').length == 4) {
+                    $('ul.breadcrumb li:last-child').remove();
+                    $('ul.breadcrumb li:last-child').addClass('active');
+                    var linkText = $('ul.breadcrumb li:last-child a').text();
+                    $('ul.breadcrumb li:last-child').empty();
+                    $('ul.breadcrumb li:last-child').text(linkText);
+                }
+                
                 window.history.pushState("object", href, href);
                 href = '';
                 loadContent(href, sub_id, urlParts[1], urlParts[2]);
             } 
             else { 
                 loadContent(href, sub_id, null, null);
+                //Remove previously added breadcrumb if it exists
+                if($('ul.breadcrumb li').length == 4) {
+                    $('ul.breadcrumb li:last-child').remove();
+                    $('ul.breadcrumb li:last-child').addClass('active');
+                }
+                var categoryText = $('ul.breadcrumb li.active').text();
+                var urlParts = location.pathname.split("/");
+                var categoryLink = urlParts[0] + '/' + urlParts[1] + '/' + urlParts[2] + '/';
+                $('ul.breadcrumb li.active').empty();
+                $('ul.breadcrumb li.active').append('<a href="' + categoryLink + '">' + categoryText + '</a>');
+                $('ul.breadcrumb li.active').removeClass('active');
+                //Add active link to breadcrumbs
+                var linkText = $(this).text();
+                $('ul.breadcrumb').append('<li class="active">' + linkText + '</li>');
+                //Push history
                 window.history.pushState("object", href, href);
             }
             $('link[rel="canonical"]').attr('href', window.location.href);
