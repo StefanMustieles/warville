@@ -21,13 +21,13 @@ if($uriParts[3] == '' || strpos($uriParts[3], 'index') !== FALSE) {
 }
 
 if(!$isSubCategory) {
-    $db->query('SELECT t1.description, t2.name AS country, t1.name, t1.meta_description '
+    $db->query('SELECT t1.description, t2.name AS country, t1.name, "" AS sub_category, t1.meta_description '
             . 'FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
             . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(14, 48)
     );
 }
 else {
-    $db->query('SELECT t1.description, t3.name AS country, t1.name, t1.meta_description '
+    $db->query('SELECT t1.description, t3.name AS country, t2.name, t1.name AS sub_category, t1.meta_description '
              . 'FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
              . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
              . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(14, $uriParts[3])
@@ -39,6 +39,7 @@ while ($row = $db->fetch_assoc()) {
 $descriptionText = $row["description"];							
 $country = $row["country"];
 $category = $row["name"];
+$sub_category = $row["sub_category"];
 $metaDescription = $row["meta_description"];
 }
 
@@ -52,23 +53,30 @@ $postContent = sprintf('<section id="content">
                                     <div class="col-md-12">
                                         <ul class="breadcrumb">
                                             <li><a href="../../">Home</a></li>
-                                            <li><a href="../">%s</a></li>
-                                            <li class="active">%s</li>
-                                        </ul>
-                                        <h1 id="contentHeader">%s</h1>
-                                        <p id="description">%s</p>
-                                    </div>
-                                </div><!--/.row-->
-                            </div><!--/.container-->
-                    </section><!--/#content-->
+                                            <li><a href="../">%s</a></li>', $country);
+if(!$isSubCategory) {
+    $postContent .= sprintf('<li class="active">%s</li>', $category);
+}
+else {
+    $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '">%s</a></li>
+                             <li class="active">%s</li>', $category, $sub_category);
+}
 
-                    <section id="content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p class="lead">Filters</p>
-                                        <div class="list-group">
-                                            <a id="All" class="list-group-item%s">All</a>', $country, $category, $title, $descriptionText, $isSubCategory == false ? ' active' : '');
+$postContent .= sprintf('</ul>
+                        <h1 id="contentHeader">%s</h1>
+                        <p id="description">%s</p>
+                    </div>
+                </div><!--/.row-->
+            </div><!--/.container-->
+    </section><!--/#content-->
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="lead">Filters</p>
+                        <div class="list-group">
+                            <a id="All" class="list-group-item%s">All</a>', $title, $descriptionText, $isSubCategory == false ? ' active' : '');
 
 $db->select(
     'sub_category_id, name, seo_url',
