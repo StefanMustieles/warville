@@ -41,10 +41,9 @@ $postContent = sprintf('<section id="content">
                         <section id="content">
                         <div class="container">', $name, $name, $description);
 
-$db->select(
-    'name, folder_name',
-    'categories',
-    'country_id = ?', array(4)
+$db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name
+            FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id
+            WHERE t1.country_id = ?', array(4)
 );
 
 while ($row = $db->fetch_assoc()) {
@@ -56,21 +55,20 @@ $postContent .=	 '<div class="row">
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>' . $row["name"] . '</h3>
+                <a href="' . $row["folder_name"] . '/"><h2>' . $row["name"] . '</h2></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
                 <a class="btn btn-primary" href="' . $row["folder_name"] . '/">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
 
-        <hr>';								
-                                                        
+        <hr>';
 }
 
 $postContent .= '</div><!--/#container-->
             </section><!--/#content-->';
 
-$homepage->title =  $name . ' Military Force - ' . $homepage->title;
+$homepage->title =  $name . ' Army - ' . $homepage->title;
 
 $homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
