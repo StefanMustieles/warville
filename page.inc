@@ -106,7 +106,7 @@ class Page
                             <ul class="nav navbar-nav nav-justified">
                               <li class="dropdown"><a href="/american/">
                                     <div class="flag flag-icon-background flag-icon-us"></div>
-                                    <span>America</span></a>
+                                    <span>American Army</span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/american/afvs/">American AFVs</a></li>
                                         <li><a href="/american/artillery/">American Artillery</a></li>
@@ -119,7 +119,7 @@ class Page
                               </li>
                               <li class="dropdown"><a href="/british/">
                                     <div class="flag flag-icon-background flag-icon-gb"></div>
-                                    <span>Britain</span>
+                                    <span>British Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/british/afvs/">British AFVs</a></li>
                                         <li><a href="/british/artillery/">British Artillery</a></li>
@@ -130,7 +130,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/french/">
                                     <div class="flag flag-icon-background flag-icon-fr"></div>
-                                    <span>France</span>
+                                    <span>French Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/french/afvs/">French AFVs</a></li>
                                         <li><a href="/french/artillery/">French Artillery</a></li>
@@ -142,7 +142,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/german/">
                                     <div class="flag flag-icon-background flag-icon-de"></div>
-                                    <span>German</span>
+                                    <span>German Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/german/afvs/">German AFVs</a></li>
                                         <li><a href="/german/artillery/">German Artillery</a></li>
@@ -154,7 +154,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/hungarian/">
                                     <div class="flag flag-icon-background flag-icon-hu"></div>
-                                    <span>Hungary</span>
+                                    <span>Hungarian Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/hungarian/afvs/">Hungarian AFVs</a></li>
                                         <li><a href="/hungarian/artillery/">Hungarian Artillery</a></li>
@@ -165,7 +165,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/italian/">
                                     <div class="flag flag-icon-background flag-icon-it"></div>
-                                    <span>Italy</span>
+                                    <span>Italian Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/italian/afvs/">Italian AFVs</a></li>
                                         <li><a href="/italian/artillery/">Italian Artillery</a></li>
@@ -176,7 +176,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/japanese/">
                                     <div class="flag flag-icon-background flag-icon-jp"></div>
-                                    <span>Japan</span>
+                                    <span>Japanese Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/japanese/afvs/">Japanese AFVs</a></li>
                                         <li><a href="/japanese/artillery/">Japanese Artillery</a></li>
@@ -186,7 +186,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/polish/">
                                     <div class="flag flag-icon-background flag-icon-pl"></div>
-                                    <span>Polish</span>
+                                    <span>Polish Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/polish/afvs/">Polish AFVs</a></li>
                                         <li><a href="/polish/artillery/">Polish Artillery</a></li>
@@ -196,7 +196,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/romanian/">
                                     <div class="flag flag-icon-background flag-icon-ro"></div>
-                                    <span>Romania</span>
+                                    <span>Romanian Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/polish/afvs/">Romanian AFVs</a></li>
                                         <li><a href="/polish/artillery/">Romanian Artillery</a></li>
@@ -206,7 +206,7 @@ class Page
                               </a></li>
                               <li class="dropdown"><a href="/russian/">
                                     <div class="flag flag-icon-background flag-icon-ru"></div>
-                                    <span>Russia</span>
+                                    <span>Russian Army</span>
                                     <ul class="dropdown-menu">
                                         <li><a href="/russian/afvs/">Russian AFVs</a></li>
                                         <li><a href="/russian/artillery/">Russian Artillery</a></li>
@@ -220,72 +220,72 @@ class Page
                                     <ul class="dropdown-menu pull-right list-inline more">
                                       <li><a href="/belgian/">
                                         <div class="moreflag flag-icon-background flag-icon-be"></div>
-                                        <span>Belgium</span>
+                                        <span>Belgian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/bulgarian/">
                                         <div class="moreflag flag-icon-background flag-icon-bg"></div>
-                                        <span>Bulgarian</span>
+                                        <span>Bulgarian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/czechoslovakian/">
                                         <div class="moreflag flag-icon-background flag-icon-cz"></div>
-                                        <span>Czechoslovakian</span>
+                                        <span>Czechoslovakian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/danish/">
                                         <div class="moreflag flag-icon-background flag-icon-dk"></div>
-                                        <span>Danish</span>
+                                        <span>Danish Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/dutch-east-indies/">
                                         <div class="moreflag flag-icon-background flag-icon-an"></div>
-                                        <span>Dutch East Indies</span>
+                                        <span>Dutch East Indies Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/estonian/">
                                         <div class="moreflag flag-icon-background flag-icon-ee"></div>
-                                        <span>Estonian</span>
+                                        <span>Estonian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/finnish/">
                                         <div class="moreflag flag-icon-background flag-icon-fi"></div>
-                                        <span>Finnish</span>
+                                        <span>Finnish Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/greek/">
                                         <div class="moreflag flag-icon-background flag-icon-gr"></div>
-                                        <span>Greek</span>
+                                        <span>Greek Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/holland/">
                                         <div class="moreflag flag-icon-background flag-icon-nl"></div>
-                                        <span>Holland</span>
+                                        <span>Holland Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/latvian/">
                                         <div class="moreflag flag-icon-background flag-icon-lv"></div>
-                                        <span>Latvian</span>
+                                        <span>Latvian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/lithuanian/">
                                         <div class="moreflag flag-icon-background flag-icon-lt"></div>
-                                        <span>Lithuanian</span>
+                                        <span>Lithuanian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/norwegian/">
                                         <div class="moreflag flag-icon-background flag-icon-no"></div>
-                                        <span>Norwegian</span>
+                                        <span>Norwegian Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/swedish/">
                                         <div class="moreflag flag-icon-background flag-icon-se"></div>
-                                        <span>Swedish</span>
+                                        <span>Swedish Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/yugoslavian/">
                                         <div class="moreflag flag-icon-background flag-icon-yg"></div>
-                                        <span>Yugoslavian</span>
+                                        <span>Yugoslavian Army</span>
                                       </a>
                                       </li>
                                     </ul>

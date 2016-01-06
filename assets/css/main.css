@@ -91,11 +91,11 @@ hr {
   background: #191919;
 }
 .more {
-    margin-top: 15px !important;
+    margin-top: 25px !important;
     width:350px;
 }
 .more li {
-    width:140px
+    width:170px
 }
 .dropdown-menu li a {
     color: White;
