@@ -62,7 +62,7 @@
                     </td>
                 </tr>
                 <tr id="trCountryDescription" style="display: none;">
-                    <td><label for="countrydescription">Category Description</label></td>
+                    <td><label for="countrydescription">Country Description</label></td>
                     <td>
                         <textarea id="countrydescription" style="width: 800px; height: 163px;"></textarea>
                         <button id="btUpdateCountryDescription" type="button" class="btn btn-success">Update</button>

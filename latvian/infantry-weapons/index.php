@@ -58,7 +58,7 @@ if(!$isSubCategory) {
     $postContent .= sprintf('<li class="active">%s</li>', $category);
 }
 else {
-    $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '">%s</a></li>
+    $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '/">%s</a></li>
                              <li class="active">%s</li>', $category, $sub_category);
 }
 

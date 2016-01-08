@@ -30,7 +30,7 @@ else {
     $db->query('SELECT t1.description, t3.name AS country, t2.name, t1.name AS sub_category, t1.meta_description '
              . 'FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
              . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
-             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(51, $uriParts[3])
+             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(15, $uriParts[3])
     );
 }
 												
@@ -58,7 +58,7 @@ if(!$isSubCategory) {
     $postContent .= sprintf('<li class="active">%s</li>', $category);
 }
 else {
-    $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '">%s</a></li>
+    $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '/">%s</a></li>
                              <li class="active">%s</li>', $category, $sub_category);
 }
 

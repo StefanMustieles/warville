@@ -355,24 +355,32 @@ $address = 'http://'.$_SERVER['HTTP_HOST'];
 $content = '<section id="content">
                 <div class="container">
                     <div class="row">
-                        <ul class="breadcrumb">
-                            <li><a href="' . $address . '">Home</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[0]) . '/">%s</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[1]) . '/">%s</a></li>
-                            <li class="active">%s</li>
-                        </ul>
-                        <h1>%s</h1>
-                            <div class="col-md-12">
-                                <div class="thumbnail clearfix">
-                                    <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
-                                    <div class="caption largeImageCaption" class="pull-right">'
-                                        . $imageCaption .
-                                    '</div>
-                                </div>
-                                <div class="caption-full">'
-                                     . $tpl->output() . 
+                        <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="' . $address . '">Home</a></li>
+                                <li><a href="' .($address .= '/'.$dirlist[0]) . '/">%s</a></li>
+                                <li><a href="' .($address .= '/'.$dirlist[1]) . '/">%s</a></li>
+                                <li class="active">%s</li>
+                            </ul>
+                            <h1>%s</h1>
+                        </div><!--/.col-md-12-->
+                    </div><!--/.row-->
+                </div><!--/.container-->
+            </section><!--/#content-->
+            <section id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="thumbnail clearfix">
+                                <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
+                                <div class="caption largeImageCaption" class="pull-right">'
+                                    . $imageCaption .
                                 '</div>
-                            </div><!--/.col-md-12-->
+                            </div>
+                            <div class="caption-full">'
+                                 . $tpl->output() . 
+                            '</div>
+                        </div><!--/.col-md-12-->
                     </div><!--/.row-->
                 </div><!--/.container-->
             </section><!--/#content-->';
