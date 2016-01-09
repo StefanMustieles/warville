@@ -90,7 +90,9 @@ function getCategtories($country_id) {
     $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
     
     //Get records from database
-    $db->select('category_id, name', 'categories', 'country_id = ?', array($country_id), 'name ASC');
+    $db->query('SELECT t1.category_id, t1.name, t2.description AS description FROM categories AS t1 
+                INNER JOIN countries AS t2 ON t1.country_id = t2.country_id 
+                WHERE t2.country_id = ?', array($country_id), 'name ASC');
 
     //Add all records to an array
     $rows = array();

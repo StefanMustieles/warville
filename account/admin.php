@@ -247,6 +247,7 @@ $(document).ready(function(){
                 success: function(html) {
                     $("select#categories > option:gt(0)").remove();
                     var obj = jQuery.parseJSON(html);
+                    $("#countrydescription").val(obj[0].description);
                     $.each(obj, function(key, value) {
                         $("select#categories").append($("<option />").val(value.category_id).text(value.name));
                     });
@@ -289,13 +290,11 @@ $(document).ready(function(){
                 success: function(html) {
                     $("select#sub_categories > option:gt(0)").remove();
                     var obj = jQuery.parseJSON(html);
-                    var textDescription;
+                    $("#categorydescription").val(obj[0].description);
                     $.each(obj, function(key, value) {
                         $("select#sub_categories").append($("<option />").val(value.sub_category_id).text(value.name));
-                        textDescription = value.description;
                     });
                     $("tr#trFileUpload").show();
-                    $("#categorydescription").val(textDescription);
                     $("tr#trCategoryDescription").show();
                     $("tr#trSubCategories").show();
                     myApp.hidePleaseWait();

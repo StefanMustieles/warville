@@ -45,8 +45,6 @@ $metaDescription = $row["meta_description"];
 
 $homepage->metadescription = $metaDescription;
 
-$title = $country . ' ' . $category;
-
 $postContent = sprintf('<section id="content">
                             <div class="container">
                                 <div class="row">
@@ -56,10 +54,12 @@ $postContent = sprintf('<section id="content">
                                             <li><a href="../">%s</a></li>', $country);
 if(!$isSubCategory) {
     $postContent .= sprintf('<li class="active">%s</li>', $category);
+    $title = $country . ' ' . $category;
 }
 else {
     $postContent .= sprintf('<li><a href="' . substr($_SERVER['REQUEST_URI'], 0, strripos($_SERVER['REQUEST_URI'], "/")) . '/">%s</a></li>
                              <li class="active">%s</li>', $category, $sub_category);
+    $title = $country . ' ' . $sub_category;
 }
 
 $postContent .= sprintf('</ul>
