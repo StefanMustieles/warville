@@ -34,14 +34,17 @@ $postContent = sprintf('<section id="content">
                                     </ul>
                                     <h1>%s Army</h1>
                                     <p>%s</p>
-                                </div><!--/.row-->
+                                </div><!--/.col-md-12-->
+                            </div><!--/.row-->
                         </div><!--/.container-->
                         </section><!--/#content-->
 
                         <section id="content">
-                        <div class="container">', $name, $name, $description);
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">', $name, $name, $description);
 
-$db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name
+$db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name, t1.description
             FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id
             WHERE t1.country_id = ?', array(5)
 );
@@ -56,17 +59,17 @@ $postContent .=	 '<div class="row">
             </div>
             <div class="col-md-5">
                 <a href="' . $row["folder_name"] . '/"><h2>' . $row["name"] . '</h2></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                <p>' . $row["description"] . '</p>
                 <a class="btn btn-primary" href="' . $row["folder_name"] . '/">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
-        </div>
-        <!-- /.row -->
-
+        </div><!-- /.row -->
         <hr>';
 }
 
-$postContent .= '</div><!--/#container-->
-            </section><!--/#content-->';
+$postContent .= '</div><!--/.col-md-12-->
+                </div><!--/.row-->
+            </div><!--/#container-->
+        </section><!--/#content-->';
 
 $homepage->title =  $name . ' Army - ' . $homepage->title;
 

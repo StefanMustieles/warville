@@ -8,9 +8,9 @@ $homepage->metadescription = '';
 
 $postContent = '<section id="about-us">
                     <div class="container">
-                        <div class="center">
-                            <h2>Search Results</h2>
-                            <p class="lead text-left">';
+                        <div class="row">
+                            <div class="col-md-12 center">
+                                <h2>Search Results</h2>';
 
 // Gets value sent over search form
 if (isset($_GET['query'])) $query = $_GET['query']; 
@@ -31,29 +31,46 @@ if(strlen($query) >= $min_length){
 
     $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-    $db->query('SELECT t1.item_id, t1.name, t2.name AS sub_category, LOWER(t3.name) AS category, LOWER(t4.name) AS country, t1.friendly_url, t1.title, t1.thumbnail_image '
+    $db->query('SELECT t1.item_id, t1.name, t2.name AS sub_category, LOWER(t3.name) AS category, LOWER(t4.name) AS country, t1.friendly_url, t1.title, t1.thumbnail_image, t1.short_text, CONCAT(CONCAT(CONCAT(CONCAT(t4.folder_name, "/"), t3.folder_name), "/img/"), t1.thumbnail_image) AS image_link '
             . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id INNER JOIN categories AS t3 ON t2.category_id = t3.category_id INNER JOIN countries AS t4 ON t3.country_id = t4.country_id '
             . 'WHERE t1.name LIKE ? OR t1.title LIKE ?', array('%' . $query . '%', '%' . $query . '%')
     );
 
-	$postContent .= '<h4>' . $db->found_rows . ' result(s) found</h4>
-						<div class="table-responsive">
-						  <table class="table">';
+    $postContent .= '<h4>' . $db->found_rows . ' result(s) found for ' . $query . '</h4>';
 	
+    $i = 1;
+
     while ($row = $db->fetch_assoc()) {
-		$href = '/' . $row["country"] . '/' . $row["category"] . '/' . $row["item_id"] . '/' . $row["friendly_url"];
-        $postContent .= '<tr><td><a href="' . $href . '" class="thumbnail"><img src="' . $row["country"] . '/' . $row["category"] . '/img/' . $row["thumbnail_image"] . '" alt="'. $row["title"] .'"></a></td><td><a href="' . $href . '">' . $row["name"] . '</a></td></tr>';
+
+        $postContent .= '<div class="col-sm-4 col-lg-4 col-md-4 item">
+                            <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
+                                <div class="thumbnail">';
+
+        if(empty($row["thumbnail_image"]))
+            $postContent .= '<img src="/assets/images/awaitingImage.jpg" alt="' . $row["title"] . '" class="thumbnail-pics">';
+        else
+            $postContent .= '<img src="' . $row["image_link"] . '" alt="' . $row["title"] . '" class="thumbnail-pics">';
+
+        $postContent .='<div class="caption">
+                            <h4>' . $row["title"] . '</h4>
+                            <p>' . $row["short_text"] . '</p>
+                        </div>
+                    </div>
+                </a>
+            </div>';
+
+        if($i % 3 == 0){
+           $postContent .= '<div class="clearfix visible-xs-block"></div>';
+        }
+        $i++;
     }
-	
-	$postContent .= '</table>
-					</div>';
 }
 else { 
     $postContent .= "<h4>Please search again. Minimum search length is " . $min_length . ' characters.</h4>';
 }
 
-$postContent .= '</p>
-                </div>
+$postContent .= '</div><!--/.col-md-12-->
+                </div><!--/.row-->
             </div><!--/.container-->
         </section><!--/about-us-->';
 

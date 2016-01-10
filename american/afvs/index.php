@@ -65,7 +65,7 @@ else {
 $postContent .= sprintf('</ul>
                         <h1 id="contentHeader">%s</h1>
                         <p id="description">%s</p>
-                    </div>
+                    </div><!--/.col-md-12-->
                 </div><!--/.row-->
             </div><!--/.container-->
     </section><!--/#content-->
