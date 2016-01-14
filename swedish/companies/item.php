@@ -11,9 +11,8 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->query(
-    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.content, t1.image_source '
-     . 'FROM `items` AS t1 INNER JOIN templates AS t2 ON t1.template_id = t2.template_id INNER JOIN sub_categories AS t3 ON t1.sub_category_id = t3.sub_category_id INNER JOIN categories AS t4 ON t3.category_id = t4.category_id INNER JOIN countries AS t5 ON t4.country_id = t5.country_id '
+$db->query('SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.content, t1.image_source '
+        . 'FROM `items` AS t1 INNER JOIN templates AS t2 ON t1.template_id = t2.template_id INNER JOIN sub_categories AS t3 ON t1.sub_category_id = t3.sub_category_id INNER JOIN categories AS t4 ON t3.category_id = t4.category_id INNER JOIN countries AS t5 ON t4.country_id = t5.country_id '
         . 'WHERE t1.item_id = ?', array($_GET["itemId"])
 );
 
@@ -66,19 +65,24 @@ $content = '<section id="content">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="thumbnail clearfix">
-                                <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
-                                <div class="caption largeImageCaption" class="pull-right">'
-                                    . $imageCaption .
-                                '</div>
-                            </div>
-                            <div class="caption-full">'
-                                 . $tpl->output() . 
-                            '</div>
-                        </div><!--/.col-md-12-->
-                    </div><!--/.row-->
-                </div><!--/.container-->
-            </section><!--/#content-->';
+                            <div class="thumbnail clearfix">';
+                            
+    if(empty($large_image))
+        $content .= '<img src="/assets/images/awaitingImage.jpg" alt="%s" class="img-responsive pull-left largeImage">';
+    else
+        $content .= '<img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">';
+                                
+        $content .= '<div class="caption largeImageCaption" class="pull-right">'
+                        . $imageCaption .
+                    '</div>
+                </div>
+                <div class="caption-full">'
+                     . $tpl->output() . 
+                '</div>
+            </div><!--/.col-md-12-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#content-->';
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 

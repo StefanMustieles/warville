@@ -305,27 +305,40 @@ $address = 'http://'.$_SERVER['HTTP_HOST'];
 $content = '<section id="content">
                 <div class="container">
                     <div class="row">
-                        <ul class="breadcrumb">
-                            <li><a href="' . $address . '">Home</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[0]) . '/">%s</a></li>
-                            <li><a href="' .($address .= '/'.$dirlist[1]) . '/">%s</a></li>
-                            <li class="active">%s</li>
-                        </ul>
-                        <h1>%s</h1>
-                            <div class="col-md-12">
-                                <div class="thumbnail clearfix">
-                                    <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
-                                    <div class="caption largeImageCaption" class="pull-right">'
-                                        . $imageCaption .
-                                    '</div>
-                                </div>
-                                <div class="caption-full">'
-                                     . $tpl->output() . 
-                                '</div>
-                            </div><!--/.col-md-12-->
+                        <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li><a href="' . $address . '">Home</a></li>
+                                <li><a href="' .($address .= '/'.$dirlist[0]) . '/">%s</a></li>
+                                <li><a href="' .($address .= '/'.$dirlist[1]) . '/">%s</a></li>
+                                <li class="active">%s</li>
+                            </ul>
+                            <h1>%s</h1>
+                        </div><!--/.col-md-12-->
                     </div><!--/.row-->
                 </div><!--/.container-->
-            </section><!--/#content-->';
+            </section><!--/#content-->
+            <section id="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="thumbnail clearfix">';
+                            
+    if(empty($large_image))
+        $content .= '<img src="/assets/images/awaitingImage.jpg" alt="%s" class="img-responsive pull-left largeImage">';
+    else
+        $content .= '<img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">';
+                                
+        $content .= '<div class="caption largeImageCaption" class="pull-right">'
+                        . $imageCaption .
+                    '</div>
+                </div>
+                <div class="caption-full">'
+                     . $tpl->output() . 
+                '</div>
+            </div><!--/.col-md-12-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#content-->';
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 

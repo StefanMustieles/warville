@@ -44,8 +44,8 @@ while ($row = $db->fetch_assoc()) {
     $obstacle_clearance = $row['obstacle_clearance'];
     $trench_crossing = $row['trench_crossing'];
     $climbing_ability = $row['climbing_ability'];
-	$cargo_capacity = $row['cargo_capacity'];
-	$tow_capacity = $row['tow_capacity'];
+    $cargo_capacity = $row['cargo_capacity'];
+    $tow_capacity = $row['tow_capacity'];
     $radio = $row['radio'];
     $armour = $row['armour'];
     $engine = $row['engine'];
@@ -315,19 +315,24 @@ $content = '<section id="content">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="thumbnail clearfix">
-                                <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
-                                <div class="caption largeImageCaption" class="pull-right">'
-                                    . $imageCaption .
-                                '</div>
-                            </div>
-                            <div class="caption-full">'
-                                 . $tpl->output() . 
-                            '</div>
-                        </div><!--/.col-md-12-->
-                    </div><!--/.row-->
-                </div><!--/.container-->
-            </section><!--/#content-->';
+                            <div class="thumbnail clearfix">';
+                            
+    if(empty($large_image))
+        $content .= '<img src="/assets/images/awaitingImage.jpg" alt="%s" class="img-responsive pull-left largeImage">';
+    else
+        $content .= '<img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">';
+                                
+        $content .= '<div class="caption largeImageCaption" class="pull-right">'
+                        . $imageCaption .
+                    '</div>
+                </div>
+                <div class="caption-full">'
+                     . $tpl->output() . 
+                '</div>
+            </div><!--/.col-md-12-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#content-->';
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 

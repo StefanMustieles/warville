@@ -11,8 +11,7 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->query(
-    'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.designer, t1.type, t1.numbers_produced, t1.crew, t1.main_armament, t1.sponson_traverse, t1.elevation, t1.turret_traverse, '
+$db->query('SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.designer, t1.type, t1.numbers_produced, t1.crew, t1.main_armament, t1.sponson_traverse, t1.elevation, t1.turret_traverse, '
 	. 't1.gun_traverse, t1.gun_mounts, t1.maximum_range, t1.armour_penetration, t1.gun_sight, t1.secondary_armament, t1.smoke_discharger, t1.ammunition_carried, t1.height, t1.width, t1.length, t1.weight, t1.ground_clearance, '
 	. 't1.fording_depth, t1.trench_crossing, t1.obstacle_clearance, t1.climbing_ability, t1.radio, t1.armour, t1.engine, t1.transmission, t1.maximum_road_range, t1.maximum_cross_country_range, ' 
 	. 't1.maximum_road_speed, t1.maximum_water_range, t1.maximum_water_speed, t1.maximum_cross_country_speed, t1.variants, t1.notes, t1.image_source '
@@ -371,19 +370,24 @@ $content = '<section id="content">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="thumbnail clearfix">
-                                <img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">
-                                <div class="caption largeImageCaption" class="pull-right">'
-                                    . $imageCaption .
-                                '</div>
-                            </div>
-                            <div class="caption-full">'
-                                 . $tpl->output() . 
-                            '</div>
-                        </div><!--/.col-md-12-->
-                    </div><!--/.row-->
-                </div><!--/.container-->
-            </section><!--/#content-->';
+                            <div class="thumbnail clearfix">';
+                            
+    if(empty($large_image))
+        $content .= '<img src="/assets/images/awaitingImage.jpg" alt="%s" class="img-responsive pull-left largeImage">';
+    else
+        $content .= '<img src="../img/' . $large_image . '" alt="%s" class="img-responsive pull-left largeImage">';
+                                
+        $content .= '<div class="caption largeImageCaption" class="pull-right">'
+                        . $imageCaption .
+                    '</div>
+                </div>
+                <div class="caption-full">'
+                     . $tpl->output() . 
+                '</div>
+            </div><!--/.col-md-12-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#content-->';
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 
