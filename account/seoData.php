@@ -33,7 +33,8 @@ try
         $db->update(
             'countries',
             array(
-                'meta_description' => $_POST["meta_description"]
+                'meta_description' => $_POST["meta_description"],
+                'page_title' => $_POST["page_title"]
             ),
             'country_id = ?',
             array($_POST["country_id"])
@@ -70,7 +71,8 @@ try
             'categories',
             array(
                 'description' => $_POST["description"],
-                'meta_description' => $_POST["meta_description"]
+                'meta_description' => $_POST["meta_description"],
+                'page_title' => $_POST["page_title"]
             ),
             'category_id = ?',
             array($_POST["category_id"])
@@ -107,7 +109,8 @@ try
             array(
                 'description' => $_POST["description"],
                 'seo_url' => $_POST["seo_url"],
-                'meta_description' => $_POST["meta_description"]
+                'meta_description' => $_POST["meta_description"],
+                'page_title' => $_POST["page_title"]
             ),
             'sub_category_id = ?',
             array($_POST["sub_category_id"])

@@ -86,6 +86,9 @@
                                 meta_description: {
                                     title: "Description Meta Tag",
                                     type: "textarea"
+                                },
+                                page_title: {
+                                    title: "Page Title"
                                 }
                             }
                         }).jtable("load");
@@ -117,6 +120,9 @@
                                 meta_description: {
                                     title: "Description Meta Tag",
                                     type: "textarea"
+                                },
+                                page_title: {
+                                    title: "Page Title"
                                 }
                             }
                         }).jtable("load");
@@ -155,6 +161,9 @@
                                 meta_description: {
                                     title: "Description Meta Tag",
                                     type: "textarea"
+                                },
+                                page_title: {
+                                    title: "Page Title"
                                 }
                             }
                         }).jtable("load");

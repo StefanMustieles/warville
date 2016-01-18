@@ -10,16 +10,15 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->select(
-    'name, description, meta_description',
+$db->select('name, description, meta_description, page_title',
     'countries',
-    'country_id = ?', array(10)
-);
+    'country_id = ?', array(10));
 
 while ($row = $db->fetch_assoc()) {
     $name = $row['name'];
     $description = $row['description'];
     $meta_description = $row['meta_description'];
+    $page_title = $row['page_title'];
 }
 
 $homepage->metadescription = $meta_description;
@@ -71,7 +70,8 @@ $postContent .= '</div><!--/.col-md-12-->
             </div><!--/#container-->
         </section><!--/#content-->';
 
-$homepage->title =  $name . ' Army - ' . $homepage->title;
+if(empty($page_title)) $homepage->title = $name . ' Army - ' . $homepage->title;
+else $homepage->title = $page_title;
 
 $homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
