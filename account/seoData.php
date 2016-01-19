@@ -49,7 +49,7 @@ try
     {
         $count = $db->dcount('category_id', 'categories');
 
-        $db->query('SELECT t2.name AS country, t1.name AS category, t1.description, t1.meta_description
+        $db->query('SELECT t1.category_id, t2.name AS country, t1.name AS category, t1.description, t1.meta_description
                     FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id');
         
         //Add all records to an array
@@ -87,7 +87,10 @@ try
     {
         $count = $db->dcount('sub_category_id', 'sub_categories');
 
-        $db->query('SELECT t1.sub_category_id, t3.name AS country, t2.name AS category, t1.name AS sub_category, t1.description, t1.seo_url, t1. meta_description FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id INNER JOIN countries AS t3 ON t2.country_id = t3.country_id');
+        $db->query('SELECT t1.sub_category_id, t3.name AS country, t2.name AS category, t1.name AS sub_category, t1.description, t1.seo_url, t1.meta_description, t1.page_title '
+                . 'FROM sub_categories AS t1 '
+                . 'INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
+                . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id');
         
         //Add all records to an array
         $rows = array();
