@@ -113,6 +113,10 @@
                                     title: "Category",
                                     edit: false
                                 },
+                                short_description: {
+                                    title: "Short Description",
+                                    type: "textarea"
+                                },
                                 description: {
                                     title: "Description",
                                     type: "textarea"

@@ -43,10 +43,9 @@ $postContent = sprintf('<section id="content">
                                 <div class="row">
                                     <div class="col-md-12">', $name, $name, $description);
 
-$db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name, t1.description
+$db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name, t1.short_description
             FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id
-            WHERE t1.country_id = ?', array(3)
-);
+            WHERE t1.country_id = ?', array(3));
 
 while ($row = $db->fetch_assoc()) {
 
@@ -58,7 +57,7 @@ $postContent .=	 '<div class="row">
             </div>
             <div class="col-md-5">
                 <a href="' . $row["folder_name"] . '/"><h2>' . $row["name"] . '</h2></a>
-                <p>' . $row["description"] . '</p>
+                <p>' . $row["short_description"] . '</p>
                 <a class="btn btn-primary" href="' . $row["folder_name"] . '/">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div><!-- /.row -->

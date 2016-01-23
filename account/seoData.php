@@ -49,7 +49,7 @@ try
     {
         $count = $db->dcount('category_id', 'categories');
 
-        $db->query('SELECT t1.category_id, t2.name AS country, t1.name AS category, t1.description, t1.meta_description
+        $db->query('SELECT t1.category_id, t2.name AS country, t1.name AS category, t1.short_description, t1.description, t1.meta_description
                     FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id');
         
         //Add all records to an array
@@ -70,6 +70,7 @@ try
         $db->update(
             'categories',
             array(
+                'short_description' => $_POST["short_description"],
                 'description' => $_POST["description"],
                 'meta_description' => $_POST["meta_description"],
                 'page_title' => $_POST["page_title"]

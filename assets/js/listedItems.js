@@ -94,6 +94,13 @@ function loadContent(url, sub_id, country, mainCat){
                 document.title = value + ' ' + document.title.substring(document.title.indexOf('-'));
             }
             else if (key == 1) {
+                // Update the title tag
+                if (value != null && value != '') {
+                    document.title = '';
+                    document.title = value;
+                }
+            }
+            else if (key == 2) {
                 $("#description").empty();
                 $("#description").html(value);
             }

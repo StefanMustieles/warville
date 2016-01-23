@@ -21,17 +21,15 @@ if($uriParts[3] == '' || strpos($uriParts[3], 'index') !== FALSE) {
 }
 
 if(!$isSubCategory) {
-    $db->query('SELECT t1.description, t2.name AS country, t1.name, "" AS sub_category, t1.meta_description '
+    $db->query('SELECT t1.description, t2.name AS country, t1.name, "" AS sub_category, t1.meta_description, t1.page_title '
             . 'FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
-            . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(14, 47)
-    );
+            . 'WHERE t2.country_id = ? AND t1.category_id = ?', array(14, 47));
 }
 else {
-    $db->query('SELECT t1.description, t3.name AS country, t2.name, t1.name AS sub_category, t1.meta_description '
+    $db->query('SELECT t1.description, t3.name AS country, t2.name, t1.name AS sub_category, t1.meta_description, t1.page_title '
              . 'FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
              . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
-             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(14, $uriParts[3])
-    );
+             . 'WHERE t3.country_id = ? AND t1.seo_url = LOWER(?)', array(14, $uriParts[3]));
 }
 												
 while ($row = $db->fetch_assoc()) {
@@ -41,6 +39,7 @@ $country = $row["country"];
 $category = $row["name"];
 $sub_category = $row["sub_category"];
 $metaDescription = $row["meta_description"];
+$page_title = $row["page_title"];
 }
 
 $homepage->metadescription = $metaDescription;
@@ -145,7 +144,8 @@ $postContent .= '</div><!--/.row-->
     </div><!--/.container-->
 </section><!--/#content-->';
 
-$homepage->title = $title . ' - ' . $homepage->title;
+if(empty($page_title)) $homepage->title = $title . ' - ' . $homepage->title;
+else $homepage->title = $page_title;
 
 $homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 

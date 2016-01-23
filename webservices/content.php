@@ -15,7 +15,7 @@ if(isset($url, $sub_category_id)) {
     
     if($sub_category_id != "All") {
         
-        $db->query('SELECT t1.name AS sub_category, t1.description, t3.name AS country ' 
+        $db->query('SELECT t1.name AS sub_category, t1.description, t3.name AS country, t1.page_title ' 
                 . 'FROM sub_categories AS t1 INNER JOIN categories AS t2 ON t1.category_id = t2.category_id '
                 . 'INNER JOIN countries AS t3 ON t2.country_id = t3.country_id '
                 . 'WHERE t1.sub_category_id = ?', array($sub_category_id)
@@ -24,6 +24,7 @@ if(isset($url, $sub_category_id)) {
         while ($row = $db->fetch_assoc()) {
 
             $elements[] = $row["country"] . ' ' . $row["sub_category"];
+            $elements[] = $row["page_title"];
             $elements[] = utf8_encode($row["description"]);							
         }
 
@@ -36,7 +37,7 @@ if(isset($url, $sub_category_id)) {
     else {
         $mainCategory = $_GET["category"];
         
-        $db->query('SELECT t1.name AS category, t1.description, t2.name AS country '
+        $db->query('SELECT t1.name AS category, t1.description, t2.name AS country, t1.page_title '
                     . 'FROM categories AS t1 '
                     . 'INNER JOIN countries AS t2 ON t1.country_id = t2.country_id '
                     . 'WHERE LOWER(t2.name) = ? AND LOWER(t1.name) = ?', array($url, $mainCategory)
@@ -45,6 +46,7 @@ if(isset($url, $sub_category_id)) {
         while ($row = $db->fetch_assoc()) {
             
             $elements[] = $row["country"] . ' ' . $row["category"];
+            $elements[] = $row["page_title"];
             $elements[] = utf8_encode($row["description"]);							
         }
 
