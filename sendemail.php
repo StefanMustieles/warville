@@ -30,6 +30,7 @@ $options = array(
         CURLOPT_RETURNTRANSFER => true,   // return web page
         CURLOPT_HEADER         => false,  // don't return headers
         CURLOPT_POST           => true,   // use HTTP POST
+        CURLOPT_SSL_VERIFYPEER => false,
         CURLOPT_POSTFIELDS     => $params // body of the POST
     );
 
@@ -37,6 +38,20 @@ curl_setopt_array($session, $options);
 
 // obtain response
 $response = curl_exec($session);
+
+// Check for errors and display the error message
+if($errno = curl_errno($session)) {
+    $error_message = curl_strerror($errno);
+    echo "cURL error ({$errno}):\n {$error_message} ";
+}
+
 curl_close($session);
 
-!$response ? exit('Your message was not sent. Please try again later.') : exit('Your message was sent sucessfully.');
+$decodedResponse = json_decode($response, true);
+
+if($response && $decodedResponse['message'] == 'success') {
+    exit('Your message was sent sucessfully.');    
+}
+else {
+    exit('Your message was not sent. Please try again later.');
+}

@@ -44,10 +44,10 @@ $homepage->contentpagescripts = '<script src="https://www.google.com/recaptcha/a
                                                 $.ajax({
                                                     type: "POST",
                                                     url: "sendemail.php",
-                                                    data: { name: $(this).find("[name=\"name\"]").val(), 
-                                                            email: $(this).find("[name=\"email\"]").val(),
-                                                            subject: $(this).find("[name=\"subject\"]").val(),
-                                                            message: $(this).find("[name=\"message\"]").val(),
+                                                    data: { name: $("[name=\"name\"]").val(), 
+                                                            email: $("[name=\"email\"]").val(),
+                                                            subject: $("[name=\"subject\"]").val(),
+                                                            message: $("[name=\"message\"]").val(),
                                                           },
                                                     success: function(data){
                                                         $("#outputWindow").find(".modal-title").html(data);
