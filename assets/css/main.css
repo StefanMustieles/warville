@@ -500,11 +500,6 @@ input.search-form:hover {
   top:0;
 }
 
-#conatcat-info{
-  background: #fff url(../images/contact.png) no-repeat 90% 0;
-  padding: 30px 0;
-}
-
 .contact-info i{
   width: 60px;
   height: 60px;
@@ -523,6 +518,20 @@ input.search-form:hover {
 
 .contact-info{
   color:#000;
+}
+
+.requiredStars {
+    color:red;
+}
+
+.formErrors {
+    color:red;
+}
+
+input:focus, input[type]:focus, #message:focus {   
+    border-color: rgba(229, 103, 23, 0.8);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+    outline: 0 none;
 }
 
 /*************************

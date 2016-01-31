@@ -6,50 +6,123 @@ $homepage = new Page();
 
 $homepage->metadescription = '';
 
+$homepage->contentpagescripts = '<script src="https://www.google.com/recaptcha/api.js"></script>
+                                <script src="/assets/js/jquery.validate.min.js"></script>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $("#main-contact-form").submit(function(e) {
+                                            e.preventDefault();
+                                        }).validate({
+                                            ignore: ":hidden:not(.my_cpa)",
+                                            rules: {
+                                                name: "required",
+                                                email: {
+                                                    required: true,
+                                                    email: true
+                                                },
+                                                "hiddencode": {
+                                                    required: function() {
+                                                        if(grecaptcha.getResponse() == "") {
+                                                            return true;
+                                                        } else {
+                                                            return false;
+                                                        }
+                                                    }
+                                                }, 
+                                                subject: "required",
+                                                message: "required"
+                                            },
+                                            messages: {
+                                                name: "Please enter your name",
+                                                email: "Please enter a valid email address",
+                                                hiddencode: "Please tick the box above to confirm your identity",
+                                                subject: "Please enter a subject for your message",
+                                                message: "Please enter your message"
+                                            },
+                                            errorClass: "formErrors",
+                                            submitHandler: function(form) {
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "sendemail.php",
+                                                    data: { name: $(this).find("[name=\"name\"]").val(), 
+                                                            email: $(this).find("[name=\"email\"]").val(),
+                                                            subject: $(this).find("[name=\"subject\"]").val(),
+                                                            message: $(this).find("[name=\"message\"]").val(),
+                                                          },
+                                                    success: function(data){
+                                                        $("#outputWindow").find(".modal-title").html(data);
+                                                        $("#outputWindow").modal("show");
+                                                        $("#submit").removeAttr("disabled");
+                                                    }
+                                                });
+                                                $("#main-contact-form")[0].reset();
+                                                grecaptcha.reset();
+                                                return false;
+                                            }
+                                        });
+                                    });
+                                </script>';
+
 $homepage->content = '<section id="contact-page">
                         <div class="container">
-                            <div class="center">        
-                                <h2>Drop Your Message</h2>
-                                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div> 
-                            <div class="row contact-wrap"> 
-                                <div class="status alert alert-success" style="display: none"></div>
-                                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Name *</label>
-                                            <input type="text" name="name" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email *</label>
-                                            <input type="email" name="email" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="number" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Company Name</label>
-                                            <input type="text" class="form-control">
-                                        </div>                        
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Subject *</label>
-                                            <input type="text" name="subject" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Message *</label>
-                                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
-                                        </div>                        
-                                        <div class="form-group">
-                                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
-                                        </div>
-                                    </div>
-                                </form> 
+                            <div class="row">
+                                <div class="col-md-12 center">       
+                                    <h1>Drop Us A Message</h1>
+                                    <p class="lead">Fill in all fields marked with a <span class="requiredStars">*</span> then click the Submit Message button</p>
+                                </div>
                             </div><!--/.row-->
                         </div><!--/.container-->
-                    </section><!--/#contact-page-->';
+                      </section><!--/#content-->        
+
+                      <section id="content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row contact-wrap"> 
+                                        <div class="status alert alert-success" style="display: none"></div>
+                                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post">
+                                            <div class="col-sm-5 col-sm-offset-1">
+                                                <div class="form-group">
+                                                    <label>Name <span class="requiredStars">*</span></label>
+                                                    <input type="text" name="name" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email <span class="requiredStars">*</span></label>
+                                                    <input type="email" name="email" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="g-recaptcha" data-sitekey="6LeB6RYTAAAAAIW2IMVueJ8I8TUFHmLDzbxea85h"></div>
+                                                    <input type="hidden" class="my_cpa hiddencode required" name="hiddencode" id="hiddencode">
+                                                </div>                       
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group">
+                                                    <label>Subject <span class="requiredStars">*</span></label>
+                                                    <input type="text" name="subject" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Message <span class="requiredStars">*</span></label>
+                                                    <textarea name="message" id="message" class="form-control" rows="8"></textarea>
+                                                </div>                        
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary btn-lg">Submit Message</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div><!--/.row-->
+                        </div><!--/.container-->
+                    </section><!--/#content-->
+                    <div id="outputWindow" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>';
 
 $homepage->title = 'Contact Us - ' . $homepage->title;
 

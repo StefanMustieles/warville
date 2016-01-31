@@ -1,21 +1,42 @@
 <?php
-	header('Content-type: application/json');
-	$status = array(
-		'type'=>'success',
-		'message'=>'Thank you for contact us. As early as possible  we will contact you '
-	);
 
-    $name = @trim(stripslashes($_POST['name'])); 
-    $email = @trim(stripslashes($_POST['email'])); 
-    $subject = @trim(stripslashes($_POST['subject'])); 
-    $message = @trim(stripslashes($_POST['message'])); 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/emailconfig.php'; 
 
-    $email_from = $email;
-    $email_to = 'email@email.com';//replace with your email
+$url = EMAIL_URL;
+$user = EMAIL_USERNAME;
+$pass = EMAIL_PASSWORD; 
 
-    $body = 'Name: ' . $name . "\n\n" . 'Email: ' . $email . "\n\n" . 'Subject: ' . $subject . "\n\n" . 'Message: ' . $message;
+$name = @trim(stripslashes($_POST['name'])); 
+$email = @trim(stripslashes($_POST['email'])); 
+$subject = @trim(stripslashes($_POST['subject'])); 
+$message = @trim(stripslashes($_POST['message'])); 
 
-    $success = @mail($email_to, $subject, $body, 'From: <'.$email_from.'>');
+$params = array(
+  'api_user' => $user,
+  'api_key' => $pass,
+  'to' => EMAIL_CONTACT,
+  'subject' => $subject,
+  'html' => $message,
+  'text' => $message,
+  'from' => $email,
+);
 
-    echo json_encode($status);
-    die;
+$request = $url.'api/mail.send.json';
+
+// Generate curl request
+$session = curl_init($request);
+
+$options = array(
+        CURLOPT_RETURNTRANSFER => true,   // return web page
+        CURLOPT_HEADER         => false,  // don't return headers
+        CURLOPT_POST           => true,   // use HTTP POST
+        CURLOPT_POSTFIELDS     => $params // body of the POST
+    );
+
+curl_setopt_array($session, $options);
+
+// obtain response
+$response = curl_exec($session);
+curl_close($session);
+
+!$response ? exit('Your message was not sent. Please try again later.') : exit('Your message was sent sucessfully.');
