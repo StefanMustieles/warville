@@ -13,7 +13,7 @@ try
     {
         $count = $db->dcount('country_id', 'countries');
 
-        $db->select('country_id, name, meta_description', 'countries');
+        $db->select('country_id, name, meta_description, page_title', 'countries');
         
         //Add all records to an array
         $rows = array();
@@ -49,7 +49,7 @@ try
     {
         $count = $db->dcount('category_id', 'categories');
 
-        $db->query('SELECT t1.category_id, t2.name AS country, t1.name AS category, t1.short_description, t1.description, t1.meta_description
+        $db->query('SELECT t1.category_id, t2.name AS country, t1.name AS category, t1.short_description, t1.description, t1.meta_description, t1.page_title 
                     FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id');
         
         //Add all records to an array
