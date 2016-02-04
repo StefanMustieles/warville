@@ -114,7 +114,6 @@ class Page
                                         <li><a href="/american/divisions/">American Divisons</a></li>
                                         <li><a href="/american/infantry-weapons/">American Infantry Weapons</a></li>
                                         <li><a href="/american/support-vehicles/">American Support Vehicles</a></li>
-                                        <li><a href="/american/afvs/tanks">American Tanks</a></li>
                                     </ul>
                               </li>
                               <li class="dropdown"><a href="/british/">
@@ -125,7 +124,6 @@ class Page
                                         <li><a href="/british/artillery/">British Artillery</a></li>
                                         <li><a href="/british/companies/">British Companies</a></li>
                                         <li><a href="/british/infantry-weapons/">British Infantry Weapons</a></li>
-                                        <li><a href="/british/afvs/tanks">British Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/french/">
@@ -137,7 +135,6 @@ class Page
                                         <li><a href="/french/companies/">French Companies</a></li>
                                         <li><a href="/french/infantry-weapons/">French Infantry Weapons</a></li>
                                         <li><a href="/french/support-vehicles/">French Support Vehicles</a></li>
-                                        <li><a href="/french/afvs/tanks">French Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/german/">
@@ -149,7 +146,6 @@ class Page
                                         <li><a href="/german/companies/">German Companies</a></li>
                                         <li><a href="/german/infantry-weapons/">German Infantry Weapons</a></li>
                                         <li><a href="/german/support-vehicles/">German Support Vehicles</a></li>
-                                        <li><a href="/german/afvs/tanks">German Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/hungarian/">
@@ -212,7 +208,6 @@ class Page
                                         <li><a href="/russian/artillery/">Russian Artillery</a></li>
                                         <li><a href="/russian/companies/">Russian Companies</a></li>
                                         <li><a href="/russian/infantry-weapons/">Russian Infantry Weapons</a></li>
-                                        <li><a href="/russian/afvs/tanks">Russian Tanks</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown">
