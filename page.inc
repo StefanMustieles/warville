@@ -194,10 +194,10 @@ class Page
                                     <div class="flag flag-icon-background flag-icon-ro"></div>
                                     <span>Romanian Army</span>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/polish/afvs/">Romanian AFVs</a></li>
-                                        <li><a href="/polish/artillery/">Romanian Artillery</a></li>
-                                        <li><a href="/polish/companies/">Romanian Companies</a></li>
-                                        <li><a href="/polish/infantry-weapons/">Romanian Infantry Weapons</a></li>
+                                        <li><a href="/romanian/afvs/">Romanian AFVs</a></li>
+                                        <li><a href="/romanian/artillery/">Romanian Artillery</a></li>
+                                        <li><a href="/romanian/companies/">Romanian Companies</a></li>
+                                        <li><a href="/romanian/infantry-weapons/">Romanian Infantry Weapons</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/russian/">
