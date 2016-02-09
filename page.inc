@@ -208,6 +208,7 @@ class Page
                                         <li><a href="/russian/artillery/">Russian Artillery</a></li>
                                         <li><a href="/russian/companies/">Russian Companies</a></li>
                                         <li><a href="/russian/infantry-weapons/">Russian Infantry Weapons</a></li>
+                                        <li><a href="/russian/support-vehicles/">Russian Support Vehicles</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown">
