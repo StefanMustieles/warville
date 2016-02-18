@@ -500,7 +500,7 @@ class Zebra_Database
 
         $this->console_show_records = 20;
 
-        $this->debug = $this->halt_on_errors = $this->minimize_console = true;
+        $this->debug = $this->halt_on_errors = $this->minimize_console = false;
 
 //        $this->language('english');
 
