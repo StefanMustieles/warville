@@ -66,8 +66,11 @@ $homepage->contentpagescripts = '<script src="https://www.google.com/recaptcha/a
 $homepage->content = '<section id="contact-page">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 center">       
+                                <div class="col-md-12">       
                                     <h1>Drop Us A Message</h1>
+                                    <p>The team behind <a href="http://quartermastersection.com">QuartermasterSection.com</a> are constantly looking to add to the data, images and information contained on this site. Our work is never done.</p>
+                                    <p>We welcome feedback and discussion and if you are able to help continue to build this site up of its resources we would more than appreciate any additional data and images you may come across.</p>
+                                    <p>Also if you need any more information on any of the items on the site or simply want to let us know what you think of our site so far, do let us know by filling in the form below.</p>
                                     <p class="lead">Fill in all fields marked with a <span class="requiredStars">*</span> then click the Submit Message button</p>
                                 </div>
                             </div><!--/.row-->

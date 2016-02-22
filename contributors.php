@@ -8,13 +8,14 @@ $homepage->metadescription = '';
 
 $homepage->content = '<section id="about-us">
                         <div class="container">
-                                <div class="center">
-                                    <h2>Contributors</h2>
-                                    <p class="lead">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed faucibus ante. Ut sed massa nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rutrum vel sapien pellentesque blandit. Donec cursus dictum luctus. Praesent sit amet tellus condimentum, interdum nulla quis, aliquam quam. Sed pulvinar varius nibh. Proin cursus vitae ipsum eget imperdiet. Mauris diam leo, mattis at vulputate et, consequat nec sem. Integer maximus massa est.
-                                    </p>
-                                </div>
-                            </div><!--/.container-->
+                            <div class="row">
+                                <div class="col-md-12"> 
+                                    <h1>Contributors</h1>
+                                    <p>As you can see throughout this site, the information, data and images have taken years to collate and this could not have been done without the help of some very important people.</p>
+                                    <p>Therefore, the team at <a href="http://quartermastersection.com">Quartermaster Section</a> want to wish a heartfelt thank you to the following comrades.</p>
+                                </div><!--/.col-md-12-->
+                            </div><!--/.row-->
+                        </div><!--/.container-->
                     </section><!--/about-us-->';
 
 $homepage->title = 'Contributors - ' . $homepage->title;

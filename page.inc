@@ -234,6 +234,11 @@ class Page
                                         <span>Danish Army</span>
                                       </a>
                                       </li>
+                                      <li><a href="/dutch/">
+                                        <div class="moreflag flag-icon-background flag-icon-nl"></div>
+                                        <span>Dutch Army</span>
+                                      </a>
+                                      </li>
                                       <li><a href="/dutch-east-indies/">
                                         <div class="moreflag flag-icon-background flag-icon-an"></div>
                                         <span>Dutch East Indies Army</span>
@@ -252,11 +257,6 @@ class Page
                                       <li><a href="/greek/">
                                         <div class="moreflag flag-icon-background flag-icon-gr"></div>
                                         <span>Greek Army</span>
-                                      </a>
-                                      </li>
-                                      <li><a href="/holland/">
-                                        <div class="moreflag flag-icon-background flag-icon-nl"></div>
-                                        <span>Holland Army</span>
                                       </a>
                                       </li>
                                       <li><a href="/latvian/">

@@ -7,15 +7,19 @@ $homepage = new Page();
 $homepage->metadescription = '';
 
 $homepage->content = '<section id="about-us">
-                            <div class="container">
-                                <div class="center">
-                                    <h2>Contributors</h2>
-                                    <p class="lead">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed faucibus ante. Ut sed massa nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rutrum vel sapien pellentesque blandit. Donec cursus dictum luctus. Praesent sit amet tellus condimentum, interdum nulla quis, aliquam quam. Sed pulvinar varius nibh. Proin cursus vitae ipsum eget imperdiet. Mauris diam leo, mattis at vulputate et, consequat nec sem. Integer maximus massa est.
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12"> 
+                                    <h1>Sources</h1>
+                                    <p>
+                                        As well as people, the Quartermaster Sections data and information was helped populated by a number of historical books, 
+                                        websites and companies. Therefore we would like to give them an honourable mention below, as without them the 
+                                        <a href="http://quartermastersection.com">Quartermaster Section</a> would not be possible.
                                     </p>
-                                </div>
-                            </div><!--/.container-->
-                        </section><!--/about-us-->';
+                                </div><!--/.col-md-12-->    
+                            </div><!--/.row-->
+                        </div><!--/.container-->
+                    </section><!--/about-us-->';
 
 $homepage->title = 'Sources - ' . $homepage->title;
 
