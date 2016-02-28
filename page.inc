@@ -14,7 +14,7 @@ class Page
      */
     public function Display()
     {
-        echo "<!DOCTYPE html>\n<html lang=\"en\">\n<head>";
+        echo "<!DOCTYPE html>\n<html lang=\"en\"><head>";
         $this->DisplayTitle();
 	$this->DisplayMetaTags();
 	$this->DisplayCanonicalTag();
@@ -31,7 +31,7 @@ class Page
         
         $this->DisplayDeferScripts();
         $this->DisplayContentPageScripts();
-        echo "</body>\n</html>\n";
+        echo "</body></html>";
     }
 
     private function DisplayTitle() {

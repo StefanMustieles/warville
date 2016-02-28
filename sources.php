@@ -55,6 +55,19 @@ $homepage->content = '<section id="about-us">
                                            <li><p><em>WWII Day By Day</em></p></li>
                                            <li><p><em>PIBWL Military Site</em></p></li>
                                            <li><p><em>1939 Kampania<br />Wrzesniowa</em></p></li>
+                                           <li><p><em>US Anti-tank Artillery<br />1941-45 (Osprey)</em></p></li>
+                                           <li><p><em>The Profile AFV Series<br />(Profile Publications)</em></p></li>
+                                           <li><p><em>German Infantry Weapons (US Army Military History Institute)</em></p></li>
+                                           <li><p><em>German Anti-aircraft<br />Artillery (US Army Military History Institute)</em></p></li>
+                                           <li><p><em>Centurion Universal Tank (Osprey)</em></p></li>
+                                           <li><p><em>The Romanian Army of<br />World War Two (Osprey)</em></p></li>
+                                           <li><p><em>Infantry Mortars of<br />World War Two (Osprey)</em></p></li>
+                                           <li><p><em>The British Reconnaissance Corps in World War Two (Osprey)</em></p></li>
+                                           <li><p><em>US Army Order of Battle<br />1919-1941 (Combat Studies) </em></p></li>
+                                           <li><p><em>Japanese Tank and<br />Anti-tank Warfare (Military Intelligence Division)</em></p></li>
+                                           <li><p><em>Japanese Field Artillery (Military Intelligence Division)</em></p></li>
+                                           <li><p><em>US Field Artillery of<br />World War Two (Osprey)</em></p></li>
+                                           <li><p><em>Evolution of the US Army<br />Infantry Battalion 1939-1968<br />(Combat Operations Research Group)</em></p></li>
                                         </ol>
                                     </div>
                                 </div><!--/.col-md-12-->    
