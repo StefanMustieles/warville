@@ -69,7 +69,7 @@ class Page
     }
 	
     private function DisplayFavIcon() {
-        echo '<link rel="shortcut icon" href="/assets/images/favicon.ico">';
+        echo '<link rel="shortcut icon" href="/assets/images/favicon.png">';
     }
 
     private function DisplayHeader() {

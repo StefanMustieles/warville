@@ -14,7 +14,7 @@ $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 $db->query(
     'SELECT t1.item_id, t1.name, t1.large_image, t4.name AS category_name, t5.name AS country_name, t2.file_name AS template_name, t1.year, t1.type, t1.designer, t1.numbers_produced, t1.crew, t1.main_armament, t1.ammunition_carried, t1.pay_load, t1.towed_load, t1.weight, t1.height, '
 	. 't1.width, t1.length, t1.ground_clearance, t1.fording_depth, t1.obstacle_clearance, t1.trench_crossing, t1.climbing_ability, t1.cargo_capacity, t1.tow_capacity, t1.radio, t1.armour, t1.engine, t1.transmission, t1.maximum_road_range, t1.maximum_cross_country_range, t1.maximum_road_speed, t1.maximum_road_speed_trailer, '
-	. 't1.maximum_cross_country_speed, t1.maximum_road_towing_speed, t1.variants, t1.notes, t1.image_source '
+	. 't1.maximum_cross_country_speed, t1.maximum_road_towing_speed, t1.variants, t1.notes, t1.image_source, t1.views '
         . 'FROM `items` AS t1 INNER JOIN templates AS t2 ON t1.template_id = t2.template_id INNER JOIN sub_categories AS t3 ON t1.sub_category_id = t3.sub_category_id INNER JOIN categories AS t4 ON t3.category_id = t4.category_id INNER JOIN countries AS t5 ON t4.country_id = t5.country_id '
         . 'WHERE t1.item_id = ?', array($_GET["itemId"])
 );
@@ -44,8 +44,8 @@ while ($row = $db->fetch_assoc()) {
     $obstacle_clearance = $row['obstacle_clearance'];
     $trench_crossing = $row['trench_crossing'];
     $climbing_ability = $row['climbing_ability'];
-	$cargo_capacity = $row['cargo_capacity'];
-	$tow_capacity = $row['tow_capacity'];
+    $cargo_capacity = $row['cargo_capacity'];
+    $tow_capacity = $row['tow_capacity'];
     $radio = $row['radio'];
     $armour = $row['armour'];
     $engine = $row['engine'];
@@ -59,6 +59,7 @@ while ($row = $db->fetch_assoc()) {
     $variants = $row['variants'];
     $notes = $row['notes'];
     $imageSource = $row['image_source'];
+    $views = $row['views'];
 }
 
 $tpl =  new templater($_SERVER['DOCUMENT_ROOT'] . '/templates/' . $templateName);
@@ -336,10 +337,14 @@ $content = '<section id="content">
 
 $pageContent = sprintf($content, $country_name, $category_name, $itemName, $itemName, $itemName);
 
+$homepage->content = $pageContent;
+
 $homepage->title = $itemName . ' - ' . $homepage->title;
 
 $homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
-$homepage->content = $pageContent;
+$db->update('items', 
+            array('views' => $views + 1),
+            'item_id = ?', array($_GET["itemId"]));
 
 $homepage->Display();
