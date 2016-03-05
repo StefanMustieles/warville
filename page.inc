@@ -314,7 +314,8 @@ class Page
                                 <li><a href="/about.php">About Us</a></li>
                                 <li><a href="/contact.php">Contact Us</a></li>
                                 <li><a href="/contributors.php">Contributors</a></li>
-								<li><a href="/sources.php">Sources</a></li>
+				<li><a href="/sources.php">Sources</a></li>
+                                <li><a href="/sitemap.php">Sitemap</a></li>
                             </ul>
                         </div>
                     </div>
