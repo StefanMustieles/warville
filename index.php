@@ -19,13 +19,16 @@ $postContent = '<div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a turpis ac ex ornare consequat ac ac ligula. Phasellus sapien metus, 
-                                        luctus et efficitur vel, pretium sit amet nisi. Nullam sed varius nibh. Nunc vehicula neque sit amet urna dapibus tincidunt. 
-                                        Maecenas a fringilla urna. Quisque scelerisque purus nec blandit finibus. Duis in risus vel diam mollis euismod nec nec est.
-                                        Cras at accumsan ante, nec viverra tellus. Phasellus eget malesuada mi. Vivamus eu bibendum augue, quis tempus metus. Ut malesuada 
-                                        enim a vehicula tempor. Aenean ac libero purus. Nulla interdum enim non erat condimentum imperdiet. Aenean mattis imperdiet leo ac 
-                                        finibus. Duis quis mi a est fringilla suscipit non id elit. Morbi purus ante, varius id ante in, fringilla semper est. Morbi eu feugiat 
-                                        tellus, eget elementum tellus. Nullam iaculis risus vel nibh bibendum tempus. Maecenas cursus lacinia nibh id congue.
+                                        The Quartermaster Section is a base for information regarding weapons and vehicles from the period 
+                                        1920-1950. This was the time when nations were re-arming and developing new military technology and 
+                                        many of these modern weapons shared the battlefield with weapons that were developed at the turn of 
+                                        the century.
+                                    </p>
+                                    <p>    
+                                        This was a fascinating era for military enthusiasts and saw the development and structures of various 
+                                        TO&Es, which was different from nation to nation. What was startling was the way support weapons became 
+                                        light enough to be carried into battle by infantry men and anti-tank assets became more lethal with 
+                                        introduction of the hollow charge round.
                                     </p>
                                 </div>
                             </div><!--/.row-->
@@ -35,65 +38,22 @@ $postContent = '<div class="container">
                 <section id="content">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-md-12">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a turpis ac ex ornare consequat ac ac ligula. Phasellus sapien metus, 
-                                    luctus et efficitur vel, pretium sit amet nisi. Nullam sed varius nibh. Nunc vehicula neque sit amet urna dapibus tincidunt. 
-                                    Maecenas a fringilla urna. Quisque scelerisque purus nec blandit finibus. Duis in risus vel diam mollis euismod nec nec est.
-                                    Cras at accumsan ante, nec viverra tellus. Phasellus eget malesuada mi. Vivamus eu bibendum augue, quis tempus metus. Ut malesuada 
-                                    enim a vehicula tempor. Aenean ac libero purus. Nulla interdum enim non erat condimentum imperdiet. Aenean mattis imperdiet leo ac 
-                                    finibus. Duis quis mi a est fringilla suscipit non id elit. Morbi purus ante, varius id ante in, fringilla semper est. Morbi eu feugiat 
-                                    tellus, eget elementum tellus. Nullam iaculis risus vel nibh bibendum tempus. Maecenas cursus lacinia nibh id congue.
+                                    Vehicles which were initially used to plough through mud at the same pace as an infantry men, soon 
+                                    became faster and more manoeuvrable and therefore left the infantry behind, which called of the 
+                                    motorisation of infantry units. Artillery too was transformed by motorisation and the invention of 
+                                    the self-propelled gun. We also see the emergence of a vast range of fast firing anti-aircraft guns.
+                                </p>
+                                <p>
+                                    So I hope you can find what you are looking for and my goal is to expand the site and even further 
+                                    as time goes on, especially as more data becomes available, because I regard this site as an ongoing 
+                                    process, so it is still very much "work in progress".
                                 </p>
                             </div>
-                            <div class="col-sm-6">
-                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <ol class="carousel-indicators">
-                                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                    </ol>
-
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner">';
-
-$db = new Zebra_Database();
-
-$db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-
-$db->query('SELECT CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/img/"), t4.large_image) AS folder 
-FROM countries AS t1 
-INNER JOIN categories AS t2 ON t1.country_id = t2.country_id
-INNER JOIN sub_categories AS t3 ON t2.category_id = t3.category_id 
-INNER JOIN items AS t4 ON t3.sub_category_id = t4.sub_category_id
-WHERE t4.large_image IS NOT NULL AND TRIM(t4.large_image) <> ""
-ORDER BY RAND() LIMIT 3');
-
-$i = 0;
-
-while ($row = $db->fetch_assoc()) {
-    $activate = $i == 0 ? ' active' : ''; 
-    
-    $postContent .= '<div class="item carouselImg' . $activate  . '">
-                        <img class="carouselImg" src="' . $row['folder'] . '">
-                     </div>';
-    $i++;
-}
-
-$postContent .= '</div>
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-              </div> <!-- Carousel -->
-        </div>
-    </div><!--/.row-->
-</div><!--/.container-->
-</section><!--/#content-->
+                        </div><!--/.row-->
+                    </div><!--/.container-->
+                </section><!--/#content-->
 
 <section id="content">
     <div class="container">
@@ -101,6 +61,10 @@ $postContent .= '</div>
             <div class="col-md-12">
                 <h3>Most Viewed</h3>';
                 
+$db = new Zebra_Database();
+
+$db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+
 $db->query('SELECT t4.item_id, t4.title, t4.friendly_url, t4.thumbnail_image, CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/img/"), t4.large_image) AS folder
             FROM countries AS t1 
             INNER JOIN categories AS t2 ON t1.country_id = t2.country_id
