@@ -75,7 +75,7 @@ $db = new Zebra_Database();
 
 $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-$db->query('SELECT t4.item_id, t4.title, t4.friendly_url, t4.thumbnail_image, CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/img/"), t4.large_image) AS folder
+$db->query('SELECT t4.title, CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/"), t4.item_id), "/"), t4.friendly_url) AS linkTo, t4.thumbnail_image, CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/img/"), t4.large_image) AS folder
             FROM countries AS t1 
             INNER JOIN categories AS t2 ON t1.country_id = t2.country_id
             INNER JOIN sub_categories AS t3 ON t2.category_id = t3.category_id 
@@ -85,7 +85,7 @@ $i = 0;
 
 while ($row = $db->fetch_assoc()) {
     $postContent .= '<div class="col-sm-3 col-lg-3 col-md-3 item">
-                        <a href="' . $row["item_id"] . '/' . $row["friendly_url"] . '">    
+                        <a href="' . $row["linkTo"] . '">    
                             <div class="thumbnail">';
 
     if(empty($row["thumbnail_image"]))
