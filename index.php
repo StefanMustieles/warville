@@ -39,6 +39,16 @@ $postContent = '<div class="container">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
+                            
+                            </div><!--/.col-md-12-->
+                        </div><!--/.row-->
+                    </div><!--/.container-->
+                </section><!--/#content-->
+
+                <section id="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <p>
                                     Vehicles which were initially used to plough through mud at the same pace as an infantry men, soon 
                                     became faster and more manoeuvrable and therefore left the infantry behind, which called of the 

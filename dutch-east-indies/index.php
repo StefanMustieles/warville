@@ -47,21 +47,20 @@ $db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name, t1.sho
             FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id
             WHERE t1.country_id = ?', array(25));
 
+$i=1;
+
 while ($row = $db->fetch_assoc()) {
 
-$postContent .=	 '<div class="row">
-            <div class="col-md-7">
-                <a href="' . $row["folder_name"] . '/">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <a href="' . $row["folder_name"] . '/"><h2>' . $row["name"] . '</h2></a>
-                <p>' . $row["short_description"] . '</p>
-                <a class="btn btn-primary" href="' . $row["folder_name"] . '/">View More <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div><!-- /.row -->
-        <hr>';
+$postContent .= '<a href="' . $row["folder_name"] . '/">
+    <div class="col-md-6">
+        <h2>' . $row["name"] . '</h2>
+        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+    </div></a>';
+
+    if($i % 2 == 0){
+       $postContent .= '<div class="clearfix visible-xs-block"></div><hr />';
+    }
+    $i++;
 }
 
 $postContent .= '</div><!--/.col-md-12-->
