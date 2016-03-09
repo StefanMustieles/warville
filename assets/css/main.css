@@ -673,6 +673,10 @@ textarea#message{
 /*********************
 ****Country page css*****
 **********************/
+.countryBoxes {
+    width: 700px;
+    height:300px;
+}
 
 .fillArea {
 	min-height: 100px;
