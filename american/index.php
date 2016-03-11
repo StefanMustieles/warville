@@ -50,7 +50,7 @@ while ($row = $db->fetch_assoc()) {
 $postContent .= '<a href="' . $row["folder_name"] . '/">
     <div class="col-md-6">
         <h2>' . $row["name"] . '</h2>
-        <img src="img/' . $row["name"] . '.jpg" class="img-responsive countryBoxes" alt="">
+        <img src="img/' . $row["name"] . '.jpg" class="img-responsive countryBoxes" alt="' . $row["name"] . '">
     </div></a>';
 
     if($i % 2 == 0){
