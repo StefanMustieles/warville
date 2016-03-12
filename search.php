@@ -31,7 +31,7 @@ if(strlen($query) >= $min_length){
 
     $db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
-    $db->query('SELECT t1.item_id, t1.name, t2.name AS sub_category, LOWER(t3.name) AS category, LOWER(t4.name) AS country, CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(t1.folder_name, "/"), t2.folder_name), "/"), t4.item_id), "/"), t4.friendly_url) AS linkTo, t1.title, t1.thumbnail_image, t1.short_text, CONCAT(CONCAT(CONCAT(CONCAT(t4.folder_name, "/"), t3.folder_name), "/img/"), t1.thumbnail_image) AS image_link '
+    $db->query('SELECT t1.item_id, t1.name, t2.name AS sub_category, LOWER(t3.name) AS category, LOWER(t4.name) AS country, CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(t4.folder_name, "/"), t3.folder_name), "/"), t1.item_id), "/"), t1.friendly_url) AS linkTo, t1.title, t1.thumbnail_image, t1.short_text, CONCAT(CONCAT(CONCAT(CONCAT(t4.folder_name, "/"), t3.folder_name), "/img/"), t1.thumbnail_image) AS image_link '
             . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id INNER JOIN categories AS t3 ON t2.category_id = t3.category_id INNER JOIN countries AS t4 ON t3.country_id = t4.country_id '
             . 'WHERE t1.name LIKE ? OR t1.title LIKE ?', array('%' . $query . '%', '%' . $query . '%')
     );
