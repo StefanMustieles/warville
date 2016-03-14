@@ -346,7 +346,13 @@ input.search-form:hover {
 /*************************
 *******Home Page******
 **************************/
-     
+.selected img {
+    opacity:0.5;
+}
+.larger {
+    width:320px;
+    height:200px;
+}
 #main-slider {
   position: relative;
 }

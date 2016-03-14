@@ -6,6 +6,30 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/db.php';
 
 $homepage = new Page();
 
+$homepage->contentpagescripts = '<script type="text/javascript">
+                                $("#myCarousel").carousel({
+                                    interval: 4000
+                                });
+
+                                // handles the carousel thumbnails
+                                $("[id^=carousel-selector-]").click( function(){
+                                  var id_selector = $(this).attr("id");
+                                  var id = id_selector.substr(id_selector.length -1);
+                                  id = parseInt(id);
+                                  $("#myCarousel").carousel(id);
+                                  $("[id^=carousel-selector-]").removeClass("selected");
+                                  $(this).addClass("selected");
+                                });
+
+                                // when the carousel slides, auto update
+                                $("#myCarousel").on("slid", function (e) {
+                                  var id = $(".item.active").data("slide-number");
+                                  id = parseInt(id);
+                                  $("[id^=carousel-selector-]").removeClass("selected");
+                                  $("[id=carousel-selector-"+id+"]").addClass("selected");
+                                });
+                                </script>';
+
 $homepage->metadescription = '';
 
 $postContent = '<div class="container">
@@ -37,9 +61,253 @@ $postContent = '<div class="container">
 
                 <section id="content">
                     <div class="container">
+                        <!-- main slider carousel -->
                         <div class="row">
-                            <div class="col-md-12">
-                            
+                            <div class="col-md-12" id="slider">
+            
+                            <div class="col-md-12" id="carousel-bounding-box">
+                                <div id="myCarousel" class="carousel slide">
+                                    <!-- main slider carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item center" data-slide-number="0">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-us larger"></div>
+                                                    <div class="caption">
+                                                        <h3>American Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-be larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Belgian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-gb larger"></div>
+                                                    <div class="caption">
+                                                        <h3>British Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="1">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-bg larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Bulgarian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-cz larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Czechoslovakian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-dk larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Danish Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="2">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-nl larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Dutch Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-an larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Dutch East Indies Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-ee larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Estonian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="3">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-fi larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Dutch Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-fr larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Dutch East Indies Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-de larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Estonian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="4">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-gr larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Greek Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-hu larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Hungarian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-it larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Italian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="5">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-jp larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Japanese Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-lv larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Latvian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-lt larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Lithuanian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="6">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-no larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Norwegian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-pl larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Polish Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-ro larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Romanian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item center" data-slide-number="7">
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-ru larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Russian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-se larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Swedish Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="thumbnail">
+                                                    <div class="flag flag-icon-background flag-icon-yg larger"></div>
+                                                    <div class="caption">
+                                                        <h3>Yugoslavian Army</h3>
+                                                        <p>Description</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- main slider carousel nav controls -->
+                                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+                                    <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+                                </div>
+                                </div>
+                            <!--/main slider carousel-->
                             </div><!--/.col-md-12-->
                         </div><!--/.row-->
                     </div><!--/.container-->
