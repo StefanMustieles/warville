@@ -35,13 +35,9 @@ $postContent = sprintf('<section id="content">
                                     <p>%s</p>
                                 </div><!--/.col-md-12-->
                             </div><!--/.row-->
-                        </div><!--/.container-->
-                        </section><!--/#content-->
 
-                        <section id="content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">', $name, $name, $description);
+                            <div class="row">
+                                <div class="col-md-12">', $name, $name, $description);
 
 $db->query('SELECT CONCAT(t2.name, " ", t1.name) AS name, t1.folder_name, t1.short_description
             FROM categories AS t1 INNER JOIN countries AS t2 ON t1.country_id = t2.country_id
@@ -54,7 +50,7 @@ while ($row = $db->fetch_assoc()) {
 $postContent .= '<a href="' . $row["folder_name"] . '/">
     <div class="col-md-6">
         <h2>' . $row["name"] . '</h2>
-        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+        <img src="img/' . $row["name"] . '.jpg" class="img-responsive countryBoxes" alt="' . $row["name"] . '">
     </div></a>';
 
     if($i % 2 == 0){
