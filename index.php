@@ -66,6 +66,7 @@ $postContent = '<div class="container">
                             <div class="carousel-inner">
                                 <div class="active item center" data-slide-number="0">
                                     <div class="col-md-4">
+                                        <a href="/american/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-us larger"></div>
                                             <div class="caption">
@@ -73,8 +74,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/belgian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-be larger"></div>
                                             <div class="caption">
@@ -82,8 +85,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/british/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-gb larger"></div>
                                             <div class="caption">
@@ -91,10 +96,12 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="1">
                                     <div class="col-md-4">
+                                        <a href="/bulgarian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-bg larger"></div>
                                             <div class="caption">
@@ -102,8 +109,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/czechoslovakian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-cz larger"></div>
                                             <div class="caption">
@@ -111,8 +120,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/danish/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-dk larger"></div>
                                             <div class="caption">
@@ -120,10 +131,12 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="2">
                                     <div class="col-md-4">
+                                        <a href="/dutch/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-nl larger"></div>
                                             <div class="caption">
@@ -131,8 +144,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/dutch-east-indies/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-an larger"></div>
                                             <div class="caption">
@@ -140,8 +155,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/estonian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-ee larger"></div>
                                             <div class="caption">
@@ -149,39 +166,47 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="3">
                                     <div class="col-md-4">
+                                        <a href="/finnish/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-fi larger"></div>
                                             <div class="caption">
-                                                <h3>Dutch Army</h3>
+                                                <h3>Finnish Army</h3>
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/french/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-fr larger"></div>
                                             <div class="caption">
-                                                <h3>Dutch East Indies Army</h3>
+                                                <h3>French Army</h3>
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/german/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-de larger"></div>
                                             <div class="caption">
-                                                <h3>Estonian Army</h3>
+                                                <h3>German Army</h3>
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="4">
                                     <div class="col-md-4">
+                                        <a href="/greek/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-gr larger"></div>
                                             <div class="caption">
@@ -189,8 +214,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/hungarian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-hu larger"></div>
                                             <div class="caption">
@@ -198,8 +225,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/italian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-it larger"></div>
                                             <div class="caption">
@@ -207,10 +236,12 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="5">
                                     <div class="col-md-4">
+                                        <a href="/japanese/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-jp larger"></div>
                                             <div class="caption">
@@ -218,8 +249,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/latvian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-lv larger"></div>
                                             <div class="caption">
@@ -227,8 +260,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/lithuanian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-lt larger"></div>
                                             <div class="caption">
@@ -236,10 +271,12 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="6">
                                     <div class="col-md-4">
+                                        <a href="/norwegian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-no larger"></div>
                                             <div class="caption">
@@ -247,8 +284,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/polish/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-pl larger"></div>
                                             <div class="caption">
@@ -256,8 +295,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/romanian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-ro larger"></div>
                                             <div class="caption">
@@ -265,10 +306,12 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="item center" data-slide-number="7">
                                     <div class="col-md-4">
+                                        <a href="/russian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-ru larger"></div>
                                             <div class="caption">
@@ -276,8 +319,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/swedish/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-se larger"></div>
                                             <div class="caption">
@@ -285,8 +330,10 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
+                                        <a href="/yugoslavian/">
                                         <div class="thumbnail">
                                             <div class="flag flag-icon-background flag-icon-yg larger"></div>
                                             <div class="caption">
@@ -294,6 +341,7 @@ $postContent = '<div class="container">
                                                 <p>Description</p>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
