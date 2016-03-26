@@ -93,7 +93,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-gb larger"></div>
                                             <div class="caption">
                                                 <h3>British Army</h3>
-                                                <p><i></i></p>
+                                                <p><i>"Royal British Army"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -106,7 +106,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-bg larger"></div>
                                             <div class="caption">
                                                 <h3>Bulgarian Army</h3>
-                                                <p><i></i></p>
+                                                <p><i>"Роял Българска армия"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -187,7 +187,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-fr larger"></div>
                                             <div class="caption">
                                                 <h3>French Army</h3>
-                                                <p><i>"Honneur et patrie"</i></p>
+                                                <p><i>"Armée de Terre"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -198,7 +198,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-de larger"></div>
                                             <div class="caption">
                                                 <h3>German Army</h3>
-                                                <p><i>"Schützen, helfen, vermitteln, kämpfen"</i></p>
+                                                <p><i>"Heer"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -233,7 +233,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-it larger"></div>
                                             <div class="caption">
                                                 <h3>Italian Army</h3>
-                                                <p><i>"Salus rei publicae suprema lex esto"</i></p>
+                                                <p><i>"Esercito Italiano"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -281,7 +281,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-no larger"></div>
                                             <div class="caption">
                                                 <h3>Norwegian Army</h3>
-                                                <p><i>"For fred og frihet"</i></p>
+                                                <p><i>"Forsvaret"</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -316,7 +316,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-ru larger"></div>
                                             <div class="caption">
                                                 <h3>Russian Army</h3>
-                                                <p><i></i></p>
+                                                <p><i>Советская Армия, Sovetskaya Armiya</i></p>
                                             </div>
                                         </div>
                                         </a>
@@ -338,7 +338,7 @@ $postContent = '<div class="container">
                                             <div class="flag flag-icon-background flag-icon-yg larger"></div>
                                             <div class="caption">
                                                 <h3>Yugoslavian Army</h3>
-                                                <p><i></i></p>
+                                                <p><i>Jugoslavenska vojska</i></p>
                                             </div>
                                         </div>
                                         </a>
