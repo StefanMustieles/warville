@@ -1,3 +1,5 @@
+Sitemap: http://www.quartermastersection.com/sitemap.xml
+
 User-agent: *
 Disallow: /cgi-bin/
 Disallow: /account/
