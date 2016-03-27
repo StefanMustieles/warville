@@ -76,7 +76,7 @@ class Page
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-lg-8">
-                                <a class="navbar-brand" href="http://quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" class="mainLogo" /></a>
+                                <a class="navbar-brand" href="http://www.quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" class="mainLogo" /></a>
                             </div>
                             <div class="col-xs-6 col-lg-4 searcher">
                                 <div class="social">
