@@ -42,9 +42,7 @@ class Page
         echo '<meta charset="utf-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	      <meta name="robots" content="NOINDEX, NOFOLLOW">
-              <meta name="description" content="' . $this->metadescription . '">
-              <meta name="google-site-verification" content="ETr9EcP9rwEPnlQdP3s8oA2DS-PAFxL9cVUOEOozeww" />';
+              <meta name="description" content="' . $this->metadescription . '">';
     }
     
     private function DisplayCanonicalTag() {
@@ -334,13 +332,13 @@ class Page
 
     private function DisplayGoogleAnalytics() {
         echo '<!-- Google Tag Manager -->
-            <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WP5KWC"
+            <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCSN53"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
             new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
             \'//www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,\'script\',\'dataLayer\',\'GTM-WP5KWC\');</script>
+            })(window,document,\'script\',\'dataLayer\',\'GTM-MCSN53\');</script>
             <!-- End Google Tag Manager -->';
     }
 }
