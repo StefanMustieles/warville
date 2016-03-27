@@ -1,0 +1,12 @@
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>
+http://www.quartermastersection.com/sitemaps/mainsitemap.xml
+</loc>
+</sitemap>
+<sitemap>
+<loc>
+http://www.quartermastersection.com/sitemaps/imagesitemap.xml
+</loc>
+</sitemap>
+</sitemapindex>

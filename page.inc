@@ -305,7 +305,7 @@ class Page
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            &copy; ' . date("Y") . ' <a target="_blank" href="http://quartermastersection.com" title="">QuartermasterSection</a>. All Rights Reserved.
+                            &copy; ' . date("Y") . ' <a target="_blank" href="http://www.quartermastersection.com" title="">QuartermasterSection</a>. All Rights Reserved.
                         </div>
                         <div class="col-sm-6">
                             <ul class="pull-right">
