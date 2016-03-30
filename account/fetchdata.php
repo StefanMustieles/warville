@@ -194,11 +194,13 @@ function getItems($sub_category_id) {
             . 'IFNULL(t1.maximum_road_speed, "") AS maximum_road_speed, IFNULL(t1.maximum_cross_country_speed, "") AS maximum_cross_country_speed, IFNULL(t1.maximum_road_towing_speed, "") AS maximum_road_towing_speed, IFNULL(t1.calibre, "") AS calibre, IFNULL(t1.barrel_length, "") AS barrel_length, IFNULL(t1.carriage, "") AS carriage, IFNULL(t1.gun_shield, "") AS gun_shield, IFNULL(t1.gun_mounts, "") AS gun_mounts, IFNULL(t1.trailers, "") AS trailers, IFNULL(t1.gun_sight, "") AS gun_sight, IFNULL(t1.blank_cartridge, "") AS blank_cartridge, IFNULL(t1.muzzle_velocity, "") AS muzzle_velocity, '
             . 'IFNULL(t1.fuel_capacity, "") AS fuel_capacity, IFNULL(t1.armoured_plate, "") AS armoured_plate, IFNULL(t1.round_weight, "") AS round_weight, IFNULL(t1.magazine_capacity, "") AS magazine_capacity, IFNULL(t1.maximum_ceiling, "") AS maximum_ceiling, IFNULL(t1.maximum_ground_range, "") AS maximum_ground_range, IFNULL(t1.maximum_rate_of_fire, "") AS maximum_rate_of_fire, IFNULL(t1.bayonet, "") AS bayonet, IFNULL(t1.traction, "") AS traction, '
             . 'IFNULL(t1.pay_load, "") AS pay_load, IFNULL(t1.towed_load, "") AS towed_load, IFNULL(t1.maximum_road_speed_trailer, "") AS maximum_road_speed_trailer, IFNULL(t1.cartridge_weight, "") AS cartridge_weight, IFNULL(t1.operation, "") AS operation, IFNULL(t1.cooling_system, "") AS cooling_system, IFNULL(t1.sights, "") AS sights, IFNULL(t1.feed, "") AS feed, IFNULL(t1.practical_rate_of_fire, "") AS practical_rate_of_fire, IFNULL(t1.rate_of_fire, "") AS rate_of_fire, '
-            . 'IFNULL(t1.minimum_range, "") AS minimum_range, IFNULL(t1.effective_range, "") AS effective_range, IFNULL(t1.maximum_range, "") AS maximum_range, IFNULL(t1.variants, "") AS variants, IFNULL(t1.notes, "") AS notes, IFNULL(t1.content, "") AS content '
+            . 'IFNULL(t1.minimum_range, "") AS minimum_range, IFNULL(t1.effective_range, "") AS effective_range, IFNULL(t1.maximum_range, "") AS maximum_range, IFNULL(t1.variants, "") AS variants, IFNULL(t1.notes, "") AS notes, IFNULL(t1.content, "") AS content, t1.display_order '
             . 'FROM `items` AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id INNER JOIN templates AS t3 ON t1.template_id = t3.template_id '
             . 'WHERE t2.sub_category_id = ?', array($sub_category_id)
     );
 
+    $elements[] = $db->returned_rows;
+    
     //Add all records to an array
     while ($row = $db->fetch_assoc()) {
         $elements[] = $row;
@@ -330,6 +332,7 @@ function updateAFV($item_id) {
             'maximum_cross_country_speed' => $_POST["maximum_cross_country_speed"],
             'variants' => $_POST["variants"],
             'notes' => $_POST["notes"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
@@ -442,6 +445,7 @@ function updateArtillery($item_id) {
             'traction' => $_POST["traction"],
             'variants' => $_POST["variants"],
             'notes' => $_POST["notes"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
@@ -550,6 +554,7 @@ function updateSupportVehicle($item_id) {
             'maximum_road_towing_speed' => $_POST["maximum_road_towing_speed"],
             'variants' => $_POST["variants"],
             'notes' => $_POST["notes"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
@@ -656,6 +661,7 @@ function updateInfantryWeapon($item_id) {
             'traction' => $_POST["traction"],
             'variants' => $_POST["variants"],
             'notes' => $_POST["notes"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
@@ -700,6 +706,7 @@ function updateDivision($item_id) {
             'image_source' => $_POST["image_source"],
             'short_text' => $_POST["short_text"],
             'content' => $_POST["content"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
@@ -744,6 +751,7 @@ function updateCompany($item_id) {
             'image_source' => $_POST["image_source"],
             'short_text' => $_POST["short_text"],
             'content' => $_POST["content"],
+            'display_order' => $_POST["display_order"],
         ),
         'item_id = ?',
         array($item_id)
