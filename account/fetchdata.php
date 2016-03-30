@@ -196,7 +196,7 @@ function getItems($sub_category_id) {
             . 'IFNULL(t1.pay_load, "") AS pay_load, IFNULL(t1.towed_load, "") AS towed_load, IFNULL(t1.maximum_road_speed_trailer, "") AS maximum_road_speed_trailer, IFNULL(t1.cartridge_weight, "") AS cartridge_weight, IFNULL(t1.operation, "") AS operation, IFNULL(t1.cooling_system, "") AS cooling_system, IFNULL(t1.sights, "") AS sights, IFNULL(t1.feed, "") AS feed, IFNULL(t1.practical_rate_of_fire, "") AS practical_rate_of_fire, IFNULL(t1.rate_of_fire, "") AS rate_of_fire, '
             . 'IFNULL(t1.minimum_range, "") AS minimum_range, IFNULL(t1.effective_range, "") AS effective_range, IFNULL(t1.maximum_range, "") AS maximum_range, IFNULL(t1.variants, "") AS variants, IFNULL(t1.notes, "") AS notes, IFNULL(t1.content, "") AS content, t1.display_order '
             . 'FROM `items` AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id INNER JOIN templates AS t3 ON t1.template_id = t3.template_id '
-            . 'WHERE t2.sub_category_id = ?', array($sub_category_id)
+            . 'WHERE t2.sub_category_id = ? ORDER BY t1.display_order', array($sub_category_id)
     );
 
     $elements[] = $db->returned_rows;
