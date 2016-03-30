@@ -632,7 +632,7 @@ $(document).ready(function(){
                 smoke_discharger: smoke_discharger, ammunition_carried: ammunition_carried, height: height, width: width, length: length, weight: weight, ground_clearance: ground_clearance, 
                 fording_depth: fording_depth, trench_crossing: trench_crossing, obstacle_clearance: obstacle_clearance, climbing_ability: climbing_ability,
                 radio: radio, armour: armour, engine: engine, transmission: transmission, maximum_road_range: maximum_road_range, maximum_cross_country_range: maximum_cross_country_range, maximum_road_speed: maximum_road_speed, 
-                maximum_water_range: maximum_water_range, maximum_water_speed: maximum_water_speed, maximum_cross_country_speed: maximum_cross_country_speed, variants: variants, notes: notes},
+                maximum_water_range: maximum_water_range, maximum_water_speed: maximum_water_speed, maximum_cross_country_speed: maximum_cross_country_speed, variants: variants, notes: notes, display_order: order},
             cache: false,
             beforeSend: function () {
                 myApp.showPleaseWait();
