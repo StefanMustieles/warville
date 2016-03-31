@@ -54,7 +54,7 @@ if(isset($url, $sub_category_id)) {
                 . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
                 . 'INNER JOIN categories AS t3 ON t2.category_id = t3.category_id '
                 . 'INNER JOIN countries AS t4 ON t3.country_id = t4.country_id '
-                . 'WHERE LOWER(t4.name) = ? AND LOWER(t3.name) = ? GROUP BY t1.sub_category_id, t1.item_id ORDER BY t1.display_order, t2.sort_order', array($url, $mainCategory)
+                . 'WHERE LOWER(t4.name) = ? AND LOWER(t3.name) = ? GROUP BY t1.sub_category_id, t1.item_id ORDER BY t2.sort_order, t1.display_order', array($url, $mainCategory)
         );
     }
 
