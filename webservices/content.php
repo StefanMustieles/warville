@@ -28,10 +28,9 @@ if(isset($url, $sub_category_id)) {
             $elements[] = utf8_encode($row["description"]);							
         }
 
-        $db->query(
-            'SELECT sub_category_id, item_id, title, friendly_url, thumbnail_image, short_text '
-              . 'FROM `items` '
-                . 'WHERE sub_category_id = ?', array($sub_category_id)
+        $db->query('SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text '
+                   . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
+                   . 'WHERE t1.sub_category_id = ? ORDER BY t1.display_order, t2.sort_order', array($sub_category_id)
         );
     }
     else {
@@ -55,7 +54,7 @@ if(isset($url, $sub_category_id)) {
                 . 'FROM items AS t1 INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
                 . 'INNER JOIN categories AS t3 ON t2.category_id = t3.category_id '
                 . 'INNER JOIN countries AS t4 ON t3.country_id = t4.country_id '
-                . 'WHERE LOWER(t4.name) = ? AND LOWER(t3.name) = ?', array($url, $mainCategory)
+                . 'WHERE LOWER(t4.name) = ? AND LOWER(t3.name) = ? ORDER BY t1.display_order', array($url, $mainCategory)
         );
     }
 
