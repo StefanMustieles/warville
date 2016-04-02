@@ -347,8 +347,8 @@ $postContent = '<div class="container">
                             </div>
                             <div class="col-md-12">
                                 <!-- main slider carousel nav controls -->
-                                <div class="col-md-4 text-right"><a class="glyphicon glyphicon-chevron-left" href="#myCarousel" data-slide="prev"></a></div>
-                                <div class="col-md-4 center carousel-indicators">
+                                <div class="col-md-4 col-xs-4 text-right"><a class="glyphicon glyphicon-chevron-left" href="#myCarousel" data-slide="prev"></a></div>
+                                <div class="col-md-4 col-xs-4 center carousel-indicators">
                                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                     <li data-target="#myCarousel" data-slide-to="1"></li>
                                     <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -358,7 +358,7 @@ $postContent = '<div class="container">
                                     <li data-target="#myCarousel" data-slide-to="6"></li>
                                     <li data-target="#myCarousel" data-slide-to="7"></li>
                                 </div>
-                                <div class="col-md-4 text-left"><a class="glyphicon glyphicon-chevron-right" href="#myCarousel" data-slide="next"></a></div>
+                                <div class="col-md-4 col-xs-4 text-left"><a class="glyphicon glyphicon-chevron-right" href="#myCarousel" data-slide="next"></a></div>
                             </div>
                         </div>
                         </div>
