@@ -1,5 +1,7 @@
 <?php
 
+require 'classes/minifer.php';
+
 class Page
 {
     //class Page's attributes
@@ -8,13 +10,14 @@ class Page
     public $canonical;
     public $contentpagescripts;
     public $metadescription;
+    public $wholePage;
 
     /** 
      *  class Page's operations
      */
     public function Display()
     {
-        echo "<!DOCTYPE html>\n<html lang=\"en\"><head>";
+        $this->wholePage = "<!DOCTYPE html>\n<html lang=\"en\"><head>";
         $this->DisplayTitle();
 	$this->DisplayMetaTags();
 	$this->DisplayCanonicalTag();
@@ -22,35 +25,36 @@ class Page
         $this->DisplayHeaderJavaScripts();
 	$this->DisplayFavIcon();
 
-        echo '</head><body class="homepage">';
+        $this->wholePage .= '</head><body class="homepage">';
         $this->DisplayGoogleAnalytics();
-        $this -> DisplayHeader();
+        $this->DisplayHeader();
 
-        echo $this->content;
+        $this->wholePage .= $this->content;
         $this->DisplayFooter();
         
         $this->DisplayDeferScripts();
         $this->DisplayContentPageScripts();
-        echo "</body></html>";
+        $this->wholePage .= "</body></html>";
+        echo minify_html($this->wholePage);
     }
 
     private function DisplayTitle() {
-        echo "<title>" . $this->title . "</title>";
+        $this->wholePage .= "<title>" . $this->title . "</title>";
     }
 	
     private function DisplayMetaTags() {
-        echo '<meta charset="utf-8">
+        $this->wholePage .= '<meta charset="utf-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <meta name="description" content="' . $this->metadescription . '">';
     }
     
     private function DisplayCanonicalTag() {
-        echo $this->canonical;
+        $this->wholePage .= $this->canonical;
     }
 	
     private function DisplayStyleSheets() {
-        echo '<!-- core CSS -->
+        $this->wholePage .= '<!-- core CSS -->
             <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
             <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
             <link href="/assets/css/responsive.min.css" rel="stylesheet">
@@ -59,7 +63,7 @@ class Page
     }
     
     private function DisplayHeaderJavaScripts() {
-        echo '<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        $this->wholePage .= '<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
                 <!--[if lt IE 9]>
                   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
                   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -67,11 +71,11 @@ class Page
     }
 	
     private function DisplayFavIcon() {
-        echo '<link rel="shortcut icon" href="/assets/images/favicon.png">';
+        $this->wholePage .= '<link rel="shortcut icon" href="/assets/images/favicon.png">';
     }
 
     private function DisplayHeader() {
-        echo '<header id="header">
+        $this->wholePage .= '<header id="header">
                 <div class="top-bar">
                     <div class="container">
                         <div class="row">
@@ -301,7 +305,7 @@ class Page
     }
 
     private function DisplayFooter() {
-        echo '<footer id="footer" class="midnight-blue">
+        $this->wholePage .= '<footer id="footer" class="midnight-blue">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
@@ -322,16 +326,16 @@ class Page
     }
 
     private function DisplayDeferScripts() {
-        echo '<script src="/assets/js/jquery.js"></script>
+        $this->wholePage .= '<script src="/assets/js/jquery.js"></script>
 	      <script src="/assets/js/bootstrap.min.js"></script>';
     }
     
     private function DisplayContentPageScripts() {
-        echo $this->contentpagescripts;
+        $this->wholePage .= $this->contentpagescripts;
     }
 
     private function DisplayGoogleAnalytics() {
-        echo '<!-- Google Tag Manager -->
+        $this->wholePage .= '<!-- Google Tag Manager -->
             <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCSN53"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':

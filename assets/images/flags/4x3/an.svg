@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1"
-	 id="svg378" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-275 180.9 640 480"
-	 style="enable-background:new -275 180.9 640 480;" xml:space="preserve">
+<svg id="svg378" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" style="enable-background:new -275 180.9 640 480" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="-275 180.9 640 480" version="1.1" y="0px" x="0px" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#21468B;}
 	.st2{fill:#AE1C28;}
 	.st3{fill:none;}
-	.st4{font-family:'Helvetica-Bold';}
+	.st4{font-family:&apos;Helvetica-Bold&apos;;}
 	.st5{font-size:113.3858px;}
 </style>
 <g id="flag" transform="scale(1.25 .9375)">
-	<rect id="rect171" x="-220" y="192.9" class="st0" width="512" height="509.8"/>
-	<rect id="rect256" x="-220" y="535" class="st1" width="512" height="169.9"/>
-	<rect id="rect255" x="-220" y="192.9" class="st2" width="512" height="169.9"/>
+	<rect id="rect171" class="st0" height="509.8" width="512" y="192.9" x="-220"/>
+	<rect id="rect256" class="st1" height="169.9" width="512" y="535" x="-220"/>
+	<rect id="rect255" class="st2" height="169.9" width="512" y="192.9" x="-220"/>
 </g>
-<rect x="-275" y="374.8" class="st3" width="640" height="101"/>
-<text transform="matrix(1 0 0 1 -87.2622 456.1897)" class="st4 st5">KNIL</text>
+<rect y="374.8" x="-275" height="101" class="st3" width="640"/>
+<text transform="translate(-87.262 456.19)" class="st4 st5">KNIL</text>
 </svg>

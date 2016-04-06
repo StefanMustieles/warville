@@ -11,10 +11,10 @@
  </metadata>
  <defs id="defs380">
   <clipPath id="clipPath3738" clipPathUnits="userSpaceOnUse">
-   <rect id="rect3740" fill-opacity="0.67" height="480" width="640" y="6" x="-32"/>
+   <rect id="rect3740" fill-opacity=".67" height="480" width="640" y="6" x="-32"/>
   </clipPath>
  </defs>
- <g id="flag" clip-path="url(#clipPath3738)" transform="translate(32,-6)">
+ <g id="flag" transform="translate(32,-6)" clip-path="url(#clipPath3738)">
   <rect id="rect8153" height="512" width="512" y="-20" x="0" fill="#fff"/>
   <rect id="rect583" fill-rule="evenodd" height="511.84" width="699.74" y="-19.842" x="-70" stroke-width="1pt" fill="#fff"/>
   <rect id="rect561" fill-rule="evenodd" height="221.47" width="222.94" y="-43.039" x="-99.213" stroke-width="1pt" fill="#d72828"/>

@@ -11,12 +11,12 @@
  </metadata>
  <defs id="defs380">
   <clipPath id="clipPath3058" clipPathUnits="userSpaceOnUse">
-   <rect id="rect3060" fill-opacity="0.67" height="512" width="682.67" y="-.0000018715" x="-74"/>
+   <rect id="rect3060" fill-opacity=".67" height="512" width="682.67" y="-.0000018715" x="-74"/>
   </clipPath>
  </defs>
- <g id="flag" fill-rule="evenodd" clip-path="url(#clipPath3058)" transform="matrix(.93750 0 0 .93750 69.375 .0000017546)" stroke-width="1pt">
+ <g id="flag" stroke-width="1pt" clip-path="url(#clipPath3058)" transform="matrix(.93750 0 0 .93750 69.375 .0000017546)" fill-rule="evenodd">
   <rect id="rect149" height="512" width="768" y=".000016585" x="-74" fill="#e80000"/>
   <rect id="rect280" height="256" width="768" y=".000016585" x="-74" fill="#fff"/>
-  <path id="path279" d="m-74-7.3297e-7 382.73 255.67-382.73 255.34v-511.01z" fill="#00006f"/>
+  <path id="path279" fill="#00006f" d="m-74-7.3297e-7 382.73 255.67-382.73 255.34v-511.01z"/>
  </g>
 </svg>

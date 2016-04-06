@@ -29,9 +29,9 @@
    </cc:Work>
   </rdf:RDF>
  </metadata>
- <g id="flag" fill-rule="evenodd" transform="matrix(.60207 0 0 .90311 0 .000013347)">
+ <g id="flag" transform="matrix(.60207 0 0 .90311 0 .000013347)" fill-rule="evenodd">
   <rect id="rect6" height="531.5" width="1063" y="-.000015" x="0" fill="#fff"/>
-  <rect id="rect561" height="212.6" width="1063" y="-.000015260" x="0" stroke-width="1pt" fill="#ab231d"/>
+  <rect id="rect561" height="212.6" width="1063" y="-.00001526" x="0" stroke-width="1pt" fill="#ab231d"/>
   <rect id="rect562" height="212.6" width="1063" y="318.9" x="0" stroke-width="1pt" fill="#ab231d"/>
  </g>
 </svg>

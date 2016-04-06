@@ -10,7 +10,7 @@
   </rdf:RDF>
  </metadata>
  <g id="flag">
-  <g id="g3259" fill-rule="evenodd" stroke-width="1pt" transform="scale(1.25 .93750)">
+  <g id="g3259" stroke-width="1pt" transform="scale(1.25 .93750)" fill-rule="evenodd">
    <rect id="rect629" height="170.67" width="512" y="341.33" x="0" fill="#de2110"/>
    <rect id="rect631" height="170.67" width="512" y="0" x="0" fill="#fff"/>
    <rect id="rect632" height="170.67" width="512" y="170.67" x="0" fill="#319400"/>

@@ -34,10 +34,10 @@ Guinea, Honduras, Israel, Jamaica, Jordan, and Romania Flags</dc:title>
  </metadata>
  <defs id="defs557">
   <clipPath id="clipPath3605" clipPathUnits="userSpaceOnUse">
-   <rect id="rect3607" fill-opacity="0.67" height="512" width="682.67" y="-.0000019138" x="-19.451"/>
+   <rect id="rect3607" fill-opacity=".67" height="512" width="682.67" y="-.0000019138" x="-19.451"/>
   </clipPath>
  </defs>
- <g id="flag" fill-rule="evenodd" clip-path="url(#clipPath3605)" transform="matrix(.93750 0 0 .93750 18.235 .0000017942)" stroke-width="1pt">
+ <g id="flag" stroke-width="1pt" clip-path="url(#clipPath3605)" transform="matrix(.93750 0 0 .93750 18.235 .0000017942)" fill-rule="evenodd">
   <rect id="rect565" height="186.34" width="249.35" y="325.66" x="-105.62" fill="#fff"/>
   <rect id="rect566" height="512" width="149.94" y="-.0000027024" x="143.57" fill="#0062da"/>
   <rect id="rect567" height="139.64" width="897.67" y="186.18" x="-105.62" fill="#0062da"/>

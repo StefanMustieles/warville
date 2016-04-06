@@ -31,7 +31,7 @@ Guinea, Honduras, Israel, Jamaica, Jordan, and Romania Flags</dc:title>
    </cc:Work>
   </rdf:RDF>
  </metadata>
- <g id="flag" fill-rule="evenodd" stroke-width="1pt">
+ <g id="flag" stroke-width="1pt" fill-rule="evenodd">
   <rect id="rect171" rx="0" ry="0" height="477.9" width="640" y="2.8422e-14" x="0"/>
   <rect id="rect256" rx="0" ry="0" height="159.3" width="640" y="320.7" x="0" fill="#fff"/>
   <rect id="rect255" height="159.3" width="640" y="2.8422e-14" x="0" fill="#00f"/>
