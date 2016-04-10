@@ -108,7 +108,7 @@ else {
     $db->query(
         'SELECT t1.sub_category_id, t1.item_id, t1.title, t1.friendly_url, t1.thumbnail_image, t1.short_text FROM `items` AS t1 '
           . 'INNER JOIN sub_categories AS t2 ON t1.sub_category_id = t2.sub_category_id '
-            . 'WHERE t2.category_id = ? AND t2.seo_url = LOWER(?) ORDER BY t1.display_order, t2.sort_order', array(4, $uriParts[3])
+            . 'WHERE t2.category_id = ? AND t2.seo_url = LOWER(?) ORDER BY t2.sort_order, t1.display_order', array(4, $uriParts[3])
     );
 }
 
