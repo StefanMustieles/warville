@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/dbconfig.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/KLogger.php';
 
 $db = new Zebra_Database();
 
@@ -17,11 +18,14 @@ while ($row = $db->fetch_assoc()) {
     $category = $row["folder_name"];
 }
 
+$log = new KLogger($_SERVER['DOCUMENT_ROOT'] . "/logs/log.txt", KLogger::DEBUG);
+$log->LogDebug("../" . strtolower($country) . "/" . $category . "/img/");
+
 if(move_uploaded_file($_FILES["filename"]["tmp_name"], "../" . strtolower($country) . "/" . $category . "/img/" . $_FILES["filename"]["name"])) 
 {
-    echo "File stored in " . strtolower($country) . "/" . strtolower($category) + "/img/" . $_FILES["filename"]["name"];
+    $log->LogDebug("File uploaded correctly");
 } 
 else
 {
-    echo "There was an error uploading the file, please try again!";
+    $log->LogDebug(is_writable("../" . strtolower($country) . "/" . $category . "/img/"));
 }

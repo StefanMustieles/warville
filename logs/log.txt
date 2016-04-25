@@ -1,0 +1,2 @@
+2016-04-25 20:50:50 - DEBUG --> ../american/afvs/img/ 
+2016-04-25 20:50:50 - DEBUG --> File uploaded correctly 
