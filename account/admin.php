@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<form action="fileUpload.php" id="my-detail-form" method="post" enctype="multipart/form-data">
+<form action="fileupload.php" id="my-detail-form" method="post" enctype="multipart/form-data">
                             
 <!-- Header -->
 <div id="top-nav" class="navbar navbar-inverse navbar-static-top">

@@ -19,15 +19,12 @@ while ($row = $db->fetch_assoc()) {
 }
 
 $log = new KLogger($_SERVER['DOCUMENT_ROOT'] . "/logs/log.txt", KLogger::DEBUG);
-$log->LogDebug("POSTED COUNTRY: " . $_POST['country']);
-$log->LogDebug("POSTED CATEGORY: " . $_POST['maincategory']);
-$log->LogDebug("../" . strtolower($country) . "/" . $category . "/img/");
 
 if(move_uploaded_file($_FILES["filename"]["tmp_name"], "../" . strtolower($country) . "/" . $category . "/img/" . $_FILES["filename"]["name"])) 
 {
-    $log->LogDebug("File uploaded correctly");
+    $log->LogDebug("File uploaded correctly. " . "../" . strtolower($country) . "/" . $category . "/img/" . $_FILES["filename"]["name"]);
 } 
 else
 {
-    $log->LogDebug(is_writable("../" . strtolower($country) . "/" . $category . "/img/"));
+    $log->LogDebug("File didn't upload. " . "../" . strtolower($country) . "/" . $category . "/img/" . $_FILES["filename"]["name"]);$log->LogDebug(is_writable("../" . strtolower($country) . "/" . $category . "/img/"));
 }
