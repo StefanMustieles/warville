@@ -148,7 +148,7 @@ class Page
                                         <li><a href="/german/companies/">German Companies</a></li>
                                         <li><a href="/german/infantry-weapons/">German Infantry Weapons</a></li>
                                         <li><a href="/german/support-vehicles/">German Support Vehicles</a></li>
-                                        <li><a href="/german/captured-afvs/">German Captured French and Italian AFV Conversions</a></li>
+                                        <li><a href="/german/captured-afvs/">Captured Vehicles and Conversions</a></li>
                                     </ul>
                               </a></li>
                               <li class="dropdown"><a href="/hungarian/">
