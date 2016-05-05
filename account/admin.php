@@ -430,6 +430,9 @@ $(document).ready(function(){
                     case 'Companies':
                         showCompanies(obj);
                         break;
+                    case 'Captured Vehicles and Conversions':
+                        showAFVs(obj);
+                        break;
                 }
 
                 $("tr#trSubCategoryDescription").show();
