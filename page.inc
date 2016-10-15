@@ -176,7 +176,7 @@ class Page
                                     <ul class="dropdown-menu">
                                         <li><a href="/hungarian/afvs/">Hungarian AFVs</a></li>
                                         <li><a href="/hungarian/artillery/">Hungarian Artillery</a></li>
-                                        <li><a href="/hungarian/companies/">Hungarian Companies</a></li>
+                                        <li><a href="/hungarian/companies/">Hungarian Formations</a></li>
                                         <li><a href="/hungarian/infantry-weapons/">Hungarian Infantry Weapons</a></li>
                                         <li><a href="/hungarian/support-vehicles/">Hungarian Support Vehicles</a></li>
                                     </ul>
