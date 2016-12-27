@@ -31,11 +31,11 @@ $homepage->content = '<section id="about-us">
                                         top war gamers out there who like to war game using company size units.
                                     </p>
                                     <p>
-                                        As you browse <a href="http://www.quartermastersection.com">QuartermasterSection.com</a>, you will notice it is 
+                                        As you browse <a href="https://www.quartermastersection.com">QuartermasterSection.com</a>, you will notice it is 
                                         still in the process of being completed with lots of areas still needing attention to detail. I have in many 
                                         cases used field manuals and other military documents to aid my data base, but if anyone out there can see 
                                         any discrepancies then I would like to hear from you. Also if you have any feedback on any part of the site 
-                                        please feel free to <a href="http://www.quartermastersection.com/contact.php">Contact Us</a>.
+                                        please feel free to <a href="https://www.quartermastersection.com/contact.php">Contact Us</a>.
                                     </p>
                                     <p>
                                         I have also tried to place a source to any image used and this process has taken me all around the world and 
@@ -52,7 +52,7 @@ $homepage->content = '<section id="about-us">
                                         develop.
                                     </p>
                                     <p>
-                                        A last thought must go to my late Father who gave over twenty years’ service to the <a href="http://www.quartermastersection.com/british/">British Army</a> 
+                                        A last thought must go to my late Father who gave over twenty years’ service to the <a href="https://www.quartermastersection.com/british/">British Army</a> 
                                         an artillery man and Warrant officer, and served in Britain, France and Germany including landing on Juno 
                                         beach in Normandy and finishing the war in Osnabruck Ge.
                                     </p>
@@ -67,6 +67,6 @@ $homepage->content = '<section id="about-us">
 
 $homepage->title = 'About - ' . $homepage->title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->Display();

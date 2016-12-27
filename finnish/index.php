@@ -68,7 +68,7 @@ $postContent .= '</div><!--/.col-md-12-->
 if(empty($page_title)) $homepage->title = $name . ' Army - ' . $homepage->title;
 else $homepage->title = $page_title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->content = $postContent;
 

@@ -325,7 +325,7 @@ else
 
 $count = array_push($dirlist, basename($_SERVER['PHP_SELF']));
 
-$address = 'http://'.$_SERVER['HTTP_HOST'];
+$address = 'https://'.$_SERVER['HTTP_HOST'];
 
 $content = '<section id="content">
                 <div class="container">
@@ -371,7 +371,7 @@ $homepage->content = $pageContent;
 
 $homepage->title = $itemName . ' - ' . $homepage->title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $db->update('items', 
             array('views' => $views + 1),

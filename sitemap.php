@@ -14,7 +14,7 @@ $homepage->content = '<section id="about-us">
                                     <div class="tree">
                                         <ul>
                                             <li>
-                                                <a href="http://quartermastersection.com">Home</a>
+                                                <a href="https://quartermastersection.com">Home</a>
                                                 <ul>
                                                     <li>
                                                         <a href="/american/">American</a>
@@ -253,6 +253,6 @@ $homepage->content = '<section id="about-us">
 
 $homepage->title = 'About - ' . $homepage->title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->Display();

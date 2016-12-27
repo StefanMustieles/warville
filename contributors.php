@@ -12,7 +12,7 @@ $homepage->content = '<section id="about-us">
                                 <div class="col-md-12"> 
                                     <h1>Contributors</h1>
                                     <p>As you can see throughout this site, the information, data and images have taken years to collate and this could not have been done without the help of some very important people.</p>
-                                    <p>Therefore, the team at <a href="http://quartermastersection.com">Quartermaster Section</a> want to wish a heartfelt thank you to the following comrades.</p>
+                                    <p>Therefore, the team at <a href="https://quartermastersection.com">Quartermaster Section</a> want to wish a heartfelt thank you to the following comrades.</p>
                                     <div id="contributorsList">
                                         <ol>
                                            <li><p><em>Andrew Mollo</em></p></li>
@@ -37,6 +37,6 @@ $homepage->content = '<section id="about-us">
 
 $homepage->title = 'Contributors - ' . $homepage->title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->Display();

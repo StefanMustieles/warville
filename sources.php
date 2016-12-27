@@ -14,7 +14,7 @@ $homepage->content = '<section id="about-us">
                                     <p>
                                         As well as people, the Quartermaster Sections data and information was helped populated by a number of historical books, 
                                         websites and companies. Therefore we would like to give them an honourable mention below, as without them the 
-                                        <a href="http://quartermastersection.com">Quartermaster Section</a> would not be possible.
+                                        <a href="https://quartermastersection.com">Quartermaster Section</a> would not be possible.
                                     </p>
                                     <div id="contributorsList">
                                         <ol>
@@ -77,6 +77,6 @@ $homepage->content = '<section id="about-us">
 
 $homepage->title = 'Sources - ' . $homepage->title;
 
-$homepage->canonical = '<link rel="canonical" href="http://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
+$homepage->canonical = '<link rel="canonical" href="https://' . $_SERVER["HTTP_HOST"] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '" />';
 
 $homepage->Display();

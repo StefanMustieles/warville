@@ -98,7 +98,7 @@ class Page
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-lg-8">
-                                <a class="navbar-brand" href="http://www.quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" class="mainLogo" /></a>
+                                <a class="navbar-brand" href="https://www.quartermastersection.com"><img src="/assets/images/logo-white.png" alt="QuartermasterSection" class="mainLogo" /></a>
                             </div>
                             <div class="col-xs-6 col-lg-4 searcher">
                                 <div class="social">
@@ -329,7 +329,7 @@ class Page
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            &copy; ' . date("Y") . ' <a target="_blank" href="http://www.quartermastersection.com" title="">QuartermasterSection</a>. All Rights Reserved.
+                            &copy; ' . date("Y") . ' <a target="_blank" href="https://www.quartermastersection.com" title="">QuartermasterSection</a>. All Rights Reserved.
                         </div>
                         <div class="col-sm-6">
                             <ul class="pull-right">
