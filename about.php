@@ -54,7 +54,7 @@ $homepage->content = '<section id="about-us">
                                     <p>
                                         A last thought must go to my late Father who gave over twenty years’ service to the <a href="https://www.quartermastersection.com/british/">British Army</a> 
                                         an artillery man and Warrant officer, and served in Britain, France and Germany including landing on Juno 
-                                        beach in Normandy and finishing the war in Osnabruck Ge.
+                                        beach in Normandy and finishing the war in Osnabruck Germany.
                                     </p>
                                     <p>
                                         So enjoy your time here, take away what you can and spread the word. We want this site to become the 

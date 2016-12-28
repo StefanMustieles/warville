@@ -379,25 +379,23 @@ $postContent = '<div class="container">
                             as time goes on, especially as more data becomes available, because I regard this site as an ongoing 
                             process, so it is still very much "work in progress".
                         </p>
-                        
-                        <p><h2>Tanks of World War 2</h2>
-                        
+                        <p>
+                            <h2>Tanks of World War 2</h2>
                             This site also contains detailed information on all tanks used during world war 2 for every country involved
                             in the conflict. We detail everything from the weight, engine size, number of crew carried to the exact number
                             produced during the war.
                             
                             Use these quick links to navigate to some of the most deadly tanks used by the main players during WW2.
                             
-                            <a href="https://www.quartermastersection.com/american/afvs/tanks">American Tanks</a>
-                            <a href="https://www.quartermastersection.com/british/afvs/tanks">British Tanks</a>
-                            <a href="https://www.quartermastersection.com/german/afvs/tanks">German Tanks</a>
-                            <a href="https://www.quartermastersection.com/french/afvs/tanks">French Tanks</a>
-                            <a href="https://www.quartermastersection.com/japanese/afvs/tanks">Japanese Tanks</a>
-                            <a href="https://www.quartermastersection.com/russian/afvs/tanks">Russian Tanks</a>
-                            
-                         </p>
-                            
-                           
+                            <ul class="list-group row">
+                                <li class="list-group-item col-xs-4><a href="https://www.quartermastersection.com/american/afvs/tanks">American Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/british/afvs/tanks">British Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/german/afvs/tanks">German Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/french/afvs/tanks">French Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/japanese/afvs/tanks">Japanese Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/russian/afvs/tanks">Russian Tanks</a></li>
+                            </ul>
+                         </p>    
                     </div>
                 </div><!--/.row-->
             </div><!--/.container-->
