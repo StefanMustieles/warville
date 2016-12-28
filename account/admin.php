@@ -142,7 +142,7 @@
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/jquery-ui.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
-<script src="https://malsup.github.com/jquery.form.js"></script>                                              
+<script src="/assets/js/jquery.form.js"></script>                                              
 <script type="text/javascript">
 $(document).ready(function(){
     
