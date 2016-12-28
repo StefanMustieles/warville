@@ -386,9 +386,9 @@ $postContent = '<div class="container">
                             produced during the war.
                             
                             Use these quick links to navigate to some of the most deadly tanks used by the main players during WW2.
-                            
+                            <br />
                             <ul class="list-group row">
-                                <li class="list-group-item col-xs-4><a href="https://www.quartermastersection.com/american/afvs/tanks">American Tanks</a></li>
+                                <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/american/afvs/tanks">American Tanks</a></li>
                                 <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/british/afvs/tanks">British Tanks</a></li>
                                 <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/german/afvs/tanks">German Tanks</a></li>
                                 <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/french/afvs/tanks">French Tanks</a></li>
