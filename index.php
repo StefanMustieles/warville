@@ -386,7 +386,7 @@ $postContent = '<div class="container">
                             produced during the war.
                             
                             Use these quick links to navigate to some of the most deadly tanks used by the main players during WW2.
-                            <br />
+                            <br /><br />
                             <ul class="list-group row">
                                 <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/american/afvs/tanks">American Tanks</a></li>
                                 <li class="list-group-item col-xs-4"><a href="https://www.quartermastersection.com/british/afvs/tanks">British Tanks</a></li>
@@ -398,12 +398,7 @@ $postContent = '<div class="container">
                          </p>    
                     </div>
                 </div><!--/.row-->
-            </div><!--/.container-->
-        </section><!--/#content-->
-
-<section id="content">
-    <div class="container">
-        <div class="row">
+                <div class="row">
             <div class="col-md-12">
                 <h3>Most Viewed</h3>';
                 
@@ -441,8 +436,8 @@ while ($row = $db->fetch_assoc()) {
 
 $postContent .='</div>
         </div><!--/.row-->
-    </div><!--/.container-->
-</section><!--/#content-->';
+            </div><!--/.container-->
+        </section><!--/#content-->';
 
 $homepage->content = $postContent;
  
