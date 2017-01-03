@@ -17,7 +17,14 @@ class Page
      */
     public function Display()
     {
-        $this->wholePage = "<!DOCTYPE html>\n<html lang=\"en\"><head>";
+        $this->wholePage = '<!DOCTYPE html>\n<html lang=\"en\"><head>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-9723853993452546",
+                    enable_page_level_ads: true
+                  });
+                </script>';
         $this->DisplayTitle();
 	$this->DisplayMetaTags();
 	$this->DisplayCanonicalTag();
