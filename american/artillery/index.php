@@ -73,6 +73,7 @@ $postContent .= sprintf('</ul>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
+                    <div>
                     <p class="lead">Filters</p>
                         <div class="list-group">
                             <a id="All" class="list-group-item%s">All</a>', $title, $descriptionText, $isSubCategory == false ? ' active' : '');
@@ -92,6 +93,19 @@ while ($row = $db->fetch_assoc()) {
 }
 														
 $postContent .= '</div>
+                 <div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- LHN Responsive Advert -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9723853993452546"
+                         data-ad-slot="5519182518"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                 </div>
+                </div>
 		</div>
 
 		<div class="col-md-9 itemHolder">
