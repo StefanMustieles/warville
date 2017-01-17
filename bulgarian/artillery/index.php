@@ -134,7 +134,7 @@ while ($row = $db->fetch_assoc()) {
         </div>';
     
     if($i % 3 == 0){
-       $postContent .= '<div class="clearfix visible-xs-block"></div>';
+    
     }
     $i++;
 }
